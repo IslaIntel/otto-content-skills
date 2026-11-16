@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="Otto Content Skills: content skills for Claude, run on your real numbers" width="100%">
 </p>
 
-<h3 align="center">38 free AI skills that turn your real social media numbers into your next post.<br><sub>Built for Claude. Also runs in ChatGPT, Cursor and any app that supports Agent Skills and MCP.</sub></h3>
+<h3 align="center">38 free AI skills that turn your real social media numbers into your next post.<br><sub>Built and tested on Claude. They use open formats, so apps that support Agent Skills and MCP (like ChatGPT and Cursor) can load them too.</sub></h3>
 
 <p align="center">
   <a href="https://ottowebmaster.com/mcp"><img src="https://img.shields.io/badge/Connect%20Otto%20to%20Claude-1E9CF3?style=for-the-badge" alt="Connect Otto to Claude"></a>
@@ -11,7 +11,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0b0b0b" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/skills-38-0b0b0b" alt="38 skills">
-  <img src="https://img.shields.io/badge/works%20in-Claude%20%C2%B7%20ChatGPT%20%C2%B7%20Cursor%20%C2%B7%20Agent%20Skills%20apps-0b0b0b" alt="Works in Claude, ChatGPT, Cursor and other Agent Skills apps">
+  <img src="https://img.shields.io/badge/built%20for-Claude%20%C2%B7%20open%20Agent%20Skills%20format-0b0b0b" alt="Built for Claude, in the open Agent Skills format">
   <a href="https://github.com/IslaIntel/otto-content-skills"><img src="https://img.shields.io/github/stars/IslaIntel/otto-content-skills?style=social" alt="Star this repo on GitHub"></a>
 </p>
 
@@ -20,7 +20,7 @@
 **TL;DR**
 
 - **What:** skills for Claude that read your Instagram, Facebook, YouTube, LinkedIn, Google Analytics, Search Console and Google Business Profile through [Otto](https://ottowebmaster.com), then review, diagnose, plan and write your content.
-- **Why it's different:** you never export or paste stats. Every number comes live from your accounts and is judged against **your own** track record, not someone else's benchmark.
+- **Why it's different:** you don't export or paste stats. The numbers come live from your connected accounts and are judged against **your own** track record, not someone else's benchmark.
 - **What you get:** clean dashboards, a frame-by-frame look at your reels, hooks and scripts modelled on your own best posts, and nothing posted without your yes.
 - **Start:** [connect Otto](#1-connect-otto-to-claude-2-minutes), [install the skills](#2-install-the-skills), then ask Claude *"weekly review"*.
 
@@ -37,7 +37,7 @@
 
 ## See it
 
-Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of text: totals against last week, every post newest first, and a click-through diagnosis for each one.
+Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of text: totals against last week, every post newest first, and a click-through diagnosis for each reel.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/weekly-review-dark.png">
@@ -55,8 +55,8 @@ Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of te
       </picture>
     </td>
     <td width="58%" valign="top">
-      <b>Where exactly do people leave?</b><br>
-      <sub>Reel breakdown watches the video, finds every cut and marks the moment the average viewer leaves.</sub><br><br>
+      <b>Where do people leave?</b><br>
+      <sub>Reel breakdown watches the video, maps the cuts and, on your own reels, marks the average watch time.</sub><br><br>
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="assets/reel-breakdown-dark.png">
         <img src="assets/reel-breakdown-light.png" alt="Reel breakdown timeline: every shot to scale with its on-screen text, section bands, and the average leave point">
@@ -83,7 +83,7 @@ Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of te
    ```
    https://otto.islaintel.com/api/mcp
    ```
-3. Sign in and approve access, then open a **new** chat (existing chats don't pick up new connectors).
+3. Sign in and approve access, then open a **new** chat (existing chats may not pick up a new connector).
 
 Step-by-step with screenshots: [How do I connect Claude?](https://ottowebmaster.com/introduction/mcp/claude) · [ChatGPT](https://ottowebmaster.com/introduction/mcp/chatgpt) · [Cursor](https://ottowebmaster.com/introduction/mcp/cursor)
 
@@ -93,7 +93,7 @@ Step-by-step with screenshots: [How do I connect Claude?](https://ottowebmaster.
 |---|---|
 | **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](https://github.com/IslaIntel/otto-content-skills/releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or zip a single skill folder and upload it under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
 | **Claude Code** | `/plugin marketplace add IslaIntel/otto-content-skills` then `/plugin install otto-content-skills@otto-content-skills` |
-| **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. Claude Code clones the repo and runs `install.sh`, which copies the skills into `~/.claude/skills`. |
+| **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. Claude Code can clone the repo and run the installer (`install.sh`, or `install.ps1` on Windows), which copies the skills into `~/.claude/skills`. |
 | **Copy the files** | `git clone https://github.com/IslaIntel/otto-content-skills`, then `cd otto-content-skills`, then `./install.sh` (macOS / Linux) or `powershell -ExecutionPolicy Bypass -File .\install.ps1` (Windows). A folder with the same skill name in `~/.claude/skills` is replaced. |
 
 ### 3. Try it
@@ -118,7 +118,7 @@ Why did my last reel flop?
 
 ## The skills
 
-Every skill pulls live data through Otto and compares it with **your usual** (the median of your own posts from the last 28 days, counting posts at least 3 days old). Reports come as a dashboard you can click through; writing skills give you the finished text. Or ask for any of it in chat.
+Skills pull live data through Otto, and the ones that judge results compare them with **your usual** (the median of your own posts from the last 28 days, counting posts at least 3 days old). Reports come as a dashboard you can click through; writing skills give you the finished text. Or ask for any of it in chat.
 
 ### Measure: what's working
 
@@ -131,7 +131,7 @@ Every skill pulls live data through Otto and compares it with **your usual** (th
 | [hook-patterns](skills/hook-patterns/SKILL.md) | Ranks your own opening lines by skip rate and watch time, finds the patterns, remixes the winners | *"Which openings work for me?"* |
 | [best-time-to-post](skills/best-time-to-post/SKILL.md) | When your posts do best, in your timezone, with an honest read on sample size | *"What time do my posts do best?"* |
 | [hook-test](skills/hook-test/SKILL.md) | A fair one-variable A/B test, decided before you post and scored from live data | *"Test these two hooks"* |
-| [campaign-retro](skills/campaign-retro/SKILL.md) | Everything a launch moved (posts, site visits, tracked links, ads) and what to repeat | *"How did the promo do?"* |
+| [campaign-retro](skills/campaign-retro/SKILL.md) | What a launch moved (posts, site visits, tracked links, and ads when Otto can read them) and what to repeat | *"How did the promo do?"* |
 | [search-and-social](skills/search-and-social/SKILL.md) | What people search on Google and YouTube that you haven't posted about, and the words to put in captions | *"What are people searching for?"* |
 | [utm-builder](skills/utm-builder/SKILL.md) | Clean tracking links, then checks in Google Analytics that the visits arrive | *"Tag my links"* |
 
@@ -170,11 +170,11 @@ Every skill pulls live data through Otto and compares it with **your usual** (th
 |---|---|---|
 | [content-engine](skills/content-engine/SKILL.md) | Runs the whole loop (research, plan, write, post, reply, measure) and stops for your approval at each step | *"Run the content engine"* |
 | [posting-plan](skills/posting-plan/SKILL.md) | A 2-4 week plan around your winners and what's already planned | *"Plan my next two weeks"* |
-| [post-queue](skills/post-queue/SKILL.md) | Posts your finished, approved content at the times you pick, using your AI app's scheduled tasks. Test it on one post first | *"Post this at 9am tomorrow"* |
+| [post-queue](skills/post-queue/SKILL.md) | For Otto connections that can publish but not schedule: posts your finished, approved content at the times you pick, using your AI app's scheduled tasks. Test it on one post first | *"Post this at 9am tomorrow"* |
 | [content-pillars](skills/content-pillars/SKILL.md) | 3-5 themes chosen from evidence, with 10 ideas each | *"Build my content pillars"* |
 | [repurpose](skills/repurpose/SKILL.md) | Turns your best video or post into reels, a carousel, LinkedIn and Facebook posts, and a blog outline | *"Repurpose my best video"* |
 | [comment-to-lead](skills/comment-to-lead/SKILL.md) | Sorts comments, drafts replies, and writes the DM flow to a booked call | *"Reply to my comments"* |
-| [profile-check](skills/profile-check/SKILL.md) | Fixes your bio, link and pinned posts so visitors know what to do next | *"Check my profile"* |
+| [profile-check](skills/profile-check/SKILL.md) | Suggests small fixes to your bio, link and pinned posts so visitors know what to do next | *"Check my profile"* |
 | [creator-collab](skills/creator-collab/SKILL.md) | Vet a creator, draft the outreach and brief, and measure the collab. You send every message. | *"Is this creator a good fit for us?"* |
 | [campaign-plan](skills/campaign-plan/SKILL.md) | A one-page brief with targets worked back from your real organic and ad numbers | *"Plan a campaign"* |
 
@@ -201,12 +201,12 @@ All of them work. They differ in where your settings live and what Claude can do
 
 ## Use it outside Claude
 
-The skills follow the open [Agent Skills](https://agentskills.io) format (a folder with a `SKILL.md`), and Otto is a standard remote MCP connector. So they work in any AI app that supports both:
+The skills follow the open [Agent Skills](https://agentskills.io) format (a folder with a `SKILL.md`), and Otto is a standard remote MCP connector. So they should work in any AI app that supports both:
 
 | App | Connect Otto | Add the skills |
 |---|---|---|
 | **ChatGPT** (Business, Enterprise, Edu) | [Otto's ChatGPT guide](https://ottowebmaster.com/introduction/mcp/chatgpt) | **Skills → Create → Upload from computer**, one skill folder (zipped) at a time |
-| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Cursor reads `.cursor/skills/` and `.claude/skills/`. Clone this repo, then from your project folder run its installer with the target set: `OTTO_SKILLS_DIR=.cursor/skills /path/to/otto-content-skills/install.sh` (macOS / Linux) or `$env:OTTO_SKILLS_DIR='.cursor\skills'; powershell -ExecutionPolicy Bypass -File C:\path\to\otto-content-skills\install.ps1` (Windows) |
+| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Cursor reads `.cursor/skills/` and `.claude/skills/`. Clone this repo, then from your project folder run its installer with the target set: `OTTO_SKILLS_DIR=.cursor/skills /path/to/otto-content-skills/install.sh` (macOS / Linux) or `$env:OTTO_SKILLS_DIR='.cursor\skills'; powershell -ExecutionPolicy Bypass -File C:\path\to\otto-content-skills\install.ps1; Remove-Item Env:OTTO_SKILLS_DIR` (Windows) |
 | **Codex, Gemini CLI, GitHub Copilot, Goose and others** | Add `https://otto.islaintel.com/api/mcp` as a remote MCP server | Copy the `skills/` folders to wherever the app loads skills from (from the cloned repo: `OTTO_SKILLS_DIR=<that folder> ./install.sh`) |
 
 Built and tested on Claude first. Dashboards need an app that can create files or render HTML; where it can't, ask for the result in chat.
@@ -246,7 +246,7 @@ Through Otto today: Instagram (posts, reels, watch time, skip rate, comments), F
 <details>
 <summary><b>Does it work in ChatGPT or Cursor?</b></summary>
 
-Yes. Both the Otto connector and the skills work there; see [Use it outside Claude](#use-it-outside-claude) for the steps. The skills are built and tested on Claude first, so that's where they run smoothest.
+They should. Otto has setup guides for both, and the skills use the open Agent Skills format; see [Use it outside Claude](#use-it-outside-claude) for the steps. The skills are built and tested on Claude first, so that's where they run smoothest.
 </details>
 
 <details>
@@ -260,7 +260,7 @@ Yes. Both the Otto connector and the skills work there; see [Use it outside Clau
 
 ## Contributing
 
-Ideas, bug reports and new skills are welcome: open an issue or a pull request. [docs/AUTHORING.md](docs/AUTHORING.md) explains how every skill here is written and the rules they share. Every skill is tested against a live Otto account before it ships.
+Ideas, bug reports and new skills are welcome: open an issue or a pull request. [docs/AUTHORING.md](docs/AUTHORING.md) explains how every skill here is written and the rules they share. New skills should be tested against a live Otto account before they ship.
 
 ## Star the repo
 
@@ -276,5 +276,5 @@ The license covers the skills, templates and scripts. The Otto name, logo and ma
 
 <p align="center">
   <a href="https://ottowebmaster.com"><img src="assets/otto-icon.png" width="40" alt="Otto"></a><br>
-  <sub>Otto is the AI webmaster and marketer for small businesses. These skills are the do-it-yourself version; <a href="https://ottowebmaster.com">Otto</a> can run them for you.</sub>
+  <sub>Otto is the AI webmaster and marketer for small businesses. These skills are the do-it-yourself version; <a href="https://ottowebmaster.com">Otto</a> is the done-for-you version.</sub>
 </p>

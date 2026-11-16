@@ -19,7 +19,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 
 ## 2. Check what you already have
 - `media_list` (kind `video`, limit 100, then kind `image`) lists the Otto library: filename, kind, createdAt. Match filenames to beats ("storefront", "before", "product") and ask the owner to confirm a clip is usable before you drop a shot.
-- `meta_ig_list_media` (rowLimit 50): earlier reels can't be reused as raw footage, but their `mediaUrl` (when not null) lets the owner rewatch a shot they liked and reproduce it.
+- `meta_ig_list_media` (rowLimit 50): earlier reels are already edited (text, music, cuts), so they rarely work as raw footage, but their `mediaUrl` (when not null) lets the owner rewatch a shot they liked and reproduce it.
 - `ok: false` or nothing relevant: plan to film everything.
 
 ## 3. Build the list

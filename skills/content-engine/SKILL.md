@@ -6,7 +6,7 @@ license: MIT
 
 # Content engine
 
-Every other skill in the pack handles a single step. This is the conductor: it calls them in order, hands each result to the next step, and pauses wherever you need to decide. It needs nothing beyond Claude and the Otto MCP (plus an optional DM tool if you automate DMs). Filming and editing are done by you (or your editor); everything around them is prepared here.
+Every other skill in the pack handles a single step. This is the conductor: it calls them in order, hands each result to the next step, and pauses wherever you need to decide. It needs nothing beyond Claude and the Otto MCP. If you automate DMs, it hands you the DM flow to load into a DM tool yourself; it never sets one up. Filming and editing are done by you (or your editor); everything around them is prepared here.
 
 Every write (publishing, scheduling, replying) happens only after an explicit yes on the exact content, in this conversation, and only through tools this connection actually has.
 

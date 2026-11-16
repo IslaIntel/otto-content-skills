@@ -8,7 +8,7 @@ license: MIT
 
 If a post says "Comment PRICE and I'll DM you the list", that promise only counts if it gets kept. This skill is the back half of the post.
 
-Nothing runs unattended. Reading comments is free; every reply or hide waits for the owner's yes in this conversation, for that batch.
+Nothing runs unattended. Reading comments needs no approval; every reply or hide waits for the owner's yes in this conversation, for that batch.
 
 ## 0. Setup
 
@@ -22,7 +22,7 @@ Skill questions: the comment keyword (if any), what the keyword gets them (a lin
 
 ## 1. Read the comments (read-only)
 
-For each post from the last 7 days, plus any older keyword post that's still live:
+For each post from the last 7 days, plus any older keyword post that's still live (Instagram and Facebook allow the one private reply only within 7 days of the comment, so older comments get a public reply only):
 - Instagram: `meta_ig_list_media`, then `meta_ig_list_comments` per post.
 - Facebook: `meta_page_posts`, then `meta_page_list_comments`.
 - LinkedIn: `linkedin_page_posts`, then `linkedin_page_list_comments`. This can return `ok: false` with `linkedin_api_403` (the connection lacks comment permission): say so, and ask the owner to reconnect LinkedIn Pages in Otto or paste the comments.

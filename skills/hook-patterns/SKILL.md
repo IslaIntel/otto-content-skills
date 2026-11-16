@@ -42,7 +42,7 @@ Score each hook on the signals the hook actually controls:
 |---|---|---|
 | Reel skip rate | did the opening stop the swipe | lower |
 | Average watch seconds / watch % | did the promise hold | higher |
-| Shares per 1k reach | was it worth sending | higher |
+| Shares per 1k reach (per 1k views on YouTube) | was it worth sending | higher |
 | YouTube average view % | did the title match the video | higher |
 | Facebook views (`post_media_view`) | did it get watched | higher |
 | Facebook clicks per 1k views (`post_clicks`) | did the promise hold | higher |
@@ -71,7 +71,7 @@ Change: the topic noun, the verb, the emotional word, the specific detail.
 
 Example (invented, a dog groomer):
 ```
-proven:  "my client's poodle hadn't been brushed in 6 months. here's what we found."  [confession-story · number]
+proven:  "my client's poodle hadn't been brushed in 6 months. here's what we found."  [confession-story, with a number]
  good:   "this doodle skipped 4 grooms in a row. the undercoat told the story."
  good:   "a husky came in after 8 months without a bath. we needed two hours."
  bad:    "regular grooming is important for your dog's health."   (gap closed, number gone)

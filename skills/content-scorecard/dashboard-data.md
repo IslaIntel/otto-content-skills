@@ -43,7 +43,7 @@
     "usual": 855,                  // this platform's usual reach/views: draws the reach bar and its "usual" tick
     "first_line": "first caption line or title", "age_days": 4,
     "reach": 4120, "views": 5600, "likes": 80, "comments": 6, "shares": 25, "saves": 76,
-    "skip_rate": 22, "avg_watch_s": 14.2, "length_s": 21, "watch_pct": 68,
+    "skip_rate": 22, "avg_watch_s": 14.1, "length_s": 19, "watch_pct": 74,
     "shares_per_1k": 6.1, "saves_per_1k": 18.4,
     "status": "winner",            // winner | keep | stalled | young
     "status_label": "Winner",      // "Early read" for young

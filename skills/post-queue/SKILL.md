@@ -26,7 +26,7 @@ Write `social-data/queue/queue.json` (or `queue.md` if the user prefers to read 
 {
   "id": "q-2026-11-20-01",
   "platform": "instagram_reel",
-  "account": "<from settings>",
+  "account": "<Instagram account id or Facebook Page id, from settings>",
   "files": { "video": "social-data/queue/media/reel-01.mp4", "cover": "social-data/queue/media/reel-01-cover.jpg" },
   "mediaId": null, "coverMediaId": null,
   "caption": "<exact approved caption>",
@@ -39,7 +39,7 @@ Write `social-data/queue/queue.json` (or `queue.md` if the user prefers to read 
 - Status flows `pending` → `approved` → `posted` or `failed`. Only `approved` items are ever published.
 - Captions are final text, not notes. Check length (Instagram caption max 2,200 characters).
 - Files are the user's own (from `cover-designer`, their editor, their camera). Check each path exists before showing the queue.
-- Platform tools: Instagram reel `meta_ig_publish_reel` (mediaId, caption, optional coverMediaId; the cover can only be set at publish). Facebook reel `meta_page_publish_video` (pageId, mediaId, the caption as `description`, optional coverMediaId, confirm true). Instagram image and carousel tools take public image URLs, not library ids; if the library can't give a public URL, those items stay manual (unverified, test first).
+- Platform tools: Instagram reel `meta_ig_publish_reel` (igAccountId, mediaId, caption, optional coverMediaId; the cover can only be set at publish). Facebook reel `meta_page_publish_video` (pageId, mediaId, the caption as `description`, optional coverMediaId, confirm true). Instagram image and carousel tools take public image URLs, not library ids; if the library can't give a public URL, those items stay manual (unverified, test first).
 
 ## 2. One approval, item by item
 
@@ -53,13 +53,13 @@ Create one recurring task per posting time (e.g. daily at 9:00, 12:00, 16:00), o
 |---|---|
 | Claude desktop / Cowork scheduled tasks | Best fit: reads local files. The app and computer must be on at post time |
 | Claude Code scheduled cloud agents | Only if the files are reachable from the cloud (local files aren't). Prefer desktop |
-| ChatGPT tasks | No local files: only for items whose media is already in the Otto library (mediaId filled) |
+| ChatGPT tasks | No local files: only for items whose media is already in the Otto library (mediaId filled). The fingerprint then holds the caption hash and the approved mediaIds; post only if both still match |
 
 Say "unverified, test on a test account first" for any environment you haven't seen a successful run in. Before relying on it, run one task by hand against a test item.
 
 **The task prompt** (paste as is, with the queue path filled in):
 
-> Read `<path>/social-data/queue/queue.json`. Take the single earliest item with status `approved` whose `publishAt` is now or up to 30 minutes past, in its timeZone. If none, stop. Check today's posted count for that account is under the cap of <n>; if not, stop. If the item has no `mediaId`, upload its file to the Otto library: `media_create_upload` (filename, mimeType, byteSize, purposes ["publish"]), PUT the bytes to the returned URL, then `media_complete`; do the same for the cover. Save the ids in the item. Publish with the item's platform tool (for an Instagram reel: `meta_ig_publish_reel` with mediaId, the caption exactly as stored, coverMediaId if present, confirm true; for a Facebook reel: `meta_page_publish_video` with pageId, mediaId, the caption exactly as stored as `description`, coverMediaId if present, confirm true). On success set status `posted` and store the permalink in `result`. Append one line to `social-data/queue/log.md`: time, id, platform, result or error. If a file is missing, a file's size or SHA-256 or the caption's SHA-256 differs from `approvedFingerprint`, or any call fails: do not retry, set status `failed` with the error, log it, and stop. Never publish an item that isn't `approved`.
+> Read `<path>/social-data/queue/queue.json`. Take the single earliest item with status `approved` whose `publishAt` is now or up to 30 minutes past, in its timeZone. If none, stop. Check today's posted count for that account is under the cap of <n>; if not, stop. Before uploading or publishing, check the item's local files exist and that each file's size and SHA-256, and the caption's SHA-256, match `approvedFingerprint`. If the item has no `mediaId`, upload its file to the Otto library: `media_create_upload` (filename, mimeType, byteSize, purposes ["publish"]), PUT the bytes to the returned URL, then `media_complete` (for a multipart plan, PUT each part and pass `parts` with their etags); do the same for the cover. Save the ids in the item. Publish with the item's platform tool, using the item's `account` (for an Instagram reel: `meta_ig_publish_reel` with the account as igAccountId, mediaId, the caption exactly as stored, coverMediaId if present, confirm true; for a Facebook reel: `meta_page_publish_video` with the account as pageId, mediaId, the caption exactly as stored as `description`, coverMediaId if present, confirm true). On success set status `posted` and store the permalink in `result`. Append one line to `social-data/queue/log.md`: time, id, platform, result or error. If a file is missing, anything differs from `approvedFingerprint`, or any call fails: do not retry, set status `failed` with the error, log it, and stop. Never publish an item that isn't `approved`.
 
 ## 4. After it runs
 

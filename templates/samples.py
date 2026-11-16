@@ -17,7 +17,7 @@ SAMPLES = {
 
  "search-and-social": dict(
   meta=dict(M, title="Search and social", platforms=["instagram"], start="Feb 08", end="Mar 07, 2026", baselineLabel="the 28 days before",
-            verdict="People search 'wedding flowers austin' 880 times a month and you've never posted about weddings. Same-day delivery searches are up 40%."),
+            verdict="'wedding flowers austin' showed you in Google 880 times in 28 days, and you've never posted about weddings. Same-day delivery impressions are up 40%."),
   kpis=[dict(platform="instagram", label="Google clicks", value=412, baseline=350), dict(platform="instagram", label="Brand searches", value=1240, baseline=1100),
         dict(platform="instagram", label="Sessions from social", value=310, baseline=240)],
   blocks=[dict(type="table", title="What people search to find you", hint="Search Console, last 28 days", wide=True, top=True,
@@ -38,7 +38,7 @@ SAMPLES = {
   blocks=[dict(type="bars", title="Patterns by median reach", top=True, items=[dict(label="number-result", note="7 hooks · skip 27%", value=1920), dict(label="this-vs-that", note="9 hooks · skip 30%", value=1380),
                dict(label="mistake-warning", note="3 hooks", value=1250, dim=True), dict(label="direct-question", note="8 hooks · skip 41%", value=610)], note="Faded bars: fewer than 5 hooks, too few to tell."),
           dict(type="table", title="Your proven hooks", columns=[dict(key="h", label="Hook"), dict(key="p", label="Pattern"), dict(key="reach", label="Reach", num=True), dict(key="skip", label="Skip", num=True, fmt="pct")],
-               rows=[dict(h="3 flowers that last two weeks in a vase", p="number-result", reach=4120, skip=22), dict(h="Before: grocery roses. After: 10 minutes with us.", p="this-vs-that", reach=2380, skip=25)]),
+               rows=[dict(h="3 flowers that last two weeks in a vase", p="number-result", reach=4120, skip=22), dict(h="Before: grocery roses. After: 10 minutes with us.", p="this-vs-that", reach=2010, skip=26)]),
           dict(type="cards", title="Remixes: same skeleton, new words", items=[
                dict(title="4 flowers that survive a heatwave", tag="Proven", tagStatus="winner", meta="From: '3 flowers that last two weeks in a vase'", body="Keeps: a number, a benefit, a hidden loser."),
                dict(title="2 vase tricks florists don't tell you", tag="Test", meta="Same skeleton", body="Confirm both tricks are real before posting.")])]),
@@ -46,10 +46,10 @@ SAMPLES = {
  "trend-radar": dict(
   meta=dict(M, title="Trend radar", platforms=["instagram"], start="Feb 08", end="Mar 07, 2026", baselineLabel="the 28 days before",
             verdict="Two trends are worth acting on this month: dried-flower arrangements (search, comments and peers agree) and 'flowers for no reason' gifting (your own breakout, plus comments asking for it)."),
-  blocks=[dict(type="stats", title="This run", top=True, items=[dict(label="Signals checked", value=5), dict(label="Trends to take", value=1), dict(label="To adapt", value=1), dict(label="To skip", value=1)]),
+  blocks=[dict(type="stats", title="This run", top=True, items=[dict(label="Signals checked", value=5), dict(label="Trends to take", value=2), dict(label="To skip", value=1)]),
           dict(type="cards", title="Trends", top=True, items=[
                dict(title="Dried-flower arrangements", tag="Take", meta="Search +140% · 4 comment questions · 2 peers posted it", body="Fits: you already sell dried bundles. A how-long-do-they-last reel answers the top question.", evidence=["'dried flowers austin' 90 → 216 impressions", "4 comments asking 'do you do dried?'"]),
-               dict(title="Flowers for no reason", tag="Adapt", meta="Your own breakout · 2.4x median reach · 3 comments asking for 'just because' bouquets", body="Make it a weekly series with a different 'reason' each week."),
+               dict(title="Flowers for no reason", tag="Take", meta="Your own breakout · 2.4x median reach · 3 comments asking for 'just because' bouquets", body="Make it a weekly series with a different 'reason' each week."),
                dict(title="Dancing florist trend audio", tag="Skip", meta="1 peer post · no search or comment signal", body="Doesn't match your voice or what people ask you.")]),
           dict(type="table", title="Rising searches", columns=[dict(key="q", label="Query"), dict(key="a", label="Previous", num=True), dict(key="b", label="This window", num=True), dict(key="c", label="Change", num=True, fmt="pct")],
                rows=[dict(q="dried flowers austin", a=90, b=216, c=140), dict(q="flower subscription", a=120, b=180, c=50)]),
@@ -71,21 +71,21 @@ SAMPLES = {
             verdict="Wedding flowers score highest: searched often, never covered by you, and your best-selling service."),
   blocks=[dict(type="stats", title="This run", top=True, items=[dict(label="Topics scored", value=14), dict(label="Sources used", value=5, note="Reddit unavailable")]),
           dict(type="table", title="Ranked topics", wide=True, top=True, columns=[dict(key="t", label="Topic"), dict(key="s", label="Score", num=True), dict(key="sig", label="Signals"), dict(key="v", label="Call", pill=True)],
-               rows=[dict(t="Wedding flowers", s=6, sig="searched, search gap, sellable, complained, breakout", v="Take"), dict(t="Same-day delivery", s=5, sig="searched, complained, sellable", v="Take"),
-                     dict(t="Flower care tips", s=4, sig="breakout, watched (others)", v="Adapt"), dict(t="Shop playlist", s=1, sig="none", v="Skip")]),
+               rows=[dict(t="Wedding flowers", s=5, sig="searched, search gap, complained, watched (others), sellable", v="Take"), dict(t="Same-day delivery", s=3, sig="searched, complained, sellable", v="Take"),
+                     dict(t="Flower care tips", s=3, sig="breakout, watched (others), complained", v="Adapt"), dict(t="Shop playlist", s=1, sig="watched (others)", v="Skip")]),
           dict(type="list", title="Sources not available this run", items=["Reddit search returned an error; ran without it."])]),
 
  "campaign-retro": dict(
   meta=dict(M, title="Campaign retro: Valentine's Day", platforms=["instagram"], start="Feb 01", end="Feb 21, 2026", baselineLabel="the 21 days before",
-            verdict="The campaign doubled site visits and brought 41 orders through the tracked link. Reach fell back to normal within 5 days."),
+            verdict="The campaign doubled site visits and brought 41 orders through the tracked links. Reach fell back to normal within 5 days."),
   kpis=[dict(platform="instagram", label="Reach", value=48200, baseline=21900), dict(platform="instagram", label="Site visits from social", value=1320, baseline=610),
-        dict(platform="instagram", label="Orders (GA4 key events)", value=41, baseline=12), dict(platform="instagram", label="Ad spend", value=300, prefix="$", note="cost per order $7.30")],
+        dict(platform="instagram", label="Orders (GA4 key events)", value=41, baseline=12), dict(platform="instagram", label="Ad spend", value=300, prefix="$", note="3 orders from the ad")],
   daily=[dict(platform="instagram", date=f"2026-02-{d:02d}", value=v) for d, v in zip(range(1, 22), [900,1100,1300,2400,2100,2600,3100,2900,3300,3800,4200,5100,6300,4800,1900,1500,1300,1200,1100,1000,950])],
   dailyLabel="Daily reach",
-  blocks=[dict(type="table", title="Where the visits came from", columns=[dict(key="s", label="Source / campaign"), dict(key="v", label="Sessions", num=True), dict(key="k", label="Orders", num=True)],
-               rows=[dict(s="instagram / valentines-reels", v=860, k=29), dict(s="instagram / bio-link", v=310, k=9), dict(s="facebook / valentines-ad", v=150, k=3)]),
-          dict(type="list", title="Tracking fixes", items=["2 reels used the link without tags: 120 visits landed as Direct."])],
-  plan=dict(title="Next campaign", keep=["Countdown reels in the last 5 days."], change=["Start ads a week earlier."], stop=["Untagged links in captions."])),
+  blocks=[dict(type="table", title="Where the visits came from", columns=[dict(key="s", label="Source / medium (campaign valentines)"), dict(key="v", label="Sessions", num=True), dict(key="k", label="Orders", num=True)],
+               rows=[dict(s="instagram / social", v=860, k=29), dict(s="instagram / bio", v=310, k=9), dict(s="facebook / paid-social", v=150, k=3)]),
+          dict(type="list", title="Tracking fixes", items=["2 Story link stickers used the link without tags: 120 visits landed as Direct."])],
+  plan=dict(title="Next campaign", keep=["Countdown reels in the last 5 days."], change=["Start ads a week earlier."], stop=["Untagged links in Stories and the bio."])),
 
  "hook-test": dict(
   meta=dict(M, title="Hook test: number vs question", platforms=["instagram"], start="Mar 02", end="Mar 09, 2026", baselineLabel="the pre-registered rule",
@@ -127,7 +127,7 @@ REEL_SAMPLE = dict(
                   sections=[dict(label="Hook", start=0, end=1.8), dict(label="List", start=1.8, end=11.5), dict(label="Twist", start=11.5, end=14.2),
                             dict(label="Offer", start=14.2, end=16.8), dict(label="Ask", start=16.8, end=19.0)],
                   markers=[dict(t=14.1, label="Avg viewer leaves · 14.1 s", kind="leave"), dict(t=11.5, label="Twist · 11.5 s", kind="payoff")],
-                  note="Most viewers stay through the twist; the offer and the ask come after the average leave point."),
+                  note="The average viewer stays until 14.1 s, past the twist; the offer and the ask come after that point."),
     hook=dict(frames=[dict(t=t, frame=_frame("#6b8f71", "#2f4a35", "face"), note=n) for t, n in
                       [(0, "Face to camera, the promise on screen"), (0.5, "Leans in"), (1, "Hand holds up the first stem"), (2, "Cut to the vase"), (3, "'Number 1' title")]],
               checks=[dict(status="pass", label="Readable with the sound off", note="Promise written on screen from frame 0"),
@@ -136,7 +136,7 @@ REEL_SAMPLE = dict(
                dict(beat="Twist", start=11.5, end=14.2, what="The one that dies in two days"), dict(beat="Offer", start=14.2, end=16.8, what="Same-day order cut-off"),
                dict(beat="Ask", start=16.8, end=19.0, what="Save this for your next bouquet")],
     cta=dict(present=True, text="'Save this for your next bouquet' at 16.8 s.", note="It lands after the average leave point; try it on screen during the list."),
-    finding="The twist (the flower that dies) holds people; the offer and the save ask come after most viewers have gone.",
+    finding="The twist (the flower that dies) holds people; the offer and the save ask come after the average viewer has left.",
     change="Move 'save this' onto the screen during the list (around 8 s) and keep the rest the same.",
     borrow=["A number in the promise", "One item per shot", "A twist before the ask"], leave=["Putting the ask after the average leave point"],
     notes=["Example data for an invented business."])

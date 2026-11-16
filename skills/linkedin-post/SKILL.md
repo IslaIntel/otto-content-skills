@@ -16,7 +16,7 @@ Follow the settings, scope and capability rules ("How every skill talks to the u
 - Before offering to publish or schedule, check which tools this session has (rule 5) and offer only what's there.
 
 Skill-specific:
-- `otto_list_connections`: is `linkedin_profile` (personal profile) and/or `linkedin_pages` (Company Page) connected? Ask which one this post is for if both are. If the one they want isn't connected, `otto_connect_link` for it.
+- `otto_list_connections`: is `linkedin_profile` (personal profile) and/or `linkedin_pages` (Company Page) connected? Ask which one this post is for if both are. If the one they want isn't connected, say so: LinkedIn has no `otto_connect_link` source, so the user connects it in Otto's settings.
 - Read `brand/voice.md`, `brand/audience.md`, `brand/offer.md`, `brand/facts.md`. If `brand/` is missing, ask: who reads your LinkedIn (role, company size), what you sell, two words you'd never use. Suggest `brand-brain` once.
 - Ask for the raw material: **what happened, what you decided, what you'd tell someone in the same spot.** A voice note transcript or bullet notes is enough. If they have nothing firsthand, stop and offer `topic-finder` instead.
 - Optional inspiration: posts from peers or other companies the user pastes or links. Use them for structure and opening style only; never copy wording. Otto can't read other people's LinkedIn posts.

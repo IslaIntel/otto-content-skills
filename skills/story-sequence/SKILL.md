@@ -18,7 +18,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 
 | Goal | Proof it worked | Main sticker |
 |---|---|---|
-| Send people to a new reel | reel views in the first 24h vs your median | none until the last frame; then share the reel itself |
+| Send people to a new reel | the reel's views a few days later vs your usual (Otto gives lifetime numbers, not a 24-hour count) | none until the last frame; then share the reel itself |
 | Start DMs | DMs and story replies | question box, then "reply with <word>" |
 | Clicks to a page | link sticker taps | link sticker on the last frame only |
 | Learn something | poll / quiz votes | poll early, result reveal later |
@@ -36,7 +36,7 @@ Not connected or `ok: false`: say so and plan from `brand/` and the owner's answ
 
 ## 3. Build the arc
 
-Default shape (5 to 9 frames, one idea per frame):
+Default shape (6 to 9 frames, one idea per frame):
 
 1. **Open**: a moment, not a greeting. Something in motion or mid-story, with 1 line of text. No "hey guys".
 2. **Tension**: the problem or question, in the customer's words from `brand/audience.md`.

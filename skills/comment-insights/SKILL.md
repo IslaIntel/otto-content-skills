@@ -22,15 +22,15 @@ Read `brand/audience.md` and `brand/offer.md` if present. Window: the last 90 da
 ## 1. Pull (only the sources in `Comment sources`)
 
 **Instagram**
-1. `meta_ig_list_media` (rowLimit 60). Keep posts with `commentsCount` > 0; sort by `commentsCount` descending so the busiest threads come first.
+1. `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 90; if the result is saved to a file, read it with code). Keep posts with `commentsCount` > 0; sort by `commentsCount` descending so the busiest threads come first.
 2. `meta_ig_list_comments(mediaId, rowLimit 100)` for each. Fields: `text, username, timestamp, likeCount` (and `hidden`, if the result includes it).
 3. `text` can come back `null` (Meta withholds some comment text). Count those as "unreadable" and report how many; ask for a screenshot if a busy thread is mostly unreadable.
 
-**Facebook Page**: `meta_page_posts` (rowLimit 50), then `meta_page_list_comments(postId)` on each post (the post list has no comment counts). Includes replies.
+**Facebook Page**: `meta_page_posts` (rowLimit about 1.2 x posts per day x 90, up to 100), then `meta_page_list_comments(postId)` on each post (the post list has no comment counts). Includes replies.
 
 **LinkedIn Page**: `linkedin_page_posts`, then `linkedin_page_list_comments(postId)`. This can fail with `linkedin_api_403` (the connection lacks comment permission). Then say so and ask the user to paste comments from their top 5 LinkedIn posts.
 
-**Google reviews**: `gbp_list_reviews` (rowLimit 200). If the user wants reviews but `gbp` isn't connected, mention `otto_connect_link` for `gbp` once. Reviews are the best source of objections that got resolved.
+**Google reviews**: `gbp_list_reviews` (rowLimit 200). If the user wants reviews but `gbp` isn't connected, mention `otto_connect_link` for `business_profile` once. Reviews are the best source of objections that got resolved.
 
 **Reddit (optional)**: `voc_search_reddit(query)` with 2-3 phrases a customer would use about the problem (not your brand name). Often returns `http_403`; then say Reddit is unavailable and continue. Keep Reddit apart: it's the wider market, not your audience.
 

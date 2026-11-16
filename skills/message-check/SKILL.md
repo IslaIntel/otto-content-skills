@@ -30,7 +30,7 @@ Then:
 **What people find you for**
 - `gsc_search_analytics`, last 90 days, dimension `query`, rowLimit 500. Then again with dimension `page` to see which pages earn the clicks.
 - `gbp_search_keywords` if Google Business Profile is connected (the searches that showed your listing).
-- If GSC isn't connected: `otto_connect_link` for `gsc`, and continue without the "found for" column. Say the audit is weaker without it.
+- If GSC isn't connected: `otto_connect_link` with source `search_console`, and continue without the "found for" column. Say the audit is weaker without it.
 
 **What you can prove**
 - `gbp_list_reviews` (often not connected; then skip), testimonials found on your site in the fetch above, and `brand/facts.md`. Or run `social-proof-finder` first.

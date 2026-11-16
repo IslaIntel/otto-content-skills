@@ -29,7 +29,7 @@ Windows: **campaign** = start to end + 7 days of tail. **Baseline** = the same n
 ## 1. Pull (both windows)
 
 **Organic posts**
-- Instagram `meta_ig_list_media` (rowLimit 60) → `meta_ig_media_insights` (`views, reach, likes, comments, shares, saved, ig_reels_avg_watch_time, reels_skip_rate`). `meta_ig_account_insights` time_series `reach`, `follower_count` (daily new follows, 100+ followers only). Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+- Instagram `meta_ig_list_media` (rowLimit about 1.2 x posts per day x days covered by the campaign and baseline windows; read it with code if saved to a file) → `meta_ig_media_insights` (`views, reach, likes, comments, shares, saved, ig_reels_avg_watch_time, reels_skip_rate`). `meta_ig_account_insights` time_series `reach`, `follower_count` (daily new follows, 100+ followers only). Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - Facebook `meta_page_posts` → `meta_page_post_insights`; `meta_page_insights` for weekly kpis.
 - LinkedIn `linkedin_page_posts`, `linkedin_page_insights`.
 - YouTube `youtube_top_videos`; `youtube_channel_analytics` dimensions `["day"]`, metrics `["views","subscribersGained"]`.

@@ -49,6 +49,8 @@ In the dashboard's `steps`, everything after the first `fail` is `skip` ("not ju
 2. **Skip fine, watch % worse than baseline** → pacing or length. Without the reel's length, don't judge this step from average watch seconds alone (a shorter reel always has fewer); compare only with reels of similar length or ask for the length. If there's a retention graph, name the second people leave and what was on screen then.
 3. **Watch % fine, shares per 1,000 reach low** → nothing worth sending to a friend. Name who this reel would be sent to; if nobody, say so. **If your usual shares per 1,000 reach is 0** (common on small accounts), this step can't tell reels apart: mark it `skip` ("not judged"), never `fail`, say why in the evidence, and go on to step 4.
 4. **Reach good, follows low** → no reason to follow. Per-reel follows aren't in the API: judge this step only from the user's in-app screenshot; without one, mark it `skip`. Does the reel promise more (a series, a part 2)? Does the profile match what the reel showed? (Use `profile-check`.)
+Before step 1, check the week: if reach was tiny on every post that week, start at step 5, since the hook isn't the likely cause.
+
 5. **Reach tiny on everything that week** → distribution, not content. Check muted or licensed audio, a missing video, a restriction, reposted material, or a posting gap.
 
 If the reel **over**-performed, run the same tree in reverse: which step did it beat the baseline on? That's the thing to repeat.

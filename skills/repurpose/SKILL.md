@@ -23,7 +23,7 @@ Pull candidates from the last 90 days and pick one:
 
 | Source | Pull | Counts as a winner when |
 |---|---|---|
-| YouTube video | `youtube_top_videos` (startDate, endDate, rowLimit 25); `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares"]`, **sort `-views`** | Views or average view % (capped at 100: looping Shorts go over) ≥ 2x the channel median |
+| YouTube video | `youtube_top_videos` (startDate, endDate, rowLimit 25); `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares"]`, **sort `-views`** | Views ≥ 2x the channel median, or average view % (capped at 100: looping Shorts go over) at least 10 points above the channel median |
 | Instagram reel | `meta_ig_list_media` (rowLimit 60) → `meta_ig_media_insights` (batches of 25: `views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`) | Shares or saves per 1,000 reach ≥ 2x your reel median |
 | Blog post | `wordpress_list_posts` (if WordPress is connected), plus `gsc_search_analytics` dimensions `["page"]` and `ga4_landing_pages` | Top pages by clicks / sessions; queries it ranks for show the angle people want |
 | Facebook / LinkedIn post | `meta_page_posts` + `meta_page_post_insights`; `linkedin_page_posts` | Facebook: clearly above that Page's median. LinkedIn posts carry no per-post numbers: ask the user |

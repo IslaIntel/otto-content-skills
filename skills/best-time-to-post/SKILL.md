@@ -25,7 +25,7 @@ Then:
 - **LinkedIn**: `linkedin_page_posts` gives posting times only, with no per-post results, so LinkedIn can't be bucketed. Say so in one line.
 - **YouTube**: `youtube_list_recent_videos` (publish time) + `youtube_channel_analytics` dimensions `["video"]`, metrics `["views"]`.
 - **Website activity by hour (GA4, optional)**: `ga4_run_report` dimensions `["dayOfWeekName","hour"]`, metric `sessions`, last 8 weeks. This shows when your audience is online and on your site, in the property's timezone. Add a filter on `sessionDefaultChannelGroup` = `Organic Social` if there's enough social traffic (50+ sessions).
-- Instagram's "most active times" for followers isn't available through the API (`online_followers` returns an error). If the person can screenshot it from the app (Professional dashboard > Total followers > Most active times), use it as one more input.
+- Instagram's "most active times" for followers isn't available through the API (`online_followers` returns an error). If the person can screenshot it from the app (in the app's insights, under total followers, "most active times"; the menu name varies by app version), use it as one more input.
 
 Use posts 7+ days old. `ok: false`: say so and continue.
 
@@ -51,7 +51,7 @@ Also check two things that often matter more than the hour: **gaps** (did reach 
 
 - **Main slots**: the best-supported bucket(s), at the cadence the person can keep (ask; no answer: keep their current cadence from the last 4 weeks and say so). Strongest post of the week goes in the best slot.
 - **One test slot**: a bucket you have little data on, used for one post a week.
-- **Hold for 4 weeks.** Change content freely, keep the times fixed. After 4 weeks rerun this skill: the test slot needs n ≥ 4 before comparing. Note the review date.
+- **Hold for 4 weeks.** Change content freely, keep the times fixed. After 4 weeks rerun this skill. At one post a week the test slot then has 4 posts: treat that as an early read, since a bucket needs n ≥ 5 to count as a finding (week 5). Note the review date.
 
 ## 5. Output
 

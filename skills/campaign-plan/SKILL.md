@@ -30,7 +30,7 @@ Skill questions (only what data can't tell you): **what must change, by when** (
 - LinkedIn: `linkedin_page_posts` + `linkedin_page_insights` (`kpis` and daily views; posts carry no per-post numbers).
 - `social-data/posts.csv` if it exists saves most of these calls.
 
-**Website**: `ga4_list_key_events` (what counts as a conversion), then `ga4_traffic_sources` for sessions and key events by channel; `ga4_landing_pages` for the campaign page's conversion rate.
+**Website**: `ga4_list_key_events` (what counts as a conversion), then `ga4_traffic_sources` for sessions and key events by channel; `ga4_landing_pages` for the campaign page's sessions and conversions (conversion rate = conversions ÷ sessions; the tool doesn't return the rate).
 
 **Meta ads (only if `meta` is connected)**: for each id in `selectedAdAccountIds`:
 - `meta_list_campaigns(adAccountId)`: names, objective, status.
@@ -85,7 +85,7 @@ In a working folder, save it as `campaigns/<yyyy-mm>-<name>.md`; without one, gi
 
 ## 4. Optional: set up the paid plan
 
-- **Ads write tools available**: offer to build it in Otto. Show every object first (campaign objective and name, ad set budget, dates, audience, placements; each ad's creative, text, link with UTM). On a yes: `meta_create_campaign`, `meta_create_adset`, `meta_create_creative` / `meta_create_video_creative`, `meta_create_ad`, each with `params.status: "PAUSED"` (Marketing API params). The user turns them on in Ads Manager after checking. Report the ids created; if a call fails, stop and report, don't retry in a loop.
+- **Ads write tools available**: offer to build it in Otto. Show every object first (campaign objective and name, ad set budget, dates, audience, placements; each ad's creative, text, link with UTM). On a yes: `meta_create_campaign`, `meta_create_adset`, `meta_create_creative` / `meta_create_video_creative`, `meta_create_ad`; the campaign, ad set and ad each with `params.status: "PAUSED"` (Marketing API params; creatives have no status). The user turns them on in Ads Manager after checking. Report the ids created; if a call fails, stop and report, don't retry in a loop.
 - **No ads write tools**: give numbered steps for Meta Ads Manager: create campaign (objective), ad set (budget, schedule, audience hypothesis as settings, placements), ads (which creative, primary text, headline, link with UTM), stop rules as rule reminders. Leave it paused until reviewed.
 
 ## Never

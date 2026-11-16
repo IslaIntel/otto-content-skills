@@ -31,7 +31,7 @@ The brand card holds, in this order: business in one line, workspace and account
 | `brand/voice.md` | How they talk: words they use, words they never use, sentence length, emoji habits, 3 real captions as samples | Their own captions + interview |
 | `brand/audience.md` | Who they serve, problems and wants in the customer's own words, questions people ask | Comments, reviews, search queries + interview |
 | `brand/offer.md` | What they sell, public prices, the one action they want, links | Their website via `voc_fetch_url` + interview |
-| `brand/facts.md` | Claims they may make (with the source) and claims they must not | Interview + site; anything unverified goes under "not allowed yet" |
+| `brand/facts.md` | Claims they may make (with the source) and claims they must not | Interview + site; anything unverified goes under "Not allowed, or not yet proven" |
 | `brand/winners.md` | Their best and worst posts with numbers and the likely reason | Instagram (and YouTube) pull |
 
 Each file starts with `Last updated: YYYY-MM-DD` and ends with a `## Notes` section where wrap-ups append.
@@ -106,7 +106,7 @@ Brand brain saved in brand/ (6 files)   | no folder: 6 files to download + brand
 Pulled: 48 reels, 212 comments (31 with text), homepage + /pricing, 12 YouTube videos
 Winners ranked by: saves per 1,000 reach (shares were 0 on every reel)
 Gaps: no reviews connected; offer prices not on the site, please confirm
-Please check: voice.md "words you never use", facts.md "not allowed yet"
+Please check: voice.md "words you never use", facts.md "Not allowed, or not yet proven"
 ```
 
 ## Never

@@ -56,7 +56,7 @@ GOAL: <the one number this is judged on>
 WHO WATCHES: <their audience, in a sentence>
 THE IDEA: <2 lines>
 HOOK (written out, first 2 seconds): say "<words>" / show "<shot>"
-BEATS: 1. <beat> - point: <why it's there> ... (let them say it their way)
+BEATS: 1. <beat>, point: <why it's there> ... (let them say it their way)
 MUST INCLUDE: <product moment, offer, keyword or link>
 MUST NOT: <claims you can't make, words you never use, competitors>
 DISCLOSURE: paid partnership label on / #ad in first line of caption

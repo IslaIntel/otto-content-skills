@@ -15,7 +15,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 - Scope is the platforms the user names; otherwise the default from settings; otherwise ask once, listing connected platforms plus "All connected". A platform in scope with nothing in the window gets one line, never an empty table.
 
 Then:
-- `otto_list_connections`: this skill needs at least GSC or GA4. If neither is connected, `otto_connect_link` for `gsc` and `ga4`, and stop.
+- `otto_list_connections`: this skill needs at least GSC or GA4. If neither is connected, `otto_connect_link` with source `search_console` and `google_analytics`, and stop.
 - Read `brand/offer.md` and `brand/audience.md`. Ask for the service area if the business is local.
 - Window: last 90 days for search (enough volume for small sites), ending 3 days ago (GSC lags).
 
@@ -29,7 +29,7 @@ Then:
 - Optional: `type: "video"` or `"image"` to see searches where the site appears in video or image results.
 
 **What people search (local)**
-- `gbp_search_keywords`: monthly searches that showed the business profile. Often not connected (`ok: false`, "not connected"): say so and offer `otto_connect_link` for `gbp`.
+- `gbp_search_keywords`: monthly searches that showed the business profile. Often not connected (`ok: false`, "not connected"): say so and offer `otto_connect_link` with source `business_profile`.
 
 **What people search (YouTube)** (only if YouTube is in scope; Google search data is always in scope, since it's about the business, not a platform)
 - `youtube_traffic_sources`: how many views come from `YT_SEARCH` vs Shorts feed, suggested, external.
@@ -62,7 +62,7 @@ Match each topic to your posts (caption, title, or on-screen topic if you know i
 | high | no | no | **Full gap**: content for both. Hand to `topic-finder`. |
 | high | yes | no | Social covers it; your site doesn't. Flag for the website. |
 | high | yes | yes | Covered. Check your captions use the searcher's words. |
-| low | yes, a lot | – | You talk about it more than people search it. Fine for loyalty; don't expect discovery. |
+| low | yes, a lot | n/a | You talk about it more than people search it. Fine for loyalty; don't expect discovery. |
 
 "High" = top third of topics by impressions for this site. Small sites: rank, don't use absolute cut-offs.
 
@@ -71,10 +71,10 @@ Questions with high impressions and low CTR at position 1-5 are a sign the answe
 ## 4. Keywords for posts
 
 For each of the top 10 topics, give:
-- **Caption first line**: the searcher's phrasing, natural, in the first 125 characters (Instagram search and Google read the start).
+- **Caption first line**: the searcher's phrasing, natural, in the first 125 characters (the part shown before "more").
 - **Alt text** (Instagram and Facebook images): describe what's in the image and include the phrase once.
 - **YouTube title**: lead with the phrase, then the promise; description first two lines restate it.
-- **On-screen text / spoken line**: say the phrase out loud in the first 5 seconds; captions and transcripts get indexed.
+- **On-screen text / spoken line**: say the phrase out loud in the first 5 seconds; YouTube reads captions and transcripts, and other platforms may too.
 - **Local**: add the town or neighbourhood people actually search with ("near me" searches show the place names they use in GBP keywords and GSC).
 
 No keyword lists stuffed at the end of captions; one phrase per post, used the way a person would say it.
@@ -82,13 +82,13 @@ No keyword lists stuffed at the end of captions; one phrase per post, used the w
 ## 5. What drives site visits
 
 From the GA4 pull:
-- Sessions and key events by social source. Merge `facebook.com`, `m.facebook.com`, `l.facebook.com`, `meta` as Facebook; `instagram.com`, `l.instagram.com`, `ig` as Instagram (Instagram tags some outbound links itself with source `ig`, medium `social`).
+- Sessions and key events by social source. Merge `facebook.com`, `m.facebook.com`, `l.facebook.com`, `meta` as Facebook; `instagram.com`, `l.instagram.com`, `ig` as Instagram (Instagram tags some outbound links itself with source `ig`).
 - Landing pages from social, ranked by engaged sessions. These are the pages your posts should link to.
 - Untagged social traffic can't be traced to a post. Tagged traffic (`sessionCampaignName`) can: list which posts or campaigns sent visitors. If nothing is tagged, recommend `utm-builder`.
 
 ## 6. Output
 
-**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis`: Google clicks, clicks on brand queries (the step 2 bucket), sessions from Organic Social and from Organic Search. `blocks`: a wide `table` of what people search (query, impressions, clicks, position, and a `pill` column "Posted about?" with covered / missing), `cards` for the posts to make (tag Take or Adapt, meta = the query and its numbers), `bars` of site visits by source, and a `list` of words for captions and titles. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/search-and-social-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
+**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis` (platform `all`): Google clicks, clicks on brand queries (the step 2 bucket), sessions from Organic Social and from Organic Search. `blocks`: a wide `table` of what people search (query, impressions, clicks, position, and a `pill` column "Posted about?" with covered / missing), `cards` for the posts to make (tag Take or Adapt, meta = the query and its numbers), `bars` of site visits by source, and a `list` of words for captions and titles. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/search-and-social-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
 
 
 ```

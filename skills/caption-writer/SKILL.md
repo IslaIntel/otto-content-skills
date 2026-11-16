@@ -6,7 +6,7 @@ license: MIT
 
 # Caption writer
 
-Writes the words around a post so the right people find it and do one thing. Keywords come from what people actually type into Google about this business, because captions, on-screen text and alt text are searchable inside Instagram and YouTube, and posts from both can show up in Google results. It also checks your own history: do your best captions share traits your worst ones don't? Writes copy only; posting is someone else's job (`carousel-designer`, `posting-plan`, `post-queue`).
+Writes the words around a post so the right people find it and do one thing. Keywords come from what people actually type into Google about this business, because captions and titles are searchable inside Instagram and YouTube, and posts from both can show up in Google results. It also checks your own history: do your best captions share traits your worst ones don't? Writes copy only; posting is someone else's job (`carousel-designer`, `posting-plan`, `post-queue`).
 
 ## 0. Setup
 
@@ -23,7 +23,7 @@ Skill-specific:
 ## 1. Pull
 
 1. **Search Console**: `gsc_search_analytics`, last 90 days, dimensions `["query"]`, rowLimit 500. If the topic has a clear word, add `dimensionFilterGroups` with `contains` on `query`. Optionally a second call with `["query","page"]` to see which page each query lands on.
-2. **Google Business Profile** (local businesses): `gbp_search_keywords` (rowLimit 100) for the searches that showed the profile, with monthly impressions. If it returns `ok: false` / not connected, say so, offer `otto_connect_link` for `gbp`, and continue without it.
+2. **Google Business Profile** (local businesses): `gbp_search_keywords` (rowLimit 100) for the searches that showed the profile, with monthly impressions. If it returns `ok: false` / not connected, say so, offer `otto_connect_link` for `business_profile`, and continue without it.
 3. **Your own captions**: `meta_ig_list_media` (rowLimit 60) for captions, then `meta_ig_media_insights` (batches of 25: `views, reach, likes, comments, shares, saved`; reel-only metrics only for `VIDEO` ids). Facebook: `meta_page_posts` + `meta_page_post_insights` (`post_media_view`). Search: `gsc_search_analytics` with dimensions `["page"]` (rowLimit 500) for clicks on post or blog URLs a caption points to (see `search-and-social`).
 4. **YouTube titles** (if connected): `youtube_top_videos` for the last 90 days. Titles that earned views show the wording your audience clicks.
 5. **Other accounts' captions** (optional): if `meta_ig_business_discovery` is in the tool list, pull recent captions from accounts the user names, for comparison only. Without it, use captions the user pastes. Never copy their wording.

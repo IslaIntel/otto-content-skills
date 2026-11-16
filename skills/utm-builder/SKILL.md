@@ -31,7 +31,7 @@ All values **lowercase**, words joined with hyphens, no spaces, no accents. GA4 
 | `utm_term` | only for paid search keywords; leave out otherwise | |
 
 Rules:
-- GA4 channels: `social` and `bio` with a social source land in Organic Social, `paid-social` in Paid Social, `email` in Email. `creator` and `qr` aren't default-channel mediums, so they show as Unassigned or Referral; report those from the log. For Google Business Profile use source `gbp`, medium `organic` (with `social` it would count as Organic Social).
+- GA4 channels: `social` and `bio` with a social source land in Organic Social, `paid-social` in Paid Social, `email` in Email. `creator` and `qr` aren't default-channel mediums: with a social platform as source they still count as Organic Social, with any other source they show as Unassigned. Report them from the log. For Google Business Profile use source `gbp`, medium `organic` (with `social` it would count as Organic Social).
 - Medium separates organic, paid, creator and email so they never blend in reports. Meta ads that already set their own URL parameters keep them; log what they use.
 - Use the same campaign value on every platform for one campaign; vary source and content.
 - **Nothing personal in any value**: no customer names, emails, phone numbers, staff names, or private IDs. Use a neutral label.

@@ -1,6 +1,6 @@
 ---
 name: daily-pulse
-description: A quick daily check of yesterday's posts through the Otto MCP, shown as a small dashboard - which posts are taking off, which stalled, what to remix today, and anything broken. Same look as the weekly review, scaled down to one day. Use when asked "how did yesterday's posts do", "daily pulse", "daily check-in", "how's my Instagram today", or before making today's content.
+description: A quick daily check of yesterday's posts through the Otto MCP, shown as a small dashboard: which posts are taking off, which stalled, what to remix today, and anything broken. Same look as the weekly review, scaled down to one day. Use when asked "how did yesterday's posts do", "daily pulse", "daily check-in", "how's my Instagram today", or before making today's content.
 license: MIT
 ---
 
@@ -14,15 +14,15 @@ Before anything else (full rules: "How every skill talks to the user" in this fo
 - **Settings**: read `brand/settings.md` (or what the assistant remembers). Don't ask what it already answers. Save new answers there (or to memory when there's no folder).
 - **Workspace**: call `otto_list_workspaces` if available; with several, ask which, once.
 - **Account**: if the Otto connection has more than one business or more than one Instagram / Facebook account (`meta_page_list`), ask which, once.
-- **Scope**: platforms the user named are the scope ("my Instagram" = Instagram only). Nothing named: use `default_platforms` from settings; with none saved, ask once with the connected platforms (`otto_list_connections`) as options plus "All connected", and save the answer. A platform in scope with no posts yesterday gets one line; out-of-scope platforms aren't mentioned.
+- **Scope**: platforms the user named are the scope ("my Instagram" = Instagram only). Nothing named: use "Default platforms" from settings; with none saved, ask once with the connected platforms (`otto_list_connections`) as options plus "All connected", and save the answer. A platform in scope with no posts yesterday gets one line; out-of-scope platforms aren't mentioned.
 - **Output**: visual by default (the dashboard below); chat if settings say `output: chat` or the user asks.
 - Read-only: never call publish, schedule, delete, reply or hide tools.
 
 ## 1. Pull (platforms in scope only)
 
 - **Instagram**: `meta_ig_list_media` (rowLimit 75, enough for the 4-week baseline at up to 2 posts a day; if the result is saved to a file, read the file). `meta_ig_media_insights` (batches of 25): `views, reach, likes, comments, shares, saved` for every post, plus `ig_reels_avg_watch_time, reels_skip_rate` for `mediaType: VIDEO` ids only (one image in the batch fails the whole call). `meta_ig_account_insights`, `metricType: time_series`, metric `reach`, last 8 days, `endDate` = today (end dates are exclusive). Record `profile.followersCount`.
-- **Facebook**: `meta_page_posts` (rowLimit 60), then `meta_page_post_insights` for yesterday's posts and the baseline posts; `meta_page_insights` for the last 8 days for the daily chart (its `end_time` marks the end of the day) (`post_media_view` = views).
-- **YouTube**: `youtube_list_recent_videos`, then `youtube_channel_analytics` with dimension `video`, metrics `views, averageViewPercentage, subscribersGained` for the previous 31 days (yesterday plus the 28-day baseline). YouTube data often lags 1-3 days: if yesterday is empty, say it isn't in yet.
+- **Facebook**: `meta_page_posts` (rowLimit 60), then `meta_page_post_insights` for yesterday's posts and the baseline posts; `meta_page_insights` for the last 8 days for the daily chart (its `end_time` marks the end of the day). Use `post_media_view` as a post's views.
+- **YouTube**: `youtube_list_recent_videos`, then `youtube_channel_analytics` with dimension `video`, metrics `views, averageViewPercentage, subscribersGained`, sort `-views`, for the previous 31 days (yesterday plus the 28-day baseline). YouTube data often lags 1-3 days: if yesterday is empty, say it isn't in yet.
 - **LinkedIn**: `linkedin_page_insights` for yesterday and the previous 28 days (page-level only; posts have no per-post numbers). LinkedIn gets one line: yesterday's page views vs the median day of the previous 28.
 
 ## 2. Baseline
@@ -43,7 +43,7 @@ Before anything else (full rules: "How every skill talks to the user" in this fo
 | 0.75x to 1.5x | on track (`keep`, label "On track") |
 | under 0.75x | stalled (`stalled`) |
 
-**Turned 3 days old today: formal call.** Taking off = 1.5x B or more. For any reel that stalled, run the `reel-diagnosis` steps and store the result in the post's `diagnosis`, so clicking it in the dashboard shows why.
+**Turned 3 days old today: formal call.** Taking off = 1.5x B or more. This is an early label; `weekly-social-review` calls a winner at 2x, so a post can take off here and still not be a weekly winner. For any reel that stalled, run the `reel-diagnosis` steps and store the result in the post's `diagnosis`, so clicking it in the dashboard shows why.
 
 **Totals first**: total views on the latest posting day's posts (the sum of each post's views; Instagram has no per-day views, so don't substitute account reach), per platform, vs the posting day before, as the headline (`hero`, `vsLabel` naming that day, e.g. "Friday's posts").
 

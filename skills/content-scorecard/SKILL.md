@@ -23,7 +23,7 @@ Skill-specific questions (ask together, multiple choice):
 
 Every post in the chosen window per platform, skipping anything under 7 days old (still moving). `meta_ig_list_media` has no paging: request enough rows for the window (about 1.2 x posts per day x days, up to 500). If the result is saved to a file, parse it with code. Fewer than 5 posts on a platform is fine: report its numbers and mark its patterns "too few to tell".
 
-- **Instagram**: `meta_ig_list_media` (rowLimit 60), then `meta_ig_media_insights` in batches of 25 with `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`. Never add `crossposted_views` or `facebook_views` (one non-crossposted reel fails the batch). `ig_reels_avg_watch_time` is ms; `reels_skip_rate` is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+- **Instagram**: `meta_ig_list_media` (rowLimit as above), then `meta_ig_media_insights` in batches of 25 with `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`. Never add `crossposted_views` or `facebook_views` (one non-crossposted reel fails the batch). `ig_reels_avg_watch_time` is ms; `reels_skip_rate` is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - **Facebook Page**: `meta_page_posts`, then `meta_page_post_insights` in batches of 25.
 - **LinkedIn Page**: `linkedin_page_posts` returns post text and dates only, no per-post numbers. Use `linkedin_page_insights` daily rows and match each post to the views in the 0-3 days after it; label those numbers approximate.
 - **YouTube**: `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares","likes","comments"]`, sorted `-views`, for the window; `youtube_top_videos` for titles and links.
@@ -37,7 +37,7 @@ For each post record: platform, format (reel / carousel / image / video / text /
 
 ## 3. Compute, median first
 
-1. **Per platform** median of: reach (or views), shares per 1k reach, saves per 1k reach, comments per 1k reach; for reels also skip rate and watch %; for YouTube average view % (capped at 100, since looping Shorts can go over) and subscribers gained per 1k views. Never sum views across platforms.
+1. **Per platform** median of: reach (or views), shares per 1k reach, saves per 1k reach, comments per 1k reach; for reels also skip rate and watch % (watch % needs the reel's length: decode it from `mediaUrl` as `otto-rules.md` explains, else use average watch seconds); for YouTube average view % (capped at 100, since looping Shorts can go over) and subscribers gained per 1k views. Never sum views across platforms.
 2. **Deciding metric** from the account's job:
 
 | Job | Deciding metric |

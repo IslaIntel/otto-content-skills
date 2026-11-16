@@ -1,7 +1,7 @@
 {
   "name": "otto-content-skills",
-  "version": "0.6.1",
-  "description": "38 Claude skills that read your Instagram, Facebook, YouTube, LinkedIn, GA4 and Search Console through the Otto MCP and turn the numbers into your next post: dashboards, reel diagnosis, search-driven research, hooks, scripts, captions, covers, carousels, posting queues and comment replies.",
+  "version": "0.6.2",
+  "description": "38 Claude skills that read your Instagram, Facebook, YouTube, LinkedIn, GA4, Search Console and Google Business Profile through the Otto MCP and turn the numbers into your next post: dashboards, reel diagnosis, search-driven research, hooks, scripts, captions, covers, carousels, posting queues and comment replies.",
   "author": {
     "name": "Otto Webmaster",
     "url": "https://ottowebmaster.com"

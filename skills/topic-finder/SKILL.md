@@ -39,7 +39,7 @@ Then:
 - Your own comments: run `comment-insights`, or reuse its clusters from `brand/audience.md`.
 
 **D. Worked for you (your breakouts)**
-- `meta_ig_list_media` (rowLimit 60) + `meta_ig_media_insights` (batches of 25): `views, reach, shares, saved, comments` for every post; add `ig_reels_avg_watch_time` and `reels_skip_rate` for `mediaType: VIDEO` ids only (one image in the batch fails the whole call).
+- `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 90; if the result is saved to a file, read it with code) + `meta_ig_media_insights` (batches of 25): `views, reach, shares, saved, comments` for every post; add `ig_reels_avg_watch_time` and `reels_skip_rate` for `mediaType: VIDEO` ids only (one image in the batch fails the whole call).
 - `meta_page_posts` + `meta_page_post_insights`. LinkedIn posts carry no per-post numbers through Otto, so they can't count as breakouts.
 - Breakout = 2x your usual reach (median of posts at least 3 days old from the previous 28 days), or 2x your median shares/saves per 1,000 reach. Use `brand/winners.md` if it's current.
 
@@ -63,7 +63,7 @@ If a whole source is missing, the topic score just has fewer possible signals; s
 
 Rank by score, then by search volume. Score 1 topics go to "untested ideas". A topic backed by only one post or one person stays a hypothesis.
 
-**Step 3. Pick an angle per top topic.** For each of the top 10, write the angle the evidence suggests: the question to answer, the mistake to name, the myth to correct, the comparison to make. Note the format that fits (reel, carousel, long video, blog post via Search Console page).
+**Step 3. Pick an angle per top topic.** For each of the top 10, write the angle the evidence suggests: the question to answer, the mistake to name, the myth to correct, the comparison to make. Note the format that fits (reel, carousel, long video, or a blog post for search-led topics). Give each ranked topic a call: **Take** (score 3+, fits what you sell and how you talk), **Adapt** (score 3+, but the usual angle or format isn't you: say what to change), **Skip** (score 1-2 with nothing sellable, or it doesn't serve your buyers).
 
 **Step 4. Don't copy.** For topics found on other channels, note the technique (format, structure, length) and write a different take.
 

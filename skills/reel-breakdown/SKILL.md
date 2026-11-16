@@ -39,6 +39,7 @@ Neither ffmpeg nor Whisper is bundled with this skill, and it never installs the
 ## 2. Extract (when ffmpeg is available; in a new empty temp folder, e.g. `reel-tmp/`)
 
 ```bash
+mkdir -p reel-tmp
 curl -sL -o reel-tmp/reel.mp4 "<mediaUrl>"          # own reel only
 ffprobe -v error -show_entries format=duration -of csv=p=0 reel-tmp/reel.mp4
 # hook frames (for the page: 240 px)
@@ -47,14 +48,14 @@ for t in 0 0.5 1 2 3; do
 # a frame every 2.5 s for the whole reel (to look at)
 for t in $(seq 0 2.5 <length>); do
   ffmpeg -v error -ss $t -i reel-tmp/reel.mp4 -frames:v 1 -vf scale=360:-2 -y reel-tmp/f_$t.jpg; done
-# one contact sheet for a quick look (a frame every 2 s)
+# one contact sheet for a quick look (a frame every 2 s; 18 tiles, so it covers the first 36 s)
 ffmpeg -v error -i reel-tmp/reel.mp4 -vf "fps=1/2,scale=180:-2,tile=6x3" -frames:v 1 -y reel-tmp/sheet.jpg
 # cut times (scene changes); count them for pacing
 ffmpeg -i reel-tmp/reel.mp4 -vf "select='gt(scene,0.3)',showinfo" -an -f null - 2>&1 | grep -o "pts_time:[0-9.]*"
 # one frame from the middle of each shot (for the page: 200 px); a shot runs from one cut to the next, the last one to the end
 for m in <shot midpoints>; do
   ffmpeg -v error -ss $m -i reel-tmp/reel.mp4 -frames:v 1 -vf scale=200:-2 -q:v 6 -y reel-tmp/s_$m.jpg; done
-# words with timestamps
+# spoken lines with timestamps (Whisper's SRT times each phrase, not each word)
 ffmpeg -v error -i reel-tmp/reel.mp4 -vn -ac 1 -ar 16000 -y reel-tmp/audio.wav
 whisper reel-tmp/audio.wav --model small --output_format srt --output_dir reel-tmp
 ```

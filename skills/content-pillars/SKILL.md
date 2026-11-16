@@ -6,7 +6,7 @@ license: MIT
 
 # Content pillars
 
-Decides the 3-5 themes the account posts about, using what people search for, what they ask in comments, what already performs and what the business sells. A pillar is a recurring subject you have a clear stance on, and it should lead viewers toward what the business sells, not a topic bucket. Read-only; saves the result to `brand/pillars.md` for `posting-plan` and other skills.
+Decides the 3-5 themes the account posts about, using what people search for, what they ask in comments, what already performs and what the business sells. A pillar is a recurring subject the business has a clear stance on, one that leads viewers toward what it sells. Read-only; saves the result to `brand/pillars.md` for `posting-plan` and other skills.
 
 ## 0. Setup
 
@@ -24,7 +24,7 @@ Follow the settings, scope and capability rules ("How every skill talks to the u
 |---|---|
 | What strangers search | `gsc_search_analytics` dimensions `["query"]`, rowLimit 500 (if the result is saved to a file, parse it with code) |
 | What locals search | `gbp_search_keywords` (rowLimit 200), local businesses only |
-| What performs | `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 90; it has no paging, so say how many days it covered) → `meta_ig_media_insights` (batches of 25: `reach, views, shares, saved, comments, likes`); `meta_page_posts` → `meta_page_post_insights`; `linkedin_page_posts`; `youtube_top_videos` |
+| What performs | `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 90; it has no paging, so say how many days it covered) → `meta_ig_media_insights` (batches of 25: `reach, views, shares, saved, comments, likes`); `meta_page_posts` → `meta_page_post_insights`; `linkedin_page_posts` (topics only: no per-post numbers); `youtube_top_videos` |
 | What people ask | `meta_ig_list_comments` on the top 10 posts; `meta_page_list_comments`; `linkedin_page_list_comments`; `gbp_list_reviews` for local businesses |
 | What sells | `brand/offer.md`, or `ga4_landing_pages` to see which offer pages get visits |
 

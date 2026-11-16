@@ -20,7 +20,7 @@ Then:
 - Ask: the reel or post idea (or script), the platform, and what this post is for (stop the scroll, get shared, get saved, get comments).
 
 ### Baseline pull
-To size the test, pull the account's own numbers: `meta_ig_list_media` (rowLimit 40) + `meta_ig_media_insights` (`views, reach, shares, saved, comments, reels_skip_rate, ig_reels_avg_watch_time`) for the last 4 weeks of reels at least 3 days old. For YouTube, `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage"]`. Record the median and the spread (25th to 75th percentile) of the deciding metric. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+To size the test, pull the account's own numbers: `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 31; 40 covers one post a day) + `meta_ig_media_insights` (`views, reach, shares, saved, comments, reels_skip_rate, ig_reels_avg_watch_time`) for the last 4 weeks of reels at least 3 days old. For YouTube, `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage"]`. Record the median and the spread (25th to 75th percentile) of the deciding metric. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 
 ### Choose the design
 
@@ -43,7 +43,7 @@ They must use **different mechanisms** (patterns from `hook-patterns`, e.g. `num
 | Deciding metric | One number. Stop the scroll → skip rate. Hold attention → avg watch %. Shared → shares per 1k reach. Saved → saves per 1k reach. YouTube title → average view % (not views, which fall as a video ages). |
 | Minimum sample | Each version needs 1,000+ reach (skip rate, watch %) or 3,000+ reach (shares, saves per 1k, since they're rarer). Below that the score is "inconclusive". If the baseline median reach is under the minimum, say up front that one pair can't be decided and use the series design. |
 | Read at | 72 hours after each post (same age for both) |
-| Win threshold | A beats B by more than the account's normal spread: at least 5 points on skip rate, 15% relative on the others, AND outside the 25th-75th percentile band of the baseline |
+| Win threshold | A beats B by more than the account's normal spread: at least 5 points on skip rate, 15% relative on the others, AND the winner's value falls outside the 25th-75th percentile band of the baseline |
 | Held constant | length, cover, caption (apart from the first line if the hook lives there), audio, hashtags, CTA, day type, time slot ±1h, no boosting |
 | What we learn | If A wins: … If B wins: … If no difference: … |
 

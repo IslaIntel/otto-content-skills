@@ -26,7 +26,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 
 **Second source: other accounts' reels (comparison only).** If `meta_ig_business_discovery` is in the tool list, pull recent reels from accounts the user names (or that `trend-radar` found) with their likes and comments. Otherwise use examples the user supplies (links or files), analysed with `reel-breakdown`. Your own winners stay the primary evidence; other accounts show formats and hook shapes worth trying, never wording to copy.
 
-Units: watch time arrives in **milliseconds**; skip rate is already a **percent**. No Instagram metric shows follows or profile visits per reel; ask for an in-app screenshot if the goal is follows.
+Units: watch time arrives in **milliseconds**; skip rate is already a **percent**. Otto can't read follows or profile visits per reel; ask for an in-app screenshot if the goal is follows.
 
 Not connected or `ok: false`: say so, then plan from principles only and label the hook checklist "not yet checked against your data".
 
@@ -37,7 +37,7 @@ Not connected or `ok: false`: say so, then plan from principles only and label t
 | Reach (strangers) | reach vs your median, skip rate | surprise, "wait, what?" | one-scene story, a reveal, a before/after |
 | Shares | shares per 1,000 reach | "this is so them", being right, being early, a laugh at a shared pain | relatable skit, a hot take, "for the friend who..." |
 | Saves | saves per 1,000 reach | relief at a problem solved, fear of forgetting | checklist, steps, a template, a cheat sheet |
-| Follows | new follows that day (`meta_ig_account_insights` `follower_count`), YouTube `subscribersGained` | wanting the next one | a numbered series, a recurring character or format |
+| Follows | new follows that day (`meta_ig_account_insights` `follower_count`, only for accounts with 100+ followers), YouTube `subscribersGained` | wanting the next one | a numbered series, a recurring character or format |
 | Leads | comments with the keyword, DMs, bookings | wanting the specific thing you offer, now | a result shown, the method held back for the DM |
 
 If they name two goals, ask which matters this week. A lead reel is judged on DMs and bookings, not views.

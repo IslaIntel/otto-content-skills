@@ -23,9 +23,9 @@ Then:
 
 ## 1. Pull
 
-1. **Google reviews**: `gbp_list_reviews` (rowLimit 500). Fields include rating, text, reviewer name, date and any owner reply. Often not connected; then say so, offer `otto_connect_link` for `gbp`, and ask for a screenshot of the best reviews.
+1. **Google reviews**: `gbp_list_reviews` (rowLimit 500). Fields include rating, text, reviewer name, date and any owner reply. Often not connected, or it returns an error even when connected (it needs an extra Google API); then say so, offer `otto_connect_link` with source `business_profile` if it isn't connected, and ask for a screenshot of the best reviews.
 2. **Your website**: `voc_fetch_url` on the homepage and any testimonials / reviews / case-study page, with `query: "testimonial"` or `"review"` to center the excerpt. These are usually already approved for public use; note the URL as the source.
-3. **Comments**: `meta_ig_list_media` (rowLimit 60) → `meta_ig_list_comments` on posts with `commentsCount` > 0; `meta_page_posts` → `meta_page_list_comments`. IG comment `text` can be `null`; skip those. `linkedin_page_list_comments` may return `linkedin_api_403`; ask for pasted comments instead.
+3. **Comments**: `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 365, to cover the 12 months; if the result is saved to a file, read it with code) → `meta_ig_list_comments` on posts with `commentsCount` > 0; `meta_page_posts` → `meta_page_list_comments`. IG comment `text` can be `null`; skip those. `linkedin_page_list_comments` may return `linkedin_api_403`; ask for pasted comments instead.
 4. **What the user pastes**: DMs, emails, survey answers, case results.
 
 Never invent, merge or "improve" a quote. If something is paraphrased by the user, mark it "paraphrase, not quotable".
@@ -49,7 +49,7 @@ Never invent, merge or "improve" a quote. If something is paraphrased by the use
 | Source | Default status | What's needed |
 |---|---|---|
 | Testimonial already on your site | Approved (confirm it's still OK if over 2 years old) | nothing |
-| Google review | Public, but quoting it in an ad or post with the name needs a yes | ask the reviewer if you know them; otherwise use first name + initial with "Google review" |
+| Google review | Public, but quoting it in an ad or post with the name needs a yes | ask the reviewer if you know them; otherwise quote it without the name, as "Google review" |
 | Public comment | Public, not consented for reuse | ask the commenter before quoting with their handle; anonymous quote only if they can't be identified |
 | DM, email, text | **Private** | written permission required, always |
 | Health, legal, money outcomes | Sensitive | permission + check `brand/facts.md` and local advertising rules; add "results vary" |

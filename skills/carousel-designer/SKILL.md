@@ -18,14 +18,14 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 - Before offering to publish or schedule, check which tools this session has (rule 5).
 
 Skill-specific:
-- `otto_list_connections` to confirm Instagram (`meta_ig`). If not connected, `otto_connect_link` for `meta_ig` and continue with the default structure in step 3.
+- `otto_list_connections` to confirm Instagram (`meta_ig`). If not connected, `otto_connect_link` for `instagram` and continue with the default structure in step 3.
 - Read `brand/voice.md`, `brand/offer.md`, `brand/facts.md`, `brand/winners.md`. Without `brand/`, ask: who it's for, the one action at the end, two words for how you talk. Suggest `brand-brain` once.
 - Brand colours (hex) and fonts: from `brand/` or ask. Ask if they have photos to use, and any carousels they like as a style reference.
 - Ask for the idea in one sentence. No idea yet: take one from `content-pillars` or `hook-patterns`.
 
 ## 1. Pull
 
-1. `meta_ig_list_media` (rowLimit 60). Keep `mediaType: CAROUSEL_ALBUM` posts at least 3 days old. The list gives caption, permalink and timestamp only: no slides, no counts.
+1. `meta_ig_list_media` (rowLimit 60). Keep `mediaType: CAROUSEL_ALBUM` posts at least 3 days old. The list gives caption, permalink, timestamp and `commentsCount` only: no slides, no reach, saves or shares.
 2. `meta_ig_media_insights` in batches of 25 with `reach, views, likes, comments, shares, saved, total_interactions`. Don't request reel metrics (`ig_reels_avg_watch_time`, `reels_skip_rate`) for carousels (they fail the whole call).
 3. Slide content is not in the API. For the top 3 carousels, ask the user for screenshots of every slide. Never guess what a slide said.
 4. Search wording for the cover line: `gsc_search_analytics` (last 90 days, dimensions `["query"]`, rowLimit 250). Use non-branded queries that match the idea.
