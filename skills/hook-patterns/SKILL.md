@@ -1,16 +1,16 @@
 ---
 name: hook-patterns
-description: Mine the hooks from your own posts (first caption line or first spoken line), rank them on the numbers Otto pulls from Instagram, Facebook, LinkedIn and YouTube (skip rate, watch time, shares per 1,000 reach), sort them into patterns, and remix the winners into new hooks that keep the structure and change the words. Optionally takes a CSV of other hooks. Use when asked to "mine my hooks", "which openings work for me", "remix my best hooks", "hook variations from what's working", or "give me hooks based on my data".
+description: Mine the hooks from your own posts (first caption line or first spoken line), rank them on the numbers Otto pulls from Instagram, Facebook and YouTube (skip rate, watch time, shares per 1,000 reach, views), sort them into patterns, and remix the winners into new hooks that keep the structure and change the words. Optionally takes a CSV of other hooks. Use when asked to "mine my hooks", "which openings work for me", "remix my best hooks", "hook variations from what's working", or "give me hooks based on my data".
 license: MIT
 ---
 
-# Hook mining
+# Hook patterns
 
 Your best hooks already exist; they're sitting in your own feed with numbers attached. This skill finds them, works out which **pattern** they share, and writes new hooks on the same skeleton. It never invents hooks from nothing (that's `hook-writer`) and never reuses someone else's line word for word. Read-only on every platform.
 
 ## 0. Setup
 
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
 - Read `brand/settings.md` (or your memory of the user's Otto settings) first: workspace, accounts, default platforms, timezone, output mode. Ask only what's missing, as one multiple-choice question, and save the answers.
 - Scope is the platforms the user names; otherwise the default from settings; otherwise ask once, listing connected platforms plus "All connected". A platform in scope with nothing in the window gets one line, never an empty table.
 
@@ -23,10 +23,10 @@ Then:
 
 - **Instagram**: `meta_ig_list_media` (rowLimit 60) for captions; `meta_ig_media_insights` in batches of 25: `views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`. Watch time is ms; skip rate is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - **Facebook**: `meta_page_posts` (message) + `meta_page_post_insights`.
-- **LinkedIn**: `linkedin_page_posts`. The first line before "see more" is the hook.
+- **LinkedIn**: `linkedin_page_posts` has no per-post numbers. Its hooks (the text before "see more") are sorted into patterns but not ranked; say so.
 - **YouTube**: `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage","shares"]`; the title is the hook (titles from `youtube_top_videos` or `youtube_list_recent_videos`).
 
-Keep posts at least 3 days old. `ok: false` on a platform: say so and mine the rest.
+Window: the last 90 days (or the 60 rows pulled), posts at least 3 days old. `ok: false` on a platform: say so and mine the rest.
 
 ## 2. Extract the hook
 
@@ -44,10 +44,12 @@ Score each hook on the signals the hook actually controls:
 | Average watch seconds / watch % | did the promise hold | higher |
 | Shares per 1k reach | was it worth sending | higher |
 | YouTube average view % | did the title match the video | higher |
+| Facebook views (`post_media_view`) | did it get watched | higher |
+| Facebook clicks per 1k views (`post_clicks`) | did the promise hold | higher |
 
 A post with reach under half the platform median can't be **proven**, whatever its ratios (one share on 200 reach is noise). If a median is 0 (common for shares on small accounts), drop that signal and score on the rest.
 
-Hook score = number of these signals where the post beats the platform median (0-3 for reels, 0-2 elsewhere). Rank by score, then by shares per 1k. Top quartile = **proven**, bottom quartile = **failed**. Fewer than 12 posts on a platform: say the ranking is a hint only.
+Hook score = number of these signals where the post beats the platform median (max 3 for reels; 1 for Instagram images and carousels, shares only; 2 on Facebook and YouTube). Rank by score, then by shares per 1k. Top quartile = **proven**, bottom quartile = **failed**. Fewer than 12 posts on a platform: say the ranking is a hint only.
 
 ## 4. Bucket by pattern
 
@@ -84,7 +86,7 @@ Check each remix against `brand/voice.md`. Flag any claim that needs a fact the 
 
 
 ```
-## Hook mining: <business>, <n> posts, <date range>
+## Hook patterns: <business>, <n> posts, <date range>
 Ranked on: <signals used>   Spoken hooks: <yes / caption only>
 
 ### Your proven hooks (top quartile)

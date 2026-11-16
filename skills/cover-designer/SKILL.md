@@ -14,7 +14,7 @@ Never AI-generates an image. The picture is always a frame of the user's own foo
 
 ## 1. Setup
 
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
 - Read `brand/settings.md` (or memory) for workspace, Instagram account and output mode; ask only what's missing, in one multiple-choice message, and save it.
 - Output is visual by default (artifact / HTML file / canvas) unless settings say chat.
 - Before offering to publish, check which tools this session has (rule 5). No publish tool: hand over the PNG and the steps.
@@ -27,7 +27,7 @@ Skill-specific:
 
 **Source of the video**
 - The user's file (upload or a path in the folder), or
-- For their own published reels: `meta_ig_list_media` (rowLimit 60 or less) returns `mediaUrl`, a downloadable MP4. It can be null for some reels; then ask for the file.
+- For their own published reels: `meta_ig_list_media` (rowLimit 60 or less) returns `mediaUrl`, a downloadable MP4. It can be null for some reels; then ask for the file. In claude.ai, frames from that link may not export from an artifact (the video sits on Instagram's servers and the link expires): ask for an upload of the video or a screenshot of the frame.
 
 **Pick candidate frames**
 - Usually in the first 3 seconds, where the hook sits. Also check the payoff moment.
@@ -43,7 +43,7 @@ Skill-specific:
 
 Build it as HTML/CSS (SVG where useful) over the frame:
 - **Canvas 1080 x 1920 (9:16).**
-- **Safe area**: all important text and the subject's face inside the centre **1080 x 1350** (the 4:5 profile grid crop). Also check the **1:1** centre crop (1080 x 1080), which some grid and share views use.
+- **Safe area**: all important text and the subject's face inside the centre **1080 x 1350** (the 4:5 feed crop; also safe for the 3:4 profile grid). Also check the **1:1** centre crop (1080 x 1080), which some grid and share views use.
 - **Text**: 2-5 words, the promise of the reel, not the hook word for word. Large enough to read on a grid tile about 3 cm wide: check at 120 px wide.
 - **Readability**: a scrim, gradient or solid band behind text when the frame is busy. Contrast ratio 4.5:1 or better.
 - **Brand**: colours and fonts from `brand/` (web fonts loaded in the HTML). Same text position and type style across covers so the grid looks like a set; vary the frame.
@@ -64,7 +64,7 @@ Show all options side by side with the 4:5 and 1:1 crops outlined.
 
 ## 5. Where to upload
 
-- **Instagram Reel**: the cover is set when posting, in the Instagram app (Edit cover > Add from camera roll). If this Otto connection includes publishing (`meta_ig_publish_reel` in the tool list), the PNG can be uploaded to the Otto media library and passed as `coverMediaId` when the reel is published, after the user approves the exact post. If available; otherwise use the app. Instagram doesn't let the cover change through the API after posting.
+- **Instagram Reel**: set the cover when posting, in the Instagram app (Edit cover > Add from camera roll); the app also lets you change it later. If this Otto connection includes publishing (`meta_ig_publish_reel` in the tool list), the PNG can be uploaded to the Otto media library and passed as `coverMediaId` (9:16 like the video; Otto converts PNG to JPEG) when the reel is published, or `thumbOffsetMs` can pick a video frame instead, after the user approves the exact post. If available; otherwise use the app. Instagram doesn't let the cover change through the API after posting.
 - **YouTube Shorts**: the user sets it in YouTube Studio or the YouTube app (where the option is available for Shorts, choose a custom thumbnail or the closest frame). This skill doesn't upload to YouTube.
 
 ## 6. Output

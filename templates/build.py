@@ -26,6 +26,7 @@ for s in SKILLS:
         data["meta"].update(title="Daily pulse", start="Mar 09", end="Mar 09, 2026",
                             verdict="Yesterday's reels, early read. Final calls happen once each reel is 3 days old.")
         data.pop("plan", None); data.pop("groups", None); data.pop("decisions", None)
+        data["kpis"] = [dict(k, label=k["label"].replace("this week's", "yesterday's"), vsLabel="previous posting day") if k.get("hero") else k for k in data["kpis"]]
     if s == "reel-diagnosis":
         data["meta"].update(title="Reel diagnosis", focusPost="ex3", verdict="The first second lost people: skip rate 41% vs your usual 33%.")
         data["posts"] = [p for p in sample["posts"] if p["id"] == "ex3"]
@@ -33,7 +34,9 @@ for s in SKILLS:
         for k in ("plan", "groups", "decisions", "search", "daily"): data.pop(k, None)
         data["kpis"] = [k for k in sample["kpis"] if k["platform"] == "instagram"][1:4]
     if s == "content-scorecard":
-        data["meta"].update(title="Content audit", start="Feb 08", baselineLabel="your median for the period")
+        data["meta"].update(title="Content scorecard", start="Feb 08", baselineLabel="your median for the period",
+                            verdict="A good month: median reach up 38% on Instagram, led by how-to reels. Facebook held steady.")
+        data["kpis"] = [dict(k, label=k["label"].replace("this week's", "this period's"), vsLabel="previous 30 days") if k.get("hero") else k for k in data["kpis"]]
     html = src.replace("__OTTO_ICON__", icon).replace("__OTTO_WORDMARK__", wordmark).replace("__DATA__", json.dumps(data, indent=1, ensure_ascii=False))
     out = ROOT / "skills" / s / "dashboard.html"
     out.write_text(html, encoding="utf8", newline="\n")

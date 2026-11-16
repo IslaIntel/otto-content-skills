@@ -4,7 +4,7 @@ description: Builds a 2-4 week posting plan from your content pillars, your own 
 license: MIT
 ---
 
-# Content calendar
+# Posting plan
 
 Turns pillars and past results into dated posts the user can actually make. Most slots go to ideas that are close to what already worked; a few test something new. It fits around what is already scheduled and never plans more than the user has been able to ship. Planning is read-only; scheduling waits for an explicit yes on each post.
 
@@ -22,8 +22,8 @@ Skill questions: length (2, 3 or 4 weeks), hours per week available to create, d
 ## 1. Pull
 
 1. **Already scheduled**: `otto_schedule_list` with `status: "upcoming"`, `from`/`to` covering the plan, `timeZone`. Leave `showCalendar` unset (on an external connection it opens a new Otto chat). Rows give channel, title, time and status; treat each as a fixed slot.
-2. **Recent cadence**: `otto_schedule_list` with `status: "past"` for the last 4 weeks, and `meta_ig_list_media` (rowLimit 60) timestamps. Count posts per week per platform.
-3. **Winners**: `meta_ig_media_insights` on the last 90 days (batches of 25: `reach, views, shares, saved, comments`, plus `ig_reels_avg_watch_time, reels_skip_rate` for reels); `youtube_top_videos`; `meta_page_posts` + `meta_page_post_insights`; `linkedin_page_posts` + `linkedin_page_insights`. Winner = 2x your median on reach, or on shares or saves per 1,000 reach. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+2. **Recent cadence**: `otto_schedule_list` with `status: "past"` for the last 4 weeks, and `meta_ig_list_media` timestamps (rowLimit about 1.2 x posts per day x 90 days, so step 3 reaches 90 days back). Count posts per week per platform.
+3. **Winners**: `meta_ig_media_insights` on the last 90 days (batches of 25: `reach, views, shares, saved, comments`, plus `ig_reels_avg_watch_time, reels_skip_rate` for reels); `youtube_top_videos`; `meta_page_posts` + `meta_page_post_insights`; `linkedin_page_posts` (no per-post numbers, so LinkedIn posts can't be ranked: ask the user which ones did well). Winner = 2x your usual (the shared one: median of posts at least 3 days old from the previous 28 days; older posts against the 28 days before them) on reach, or on shares or saves per 1,000 reach. Drop a ratio signal when its median is 0, and don't call a post a winner when its reach is under half the usual. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 4. **Timing**: use `best-time-to-post` output if it exists. If not, group your own posts by weekday and hour block and compare median reach; with fewer than 5 posts per block, say "too few to tell" and keep your usual times.
 
 Any failed pull: name it, plan with what's left, never fill numbers in.
@@ -59,7 +59,7 @@ Run it for at least 6 episodes before judging. Compare each episode with your me
 
 Only for posts whose media is final, and only after the user says yes to that exact post (media, caption, platform, time). Pick the path by what this connection can do:
 
-1. **Otto scheduling** (only if your Otto connection includes `channel_submit_plan`): media must be in the Otto library (`media_list`). `channel_submit_plan` with the right `provider` (`meta_ig`, `meta_pages`, `linkedin_profile`, `gbp`), one step (`ig_publish_reel`, `ig_publish_carousel`, `ig_publish_image`, `page_publish_video`, `page_create_post`, `linkedin_profile_create_post`, `gbp_create_local_post`), `publishAt` as ISO with offset, `timeZone` as IANA. Each extra post needs `additional: true`, or it replaces the plan still waiting for approval. It publishes **after the user approves in Otto** (`approveUrl`); call it scheduled only if the result says `scheduled: true`, then confirm with `otto_schedule_list` (upcoming).
+1. **Otto scheduling** (only if your Otto connection includes `channel_submit_plan`): media must be in the Otto library (`media_list`). `channel_submit_plan` with the right `provider` (`meta_ig`, `meta_pages`, `linkedin_pages`, `linkedin_profile`, `gbp`), one step (`ig_publish_reel`, `ig_publish_carousel`, `ig_publish_image`, `page_publish_video`, `page_create_post`, `linkedin_create_post`, `linkedin_profile_create_post`, `gbp_create_local_post`), `publishAt` as ISO with offset, `timeZone` as IANA. Each extra post needs `additional: true`, or it replaces the plan still waiting for approval. It publishes **after the user approves in Otto** (`approveUrl`), or is scheduled at once when the workspace auto-approves (no `approveUrl`); call it scheduled only if the result says `scheduled: true`, then confirm with `otto_schedule_list` (upcoming).
 2. **Publish tools but no scheduling**: hand the approved posts to `post-queue`, which queues them and sets up scheduled tasks to publish on time.
 3. **Neither**: the calendar is the deliverable. The user posts each item by hand from it; give the file, caption and time per post.
 
@@ -70,7 +70,7 @@ YouTube is read-only in Otto: always by hand.
 Default is visual (artifact / HTML file / canvas) unless settings or the user say chat. Content:
 
 ```
-## Content calendar: <start> to <end> (<time zone>)
+## Posting plan: <start> to <end> (<time zone>)
 Volume: <n>/week on <platforms> (last 4 weeks averaged <n>)
 Already scheduled: <count> (kept as fixed slots)
 

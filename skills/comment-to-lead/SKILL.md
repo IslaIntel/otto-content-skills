@@ -1,6 +1,6 @@
 ---
 name: comment-to-lead
-description: Read the comments on your recent Instagram, Facebook and LinkedIn posts through the Otto MCP, sort them (keyword requests, questions, support, spam), draft public replies, send approved replies through Otto when your connection has reply tools, and write a ManyChat-ready DM flow (keyword triggers, first DM, follow-ups) for an official DM tool, since Otto doesn't send DMs. Use when asked "check my comments", "reply to the comments", "who commented the keyword", "draft the DMs", "set up a comment-to-DM flow", or every day a "comment X and I'll send it" post is live.
+description: Read the comments on your recent Instagram, Facebook and LinkedIn posts through the Otto MCP, sort them (keyword requests, questions, support, spam), draft public replies, send approved replies through Otto when your connection has reply tools, and write a DM flow (keyword triggers, first DM, follow-ups) ready to load into an official Meta-approved DM tool such as ManyChat, since Otto doesn't send DMs. Use when asked "check my comments", "reply to the comments", "who commented the keyword", "draft the DMs", "set up a comment-to-DM flow", or every day a "comment X and I'll send it" post is live.
 license: MIT
 ---
 
@@ -22,7 +22,7 @@ Skill questions: the comment keyword (if any), what the keyword gets them (a lin
 
 ## 1. Read the comments (read-only)
 
-For each post from the last 7 days:
+For each post from the last 7 days, plus any older keyword post that's still live:
 - Instagram: `meta_ig_list_media`, then `meta_ig_list_comments` per post.
 - Facebook: `meta_page_posts`, then `meta_page_list_comments`.
 - LinkedIn: `linkedin_page_posts`, then `linkedin_page_list_comments`. This can return `ok: false` with `linkedin_api_403` (the connection lacks comment permission): say so, and ask the owner to reconnect LinkedIn Pages in Otto or paste the comments.
@@ -36,7 +36,7 @@ Skip comments the account already replied to. Read the oldest unanswered first: 
 |---|---|---|
 | Keyword | The keyword or a near miss ("guide pls", "GIUDE") | Public reply + DM draft |
 | Question | A real question about the business or the post | Answer from the facts only; if they don't cover it, it goes to the owner |
-| Customer / support | "My order...", billing, a complaint | Public: "Sending you a message." The owner handles it privately |
+| Customer / support | "My order...", billing, a complaint | Public: "Sending you a message." (only if the owner will message them today). The owner handles it privately |
 | Hostile, spam, competitor | Insults, scams, someone selling | No reply. Hide (`meta_ig_set_comment_hidden` / `meta_page_set_comment_hidden`) only if the owner says so |
 | Other | Praise, emoji, tagged friends | A short thanks, or nothing |
 
@@ -46,7 +46,7 @@ A comment that fits no bucket goes to the owner. Never guess.
 
 - Short, warm, plain, in the business's voice. No hype, no promised results.
 - **No link in a public reply.** Links only travel by private message.
-- Before it's sent, say "Sending it to your messages now", never "sent".
+- Before the DM goes out, say "Sending it to your messages now", never "sent", and only when the owner (or the DM tool) will send it today.
 - Vary the wording; twenty identical replies read as a bot.
 
 ## 4. Draft the DM flow (comment to booked call)
@@ -60,7 +60,7 @@ Otto doesn't send DMs. The owner sends them from the inbox, or loads them into a
 | 3. Offer the next step | Only if they fit and showed a need | One sentence linking their problem to the offer, then the booking link or "want me to send times?" |
 | 4. Confirm | Booked | Date, what to bring, what happens on the call. |
 
-Branches drafted after step 1: **interested** → step 2; **not now** → thank them, offer to check back in a month only if they say yes; **wrong fit** → point them to something useful, no pitch; **no reply** → on Instagram, nothing (the one private reply is used); where the platform allows a follow-up, one after 2-3 days that adds something (a tip, an example), then stop.
+Branches drafted after step 1: **interested** → step 2; **not now** → thank them, offer to check back in a month only if they say yes; **wrong fit** → point them to something useful, no pitch; **no reply** → nothing. Don't message again unless they write first.
 
 Rules: match how they wrote (one word in, two lines out). Under 950 characters. Never more than one question per message. Optional UTM on links: `?utm_source=<instagram|facebook|linkedin>&utm_medium=social&utm_campaign=<post or campaign>`; booking-page visits then show in GA4 (`ga4_run_report`, dimension `sessionCampaignName`). Nothing about the person in a tag.
 
@@ -96,7 +96,7 @@ DM 1 (the one private reply, < 950 chars): <delivers the thing + one qualifying 
   Buttons (optional): <"Salon" / "Clinic"> or none
 IF THEY REPLY -> DM 2: <reflect + one question>   (inside the 24 h window their reply opens)
 IF THEY FIT -> DM 3: <next step + booking link with UTM>
-IF NO REPLY: nothing automatic. The owner may send one follow-up by hand only if the platform allows it.
+IF NO REPLY: nothing. Don't message again unless they write first.
 STOP WORDS: stop, unsubscribe -> end the flow
 ```
 

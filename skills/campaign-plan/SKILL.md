@@ -4,7 +4,7 @@ description: Write a one-page, decision-ready campaign brief (goal, audience, of
 license: MIT
 ---
 
-# Campaign brief
+# Campaign plan
 
 A campaign is one outcome, one promise, one action, run across channels for a fixed time. This skill writes the brief everyone works from, with targets taken from what your accounts actually do, so nobody argues about made-up benchmarks later.
 
@@ -27,7 +27,7 @@ Skill questions (only what data can't tell you): **what must change, by when** (
 **Organic**
 - Instagram: `meta_ig_list_media` (rowLimit 60) + `meta_ig_media_insights` (batches of 25: `reach, views, shares, saved, comments, total_interactions`). Median reach per format (reel, carousel, image), median shares and saves per 1,000 reach, posts per week.
 - Facebook: `meta_page_posts` + `meta_page_post_insights`; `meta_page_insights` for weekly `kpis`.
-- LinkedIn: `linkedin_page_posts` + `linkedin_page_insights` (`kpis` and daily impressions; posts carry no per-post numbers).
+- LinkedIn: `linkedin_page_posts` + `linkedin_page_insights` (`kpis` and daily views; posts carry no per-post numbers).
 - `social-data/posts.csv` if it exists saves most of these calls.
 
 **Website**: `ga4_list_key_events` (what counts as a conversion), then `ga4_traffic_sources` for sessions and key events by channel; `ga4_landing_pages` for the campaign page's conversion rate.
@@ -81,7 +81,7 @@ REVIEW DATES: day 3 (delivery), day 7 (first read), end (campaign-retro)
 MISSING DATA / OPEN QUESTIONS: <owner for each>
 ```
 
-Save it as `campaigns/<yyyy-mm>-<name>.md`. After the campaign, run `campaign-retro` against this file.
+In a working folder, save it as `campaigns/<yyyy-mm>-<name>.md`; without one, give it as a download. After the campaign, run `campaign-retro` against this file.
 
 ## 4. Optional: set up the paid plan
 

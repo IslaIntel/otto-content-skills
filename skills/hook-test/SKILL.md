@@ -1,6 +1,6 @@
 ---
 name: hook-test
-description: Design a one-variable hook test (two openings, everything else held), declare the deciding metric and minimum sample before posting, then score it later from live Instagram, Facebook, LinkedIn or YouTube numbers pulled through Otto. Use when asked to "A/B test this hook", "which of these two openings wins", "which opening should I use", "test this hook", or "score my hook test".
+description: Design a one-variable hook test (two openings, everything else held), declare the deciding metric and minimum sample before posting, then score it later from live Instagram or YouTube numbers pulled through Otto. Use when asked to "A/B test this hook", "which of these two openings wins", "which opening should I use", "test this hook", or "score my hook test".
 license: MIT
 ---
 
@@ -8,12 +8,12 @@ license: MIT
 
 Two modes. **Design** writes the test before anything is posted: two hooks that pull different levers, what stays fixed, which number decides, and how much data is needed. **Score** comes back later, pulls the live numbers, and calls it: A wins, B wins, or no difference. The rules are written down first so the result can't be argued into a story afterwards. Read-only; it never posts.
 
-Tests are saved in `social-data/tests/<test-id>.md` so the score step reads exactly what was declared.
+Tests are saved in `social-data/tests/<test-id>.md` so the score step reads exactly what was declared. No folder (claude.ai, ChatGPT): give the declaration as a block to keep in memory or a Claude Project, and ask for it back when scoring.
 
 ## Mode 1: Design
 
 ### Setup
-Follow the settings and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short: read `brand/settings.md` (or your memory of the user's Otto settings) first for workspace, accounts and output mode; ask only what's missing, as one multiple-choice question, and save the answers.
+Follow the settings and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short: read `brand/settings.md` (or your memory of the user's Otto settings) first for workspace, accounts and output mode; ask only what's missing, as one multiple-choice question, and save the answers.
 
 Then:
 - Read `brand/voice.md` and `brand/winners.md` if present.
@@ -29,7 +29,7 @@ To size the test, pull the account's own numbers: `meta_ig_list_media` (rowLimit
 | **Paired posts** | Same video, two different hooks (on-screen text + first line), posted as two reels on matched days/times 2-7 days apart | default on Instagram |
 | **Series pairs** | Run the pattern across 3+ pairs of different reels (A hook style vs B hook style) | you want a rule, not one answer |
 | **Trial reels** | If the person has Instagram's trial reels, post B as a trial to non-followers | they have the feature; note that trial audiences differ |
-| **YouTube title swap** | Same video, change the title after 7 days | YouTube; compare the 7 days before vs after |
+| **YouTube title swap** | Same video, change the title after 7 days | YouTube; compare average view % for the 7 days before vs after (views fall as a video ages, so don't compare views). Where YouTube Studio offers Test & Compare for titles, use that instead |
 
 Posting the identical video twice can be treated as a repost by the platform. Prefer changing only the first 2-3 seconds of on-screen text and voice.
 
@@ -40,8 +40,8 @@ They must use **different mechanisms** (patterns from `hook-patterns`, e.g. `num
 
 | Field | Rule |
 |---|---|
-| Deciding metric | One number. Stop the scroll → skip rate. Hold attention → avg watch %. Shared → shares per 1k reach. Saved → saves per 1k reach. YouTube title → average view % and views in first 7 days. |
-| Minimum sample | Each version needs 1,000+ reach (skip rate, watch %) or 3,000+ reach (shares, saves per 1k, since they're rarer). Below that the score is "inconclusive". |
+| Deciding metric | One number. Stop the scroll → skip rate. Hold attention → avg watch %. Shared → shares per 1k reach. Saved → saves per 1k reach. YouTube title → average view % (not views, which fall as a video ages). |
+| Minimum sample | Each version needs 1,000+ reach (skip rate, watch %) or 3,000+ reach (shares, saves per 1k, since they're rarer). Below that the score is "inconclusive". If the baseline median reach is under the minimum, say up front that one pair can't be decided and use the series design. |
 | Read at | 72 hours after each post (same age for both) |
 | Win threshold | A beats B by more than the account's normal spread: at least 5 points on skip rate, 15% relative on the others, AND outside the 25th-75th percentile band of the baseline |
 | Held constant | length, cover, caption (apart from the first line if the hook lives there), audio, hashtags, CTA, day type, time slot ±1h, no boosting |
@@ -68,7 +68,7 @@ One pair is one data point. A win becomes a rule only after the same direction s
 
 ## Output (score)
 
-**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis`: the deciding metric for A and for B, the minimum sample, and days since posting. `posts`: the two reels. `blocks`: a `table` comparing both arms on every metric, and `cards` with the result (tag Winner, Too early or No difference) and what to do next. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/hook-test-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
+**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis`: the deciding metric for A and for B, the minimum sample, and days since posting. `posts`: the two reels. `blocks`: a `table` comparing both arms on every metric, and `cards` with the result (tag Winner, Inconclusive or No difference) and what to do next. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/hook-test-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
 
 
 ```

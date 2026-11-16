@@ -10,7 +10,7 @@ Turns one real piece of work (a decision, a mistake, a number, a customer conver
 
 ## 0. Setup
 
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
 - Read `brand/settings.md` (or memory) for workspace, LinkedIn account (personal profile, Company Page or both), timezone and output mode; ask only what's missing in one multiple-choice message, then save it.
 - Output is visual by default (artifact / HTML file / canvas) unless settings say chat.
 - Before offering to publish or schedule, check which tools this session has (rule 5) and offer only what's there.
@@ -26,7 +26,7 @@ Skill-specific:
 **Company Page** (if connected)
 - `linkedin_page_posts` (organizationId, rowLimit 50): id, `commentary` (the post text), `createdAt` (epoch ms). No per-post metrics.
 - `linkedin_page_insights` (startDate, endDate, last 90 days): `kpis` (followers total, views, uniqueViews, likes, comments, shares, clicks) plus `daily` rows with impressionCount, uniqueImpressionsCount, likeCount, commentCount, shareCount, clickCount.
-- Since posts carry no numbers, attribute each daily row to the most recent post published 0-3 days before it. Sum impressions and engagements per post over those days. With two posts in the same 3-day window, mark both "shared window, can't separate".
+- Since posts carry no numbers, attribute each daily row to the most recent post published 0-3 days before it. Sum impressions and engagements per post over those days. With two posts in the same 3-day window, mark both "shared window, can't separate". Label these numbers approximate: page impressions also include older posts.
 
 **Personal profile** (if connected)
 - `linkedin_profile_list`: profiles and sign-in `status`. If `expiring_soon` or `expired`, tell the user to reconnect LinkedIn (personal profile) in Otto Settings before any publish.
@@ -83,11 +83,11 @@ Show the exact final text, the image and the target (personal profile or Company
 
 | Target | Now | Later |
 |---|---|---|
-| Personal profile | `linkedin_profile_create_post` (commentary, plus imageMediaIds or videoMediaId or articleUrl, not a mix; profileId when several). Goes live immediately | `channel_submit_plan` with provider `linkedin_profile`, op `linkedin_profile_create_post`, `publishAt` + `timeZone`, if your Otto connection includes scheduling |
-| Company Page | `linkedin_page_create_post` if it's in the tool list | `channel_submit_plan` with provider `linkedin_pages`, op `linkedin_create_post`, `publishAt` + `timeZone`, if your connection includes scheduling |
-| No matching tool | Hand over the text, the image and the steps to post on LinkedIn, or queue it with `post-queue` | same |
+| Personal profile | `linkedin_profile_create_post` (commentary, plus imageMediaIds with imageAltTexts, or videoMediaId, or articleUrl, not a mix; profileId when several). Goes live immediately | `channel_submit_plan` with provider `linkedin_profile`, op `linkedin_profile_create_post`, `publishAt` + `timeZone`, if your Otto connection includes scheduling |
+| Company Page | `linkedin_page_create_post` if it's in the tool list. Text or a link only: it takes no image, so add the image by hand in LinkedIn | `channel_submit_plan` with provider `linkedin_pages`, op `linkedin_create_post`, `publishAt` + `timeZone`, if your connection includes scheduling |
+| No matching tool | Hand over the text, the image and the steps to post on LinkedIn | same |
 
-Images go into the Otto media library first (`media_create_upload` → upload → `media_complete`) to get a mediaId. A plan returns an `approveUrl`: say "will publish at <time> after you approve in Otto", and claim it's scheduled only if the result says `scheduled: true`.
+Images for a personal-profile post go into the Otto media library first (`media_create_upload` → upload → `media_complete`) to get a mediaId. A plan returns an `approveUrl`: say "will publish at <time> after you approve in Otto", and claim it's scheduled only if the result says `scheduled: true`.
 
 Afterwards, log the post in `brand/winners.md` once it has 7 days of numbers, if it beat the median.
 

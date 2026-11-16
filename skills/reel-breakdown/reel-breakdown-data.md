@@ -14,10 +14,10 @@
 {
   "meta": {
     "title": "the reel's hook line or title",
-    "series": "After Hours, ep 31",            // optional
-    "length_s": 21.7, "posted": "Nov 12, 2026",
+    "series": "Flower care, part 4",            // optional
+    "length_s": 21.7, "posted": "Mar 06, 2026",
     "permalink": "https://www.instagram.com/reel/…/",
-    "accounts": [{"platform": "instagram", "handle": "@bloomandstem", "url": "https://www.instagram.com/bloomandstem/"}],
+    "accounts": [{"platform": "instagram", "handle": "@bloomandstem", "url": "https://www.instagram.com/<their handle>/"}],
     "source": "Supplied by you (someone else's reel)",   // instead of accounts, for other people's reels
     "baselineLabel": "your usual (last 28 days)",
     "generated": "Mar 10, 2026", "footnote": "Built from live Otto data",

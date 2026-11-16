@@ -1,10 +1,10 @@
 ---
 name: topic-finder
-description: Research what to make next by combining four kinds of evidence through the Otto MCP (what people search for in Google, what gets watched on YouTube including your own channel, what people complain about online, and your own breakout posts) into a ranked topic list where every topic shows its proof. Use when someone says "research my niche", "what topics would do well for me", "find topics that will work", "what's working in my industry", "give me content ideas with data", or "what are people searching for".
+description: Research what to make next by combining four kinds of evidence through the Otto MCP (what people search for in Google, what gets watched on YouTube (your channel through Otto, other channels from what you paste), what people complain about online, and your own breakout posts) into a ranked topic list where every topic shows its proof. Use when someone says "research my niche", "what topics would do well for me", "find topics that will work", "what's working in my industry", "give me content ideas with data", or "what are people searching for".
 license: MIT
 ---
 
-# Content research
+# Topic finder
 
 Ideas are cheap; ideas with evidence are rare. This skill stacks independent signals for each topic (searched, watched, complained about, already worked for you) and ranks topics by how many signals agree. It hands the winners to `viral-reel-planner` and `hook-writer`.
 
@@ -29,7 +29,7 @@ Then:
 - `gbp_search_keywords` if Google Business Profile is connected.
 
 **B. Watched (YouTube)**
-- Your channel: `youtube_top_videos` (90 days) and `youtube_channel_analytics(dimensions ["video"], metrics ["views","averageViewPercentage","subscribersGained","shares"])`. Subscribers gained per video is the best "this topic builds an audience" signal you have.
+- Your channel: `youtube_top_videos` (90 days) and `youtube_channel_analytics(dimensions ["video"], metrics ["views","averageViewPercentage","subscribersGained","shares"], sort "-views", rowLimit 200)` (200 is the API maximum for this dimension). Subscribers gained per video is the best "this topic builds an audience" signal you have.
 - `youtube_traffic_sources` to see if YouTube search drives views (if yes, video titles are search topics too).
 - Other channels: Otto's YouTube tools read only your own channel. Use a YouTube public-stats tool if one is in this session; otherwise ask the user to paste titles and view counts of each channel's last 20-30 videos (or screenshots).
 
@@ -39,9 +39,9 @@ Then:
 - Your own comments: run `comment-insights`, or reuse its clusters from `brand/audience.md`.
 
 **D. Worked for you (your breakouts)**
-- `meta_ig_list_media` (rowLimit 60) + `meta_ig_media_insights` (batches of 25): `views, reach, shares, saved, comments, reels_skip_rate`. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
-- `meta_page_posts` + `meta_page_post_insights`; `linkedin_page_posts` where connected.
-- Breakout = 2x your median reach, or 2x your median shares/saves per 1,000 reach. Use `brand/winners.md` if it's current.
+- `meta_ig_list_media` (rowLimit 60) + `meta_ig_media_insights` (batches of 25): `views, reach, shares, saved, comments` for every post; add `ig_reels_avg_watch_time` and `reels_skip_rate` for `mediaType: VIDEO` ids only (one image in the batch fails the whole call).
+- `meta_page_posts` + `meta_page_post_insights`. LinkedIn posts carry no per-post numbers through Otto, so they can't count as breakouts.
+- Breakout = 2x your usual reach (median of posts at least 3 days old from the previous 28 days), or 2x your median shares/saves per 1,000 reach. Use `brand/winners.md` if it's current.
 
 If a whole source is missing, the topic score just has fewer possible signals; say which.
 
@@ -69,11 +69,11 @@ Rank by score, then by search volume. Score 1 topics go to "untested ideas". A t
 
 ## 3. Output
 
-**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis`: topics scored, sources used. `blocks`: a wide `table` of ranked topics (topic, score, the signals that fired, and a `pill` column Take / Adapt / Skip), then `cards` for the top 5 with their evidence, and a `list` of sources that were unavailable. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/topic-finder-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
+**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `blocks`: a `stats` block (topics scored, sources used), a wide `table` of ranked topics (topic, score, the signals that fired, and a `pill` column Take / Adapt / Skip), then `cards` for the top 5 with their evidence, and a `list` of sources that were unavailable. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/topic-finder-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
 
 
 ```markdown
-# Content research: <niche> (<date range>)
+# Topic finder: <niche> (<date range>)
 Sources: GSC <n queries> · YouTube own <n videos> / others <n videos from n channels> · complaints <n> (Reddit: ok / unavailable) · your posts <n>.
 
 ## Ranked topics
@@ -82,7 +82,7 @@ Sources: GSC <n queries> · YouTube own <n videos> / others <n videos from n cha
 | 1 | | 5/7 | "<query>" 640 impr, pos 11 | your video: 2.3x median, +18 subs | 6 comments | reel 3x median reach | yes | <angle> | reel |
 
 ## Top 3, ready to hand off
-1. <topic> — evidence in one line. First line idea: "<in their words>". Next: `viral-reel-planner` → `hook-writer`.
+1. <topic>: evidence in one line. First line idea: "<in their words>". Next: `viral-reel-planner` → `hook-writer`.
 
 ## Search topics better as a page than a post
 <queries where a website page would win; hand to `search-and-social`>

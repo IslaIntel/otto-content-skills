@@ -41,19 +41,25 @@ Neither ffmpeg nor Whisper is bundled with this skill, and it never installs the
 ```bash
 curl -sL -o reel-tmp/reel.mp4 "<mediaUrl>"          # own reel only
 ffprobe -v error -show_entries format=duration -of csv=p=0 reel-tmp/reel.mp4
-# hook frames, then every 2.5 s
-for t in 0 0.5 1 2 3 5 7.5 10 12.5 15 17.5 20 22.5 25 27.5 30; do
+# hook frames (for the page: 240 px)
+for t in 0 0.5 1 2 3; do
+  ffmpeg -v error -ss $t -i reel-tmp/reel.mp4 -frames:v 1 -vf scale=240:-2 -q:v 6 -y reel-tmp/h_$t.jpg; done
+# a frame every 2.5 s for the whole reel (to look at)
+for t in $(seq 0 2.5 <length>); do
   ffmpeg -v error -ss $t -i reel-tmp/reel.mp4 -frames:v 1 -vf scale=360:-2 -y reel-tmp/f_$t.jpg; done
 # one contact sheet for a quick look (a frame every 2 s)
 ffmpeg -v error -i reel-tmp/reel.mp4 -vf "fps=1/2,scale=180:-2,tile=6x3" -frames:v 1 -y reel-tmp/sheet.jpg
 # cut times (scene changes); count them for pacing
 ffmpeg -i reel-tmp/reel.mp4 -vf "select='gt(scene,0.3)',showinfo" -an -f null - 2>&1 | grep -o "pts_time:[0-9.]*"
+# one frame from the middle of each shot (for the page: 200 px); a shot runs from one cut to the next, the last one to the end
+for m in <shot midpoints>; do
+  ffmpeg -v error -ss $m -i reel-tmp/reel.mp4 -frames:v 1 -vf scale=200:-2 -q:v 6 -y reel-tmp/s_$m.jpg; done
 # words with timestamps
 ffmpeg -v error -i reel-tmp/reel.mp4 -vn -ac 1 -ar 16000 -y reel-tmp/audio.wav
 whisper reel-tmp/audio.wav --model small --output_format srt --output_dir reel-tmp
 ```
 
-Skip frame times past the reel's length. Scene threshold 0.3 catches hard cuts; for animated or slow-zoom footage, check the frames by eye and lower to 0.2 if cuts are missed. Small Whisper models mishear names and numbers: correct them against the caption or the on-screen text and say you did.
+Fill in `<length>` from ffprobe and the shot midpoints from the cut times. Scene threshold 0.3 catches hard cuts; for animated or slow-zoom footage, check the frames by eye and lower to 0.2 if cuts are missed. Small Whisper models mishear names and numbers: correct them against the caption or the on-screen text and say you did.
 
 Look at every frame image (or every screenshot on the no-ffmpeg path; pacing is then an estimate from what changes between screenshots, and you say so). Read the on-screen text from the frames, not from memory.
 
@@ -64,7 +70,7 @@ Build the timeline first, then judge.
 **Hook, frame by frame (0-3 s).** For 0 s, 0.5 s, 1 s, 2 s, 3 s: what's in frame, the on-screen text, the spoken words, and movement. Then answer:
 - Does frame 0 show something that makes sense with the sound off?
 - Is there a question, tension or surprise by 1 s?
-- Does the spoken line and the on-screen text say the same thing or two things?
+- Do the spoken line and the on-screen text say the same thing or two things?
 - When does the first cut land?
 
 **Structure.** Split the reel into beats from the cuts and the transcript: setup → tension → turn → payoff → CTA (rename to fit). Time each beat.
@@ -82,7 +88,7 @@ Build the timeline first, then judge.
 | Shares low | was there a moment worth sending? name it or say "none" |
 | Strong on all | which hook/structure choices to repeat |
 
-Avg watch in seconds ÷ length = watch %. Put the avg-watch second on the timeline: that's roughly where the typical viewer was gone.
+Avg watch in seconds ÷ length × 100 = watch % (cap it at 100: replays can push average watch past the length). Put the avg-watch second on the timeline: that's roughly where the typical viewer was gone, an estimate, not a measured drop.
 
 ## 4. Output
 

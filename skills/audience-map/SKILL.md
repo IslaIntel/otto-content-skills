@@ -4,7 +4,7 @@ description: Describe who your audience really is, as personas backed line by li
 license: MIT
 ---
 
-# Audience personas
+# Audience map
 
 A persona is only useful if you can point at the data behind every line. This skill groups people by **the job they want done** and the words they use, then attaches the numbers that are measurable (age bands, countries, devices, searches). Anything the data doesn't show is written as unknown. No stock photos, no invented names, no made-up hobbies or incomes.
 
@@ -30,7 +30,7 @@ Then:
 | Reviews | `gbp_list_reviews` | why buyers chose you, outcomes | often not connected: skip, offer `otto_connect_link` |
 | YouTube viewers | `youtube_demographics(startDate, endDate)` | age band × gender as % of viewers | signed-in viewers only; channel viewers, not buyers |
 | YouTube countries | `youtube_geo_countries` | views, minutes, avg view duration per country | |
-| Site visitors | `ga4_geo` (rowLimit 100) | sessions and engaged sessions by country / region / city | data-centre cities (high sessions, near-zero engaged sessions) are bots: drop them |
+| Site visitors | `ga4_run_report`, dimensions `["country","city"]`, metrics `["sessions","engagedSessions"]`, rowLimit 100 | sessions and engaged sessions by country / city | data-centre cities (high sessions, near-zero engaged sessions) are bots: drop them |
 | Devices | `ga4_tech` | mobile vs desktop, browser | |
 | Searches | `gsc_search_analytics`, dimension `query`, rowLimit 500 | the problems and places people type | brand queries tell you little |
 | Local searches | `gbp_search_keywords` | what found the listing | needs GBP |
@@ -63,7 +63,7 @@ Default is visual: an artifact (claude.ai / Claude desktop), an HTML file opened
 In a working folder, save the markdown to `brand/personas.md` after the user approves, and offer to add a short summary to `brand/audience.md`. Without a folder, give the markdown for the user to keep.
 
 ```markdown
-# Audience personas: <business> (<date range>)
+# Audience map: <business> (<date range>)
 Sources used: <list with counts>. Not available: <list>.
 
 ## Audience numbers (whole account, not per persona)
@@ -71,7 +71,7 @@ Sources used: <list with counts>. Not available: <list>.
 - Top countries (YouTube views): <...>; top cities (GA4 engaged sessions): <...>
 - Device: <mobile %> (GA4)
 
-## Persona 1: <label from the job, e.g. "the race-week runner">  — confidence: strong / medium / hypothesis
+## Persona 1: <label from the job, e.g. "the race-week runner"> · confidence: strong / medium / hypothesis
 - Job: <one line> [source]
 - Trigger: <what makes them look now> [source]
 - In their words: "<verbatim>" [comment, <date>] · "<verbatim>" [review]

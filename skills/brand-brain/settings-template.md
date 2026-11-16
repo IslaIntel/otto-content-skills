@@ -7,7 +7,7 @@ Copy this into `brand/settings.md` (or, with no folder, into the assistant's mem
 Last updated: YYYY-MM-DD
 
 ## Business
-Workspace: <Otto workspace name>
+Workspace: <Otto workspace name> (id: <workspace id>)
 Business: <one line: what it is and where>
 
 ## Accounts (one per platform; leave blank if not used)

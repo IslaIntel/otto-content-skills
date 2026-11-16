@@ -11,14 +11,14 @@ Writes the words around a post so the right people find it and do one thing. Key
 ## 0. Setup
 
 Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
-- Read `brand/settings.md` (or memory) first: workspace, accounts, output mode, `caption_template`, `cta`. Ask only what's missing, in one multiple-choice message, then save it.
+- Read `brand/settings.md` (or memory) first: workspace, accounts, output mode, `Caption template`, `CTA`. Ask only what's missing, in one multiple-choice message, then save it.
 - Output is visual by default (artifact / HTML file / canvas) unless settings say chat.
 
 Skill-specific:
 - `otto_list_connections`: note whether `gsc` and `gbp` are connected.
 - Read `brand/voice.md`, `brand/offer.md`, `brand/facts.md`. Without them, ask for two sample captions the user liked and the one action they want people to take.
 - Ask: what the post is (or the script / slides), the platform, and the **goal**: save, share, comment, follow, DM, or click. One goal.
-- **CTA setting** (`cta: on | off | ask`): if it isn't set, ask once ("End captions with a call to action? Always / Never / Ask me each time") and save it. `off` means no ask line at all.
+- **CTA setting** (`CTA: on | off | ask`): if it isn't set, ask once ("End captions with a call to action? Always / Never / Ask me each time") and save it. `off` means no ask line at all.
 
 ## 1. Pull
 
@@ -55,7 +55,7 @@ Report plainly whether traits track performance: `Top 10: median 140 chars, 7 op
 
 ## 4. Choose the CTA (if on)
 
-Skip this step when `cta: off`. With `cta: ask`, ask once for this post.
+Skip this step when `CTA: off`. With `CTA: ask`, ask once for this post.
 
 | Goal | Reason line (why they should) | Ask |
 |---|---|---|
@@ -70,7 +70,7 @@ One ask per post. If the user wants two, keep the one that matches the goal and 
 
 ## 5. Write
 
-**Caption template**: if settings have `caption_template`, follow it exactly (structure, line breaks, sign-off, hashtag rule) and fill it with this post's content. Don't add parts it doesn't have. If there's no template and the user likes a caption you wrote (or one of their own), offer once to save it as their template in `brand/settings.md`. Never force a house style on them.
+**Caption template**: if settings have a `Caption template`, follow it exactly (structure, line breaks, sign-off, hashtag rule) and fill it with this post's content. Don't add parts it doesn't have. If there's no template and the user likes a caption you wrote (or one of their own), offer once to save it as their template in `brand/settings.md`. Never force a house style on them.
 
 Without a template:
 

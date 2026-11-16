@@ -48,7 +48,7 @@ Default shape (5 to 9 frames, one idea per frame):
 
 Rules:
 - Text per frame: 15 words or fewer, readable in 3 seconds. Keep it out of the top 14% and bottom 20%.
-- Video frames: 15 seconds or less each. Photos stay 5 seconds; don't put a paragraph on a photo.
+- Video frames: about 15 seconds each (Instagram allows up to 60s, but short frames keep people tapping forward). Photos stay 5 seconds; don't put a paragraph on a photo.
 - One ask in the whole sequence.
 - Post the frames in one go, unless the arc is built around a poll result, then post the "turn" frame 4 to 8 hours later.
 - Reply to every DM the stickers produce within the day. `comment-to-lead` covers DM scripts.
@@ -59,7 +59,7 @@ Default is visual (artifact / HTML file / canvas); chat if settings or the user 
 
 ```
 STORY SEQUENCE: <goal> | <n> frames | post <time>
-Expect: reach around <range> (from your <followers> followers and recent reach)
+Your followers: <n>. Story reach isn't available through Otto; compare with your last sequence's screenshot.
 
 | # | Shot (what to film) | Text on frame | Sticker (exact wording) | Why it's here |
 |---|---|---|---|---|
@@ -68,7 +68,7 @@ Expect: reach around <range> (from your <followers> followers and recent reach)
 | 6 | ... | "..." | Link: "<label>" -> <URL> | the ask |
 
 Words taken from your audience: "<quote>" (comment, <date>)
-Measure tomorrow: <the one number for this goal>. Screenshot story insights and run `weekly-social-review`.
+Measure tomorrow: <the one number for this goal>. Screenshot story insights and paste them here next time to compare sequences.
 ```
 
 ## Never

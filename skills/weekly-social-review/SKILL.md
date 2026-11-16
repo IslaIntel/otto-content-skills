@@ -1,6 +1,6 @@
 ---
 name: weekly-social-review
-description: Weekly social media performance review across every platform connected to Otto (Instagram, Facebook, LinkedIn, YouTube), measured against your own baseline, ending in a short keep/change/test/stop plan for next week. Use when asked for "the weekly review", "weekly report", "how did my posts do this week", "how did my reels do", or "what's working on social".
+description: Weekly social media performance review across the platforms you choose (Instagram, Facebook, LinkedIn, YouTube), measured against your own baseline, ending in a short keep/change/test/stop plan for next week. Use when asked for "the weekly review", "weekly report", "how did my posts do this week", "how did my reels do", or "what's working on social".
 license: MIT
 ---
 
@@ -13,7 +13,7 @@ Turns a week of numbers into at most three decisions, shown as an interactive da
 Before anything else (full rules: "How every skill talks to the user" in `otto-rules.md` (in this skill's folder)):
 - **Settings**: read `brand/settings.md` (or what the assistant remembers). Don't ask what it already answers. Save new answers there (or to memory when there's no folder).
 - **Account**: if the Otto connection has more than one business or more than one Instagram / Facebook account (`meta_page_list`), ask which, once.
-- **Scope**: platforms the user named are the scope ("my Instagram" = Instagram only). Nothing named: use `default_platforms` from settings; with none saved, ask once with the connected platforms (`otto_list_connections`) as options plus "All connected", and save the answer. A platform in scope with no posts gets one line; out-of-scope platforms aren't mentioned. Mention an unconnected platform once, with its `otto_connect_link`.
+- **Scope**: platforms the user named are the scope ("my Instagram" = Instagram only). Nothing named: use `default_platforms` from settings; with none saved, ask once with the connected platforms (`otto_list_connections`) as options plus "All connected", and save the answer. A platform in scope with no posts gets one line; out-of-scope platforms aren't mentioned. A platform in scope that isn't connected: say so every run, in one line with its `otto_connect_link`, in the chat summary and in the dashboard `notes`.
 - **Output**: visual by default (the dashboard below); chat if settings say `output: chat` or the user asks.
 - Read-only on every platform: never call a publish, schedule, delete, reply or hide tool. Organic posts only; ads only if asked.
 - **Accounts**: put each in-scope platform's handle and profile URL in `meta.accounts` (from `meta_page_list`, `linkedin_page_list`, `youtube_list_channels`; Instagram: `https://www.instagram.com/<username>/`), so the names in the header link to the profiles.
@@ -23,7 +23,7 @@ Before anything else (full rules: "How every skill talks to the user" in `otto-r
 ## 1. Pull
 
 **Instagram**
-- `meta_ig_list_media` (rowLimit 60): every post since the last review, plus the previous 4 weeks for the baseline.
+- `meta_ig_list_media`: every post since the last review, plus the previous 4 weeks for the baseline. Set rowLimit to about 1.2 x posts per day x days; if the result is saved to a file, read it with code.
 - `meta_ig_media_insights`, batches of 25: `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`. Don't request `crossposted_views` or `facebook_views`: one reel that wasn't crossposted to Facebook fails the whole batch. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - `meta_ig_account_insights`, `metricType: time_series`, metrics `reach` and `follower_count`, with `endDate` = the day after the window ends (the end date is exclusive). `follower_count` is **daily new follows**, and Meta returns it only once the account has 100+ followers. The total audience is `profile.followersCount`; record it every run and compute growth as the difference from last week.
 
@@ -31,12 +31,12 @@ Before anything else (full rules: "How every skill talks to the user" in `otto-r
 
 **LinkedIn Page**: `linkedin_page_posts` and `linkedin_page_insights`. `kpis.followers` is the current total, not the week's gain.
 
-**YouTube**: `youtube_top_videos` and `youtube_channel_analytics` for the window; `youtube_traffic_sources` if views moved a lot.
+**YouTube**: `youtube_top_videos` and `youtube_channel_analytics` (dimensions `["video"]`, metrics `views, averageViewPercentage, subscribersGained, shares`, sort `-views`, rowLimit 200) for the window; `youtube_traffic_sources` if views moved a lot.
 
 **Search and site (if GA4 / Search Console are connected)**: social and search feed each other. Instagram reels, YouTube videos and Facebook posts can show up in Google results, and people who see a post often Google the business afterwards.
 - `ga4_run_report`, dimensions `["date","sessionDefaultChannelGroup"]`, metrics `sessions, engagedSessions`, the window and the 4 weeks before it, then add the days up into your window and the previous ones (ISO weeks only line up when the window runs Monday-Sunday): sessions from Organic Social, and whether Organic Search moved in weeks with a breakout post. (`ga4_traffic_sources` only gives one total for the range.)
 - `ga4_run_report`, dimension `landingPage`, filtered to `sessionDefaultChannelGroup` = `Organic Social`: the pages social visitors land on, and whether they stay.
-- `gsc_search_analytics`, dimension `query`, this week vs the previous 4 weeks: brand-name searches (a lift after a strong week of posts is a real signal), and new questions people are typing that a post could answer. Hand those to `search-and-social`.
+- `gsc_search_analytics`, dimension `query`, this week vs the previous 4 weeks. Search Console runs 2-3 days behind: end its window 3 days ago, or mark the last days "not yet available", so they don't read as a drop. Look for brand-name searches (a lift after a strong week of posts is a real signal), and new questions people are typing that a post could answer. Hand those to `search-and-social`.
 Visits and searches show what happened, not why. Say "coincides with", not "caused by".
 
 ## 2. Compute
@@ -56,7 +56,7 @@ Run the `reel-diagnosis` skill on the best 3 and worst 3 reels, and on any group
 Then decide, one variable at a time:
 - **Winner**: 2x the median on reach, or on shares/comments per 1,000 reach with reach at least half the median. If a median is 0 (common on small accounts), drop that signal and say so. Remix it: same idea, new hook, new look.
 - **Keep**: above the median.
-- **Below usual**: below the median, but not yet three weeks running (call `below`).
+- **Below usual**: below the median, but not yet three weeks running (post status `stalled` with label "Below usual"; group call `below`).
 - **Retire**: a format or topic below the median three weeks running.
 - **Tiny numbers**: when a platform's median is under 50 views (e.g. a quiet Facebook Page), a post also needs **100+ views** to be called a winner; 2x of 5 views is noise.
 

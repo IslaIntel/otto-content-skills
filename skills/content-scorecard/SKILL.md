@@ -4,13 +4,13 @@ description: Audit your recent posts (by default the last 30 days, or a longer r
 license: MIT
 ---
 
-# Content audit
+# Content scorecard
 
 A once-a-month look at your recent posts, wide enough to see patterns a weekly review can't. By default it covers the last 30 days, however many posts that is; with only a handful, most patterns come out "too few to tell" and the audit says so. It answers three questions: which traits beat your own median, which keep losing, and what the next five posts should be. Read-only on every platform; the only file it writes is in your working directory.
 
 ## 0. Setup
 
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
 - Read `brand/settings.md` (or your memory of the user's Otto settings) first: workspace, accounts, default platforms, output mode. Ask only what's missing, as one multiple-choice question, and save the answers.
 - Scope is the platforms the user names; otherwise the default from settings; otherwise ask once, listing connected platforms plus "All connected". A platform in scope with no posts in the window gets one line, never an empty table. TikTok and X aren't available through Otto: ask for an export or screenshot if they matter.
 - Read `brand/offer.md`, `brand/winners.md` and `social-data/posts.csv` if they exist (the CSV may already hold most of the numbers).
@@ -21,11 +21,11 @@ Skill-specific questions (ask together, multiple choice):
 
 ## 1. Pull
 
-Every post in the chosen window per platform, skipping anything under 7 days old (still moving). For a long window, `meta_ig_list_media` stays at rowLimit 60 or less; page back if needed. Fewer than 5 posts on a platform is fine: report its numbers and mark its patterns "too few to tell".
+Every post in the chosen window per platform, skipping anything under 7 days old (still moving). `meta_ig_list_media` has no paging: request enough rows for the window (about 1.2 x posts per day x days, up to 500). If the result is saved to a file, parse it with code. Fewer than 5 posts on a platform is fine: report its numbers and mark its patterns "too few to tell".
 
 - **Instagram**: `meta_ig_list_media` (rowLimit 60), then `meta_ig_media_insights` in batches of 25 with `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`. Never add `crossposted_views` or `facebook_views` (one non-crossposted reel fails the batch). `ig_reels_avg_watch_time` is ms; `reels_skip_rate` is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - **Facebook Page**: `meta_page_posts`, then `meta_page_post_insights` in batches of 25.
-- **LinkedIn Page**: `linkedin_page_posts` returns post text and dates only, no per-post numbers. Use `linkedin_page_insights` daily rows and match each post to the impressions in the 0-3 days after it; label those numbers approximate.
+- **LinkedIn Page**: `linkedin_page_posts` returns post text and dates only, no per-post numbers. Use `linkedin_page_insights` daily rows and match each post to the views in the 0-3 days after it; label those numbers approximate.
 - **YouTube**: `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares","likes","comments"]`, sorted `-views`, for the window; `youtube_top_videos` for titles and links.
 - **Site visits (if GA4 connected)**: `ga4_run_report`, dimensions `["sessionSource","landingPage"]`, metrics `["sessions","engagedSessions","keyEvents"]`, filtered to `sessionDefaultChannelGroup` = `Organic Social`. Visits by platform and page, not by post, unless links carry UTM tags (see `utm-builder`).
 
@@ -37,7 +37,7 @@ For each post record: platform, format (reel / carousel / image / video / text /
 
 ## 3. Compute, median first
 
-1. **Per platform** median of: reach (or views), shares per 1k reach, saves per 1k reach, comments per 1k reach; for reels also skip rate and watch %; for YouTube average view % and subscribers gained per 1k views. Never sum views across platforms.
+1. **Per platform** median of: reach (or views), shares per 1k reach, saves per 1k reach, comments per 1k reach; for reels also skip rate and watch %; for YouTube average view % (capped at 100, since looping Shorts can go over) and subscribers gained per 1k views. Never sum views across platforms.
 2. **Deciding metric** from the account's job:
 
 | Job | Deciding metric |
@@ -63,10 +63,10 @@ Append (don't overwrite) a dated section with the top 5 posts by the deciding me
 
 ## 6. Output
 
-Default is visual: fill `dashboard.html` in this folder (instructions in `dashboard-data.md`: lead with total views for the window (vs the window before, `vsLabel`) as a KPI, put the posts in `posts`, traits in `groups` with their `multiple` vs median, stop/keep/test in `plan` and the next five posts in `plan.next`) and show it as an artifact (claude.ai / Claude desktop), an HTML file opened in the browser (Claude Code / Cowork), or a canvas (ChatGPT). If settings say `output: chat` or the user asks for chat, give the same content as markdown in chat.
+Default is visual: fill `dashboard.html` in this folder (instructions in `dashboard-data.md`: lead with total views for the window (vs the window before, `vsLabel`) as a KPI, put the posts in `posts`, traits in `groups` with their `multiple` vs median and a `call` mapped from the read (keep → `winner`, no clear effect → `keep`, stop → `retire`, test and too few to tell → `too few`), stop/keep/test in `plan` and the next five posts in `plan.next`) and show it as an artifact (claude.ai / Claude desktop), an HTML file opened in the browser (Claude Code / Cowork), or a canvas (ChatGPT). If settings say `output: chat` or the user asks for chat, give the same content as markdown in chat.
 
 ```
-## Content audit: <business>, <first post date> to <last post date>
+## Content scorecard: <business>, <first post date> to <last post date>
 Posts reviewed (platforms in scope only): IG <n> | FB <n> | ...   Missing: <platforms + reason>
 Account job: <job>  Deciding metric: <metric>
 

@@ -6,7 +6,7 @@ license: MIT
 
 # Search and social
 
-People type their problems into Google and YouTube in plain words. Those words are the best brief a business has: they show what to post about and how to phrase it. Social posts are searchable too (Instagram search reads captions and alt text; public Instagram reels and YouTube videos can appear in Google results). This skill does three jobs: finds **gaps** (searched, not posted), hands over **keywords** for captions, titles and alt text, and shows which posts and platforms **drive site visits**. Read-only.
+People type their problems into Google and YouTube in plain words. Those words are the best brief a business has: they show what to post about and how to phrase it. Social posts are searchable too (Instagram search reads captions, and alt text may help too; public Instagram reels and YouTube videos can appear in Google results). This skill does three jobs: finds **gaps** (searched, not posted), hands over **keywords** for captions, titles and alt text, and shows which posts and platforms **drive site visits**. Read-only.
 
 ## 0. Setup
 
@@ -25,7 +25,7 @@ Then:
 - `gsc_search_analytics` dimensions `["query"]`, rowLimit 500. Keep `clicks, impressions, ctr, position`.
 - `gsc_search_analytics` dimensions `["query","page"]`, rowLimit 500: which page Google shows for each query.
 - `gsc_search_analytics` dimensions `["page"]`: which pages earn search traffic.
-- Questions only: dimensions `["query"]` with `dimensionFilterGroups` `[{filters:[{dimension:"query", operator:"includingRegex", expression:"^(how|what|why|when|can|does|is|should|best|vs|cost|price) "}]}]`.
+- Question and comparison queries: dimensions `["query"]` with `dimensionFilterGroups` `[{filters:[{dimension:"query", operator:"includingRegex", expression:"(^| )(how|what|why|when|can|does|is|should|best|vs|cost|price)( |$)"}]}]`.
 - Optional: `type: "video"` or `"image"` to see searches where the site appears in video or image results.
 
 **What people search (local)**
@@ -36,11 +36,12 @@ Then:
 - `youtube_channel_analytics` dimensions `["insightTrafficSourceDetail"]`, metrics `["views"]`, filters `insightTrafficSourceType==YT_SEARCH`, sort `-views`, rowLimit 25 (the API maximum for this dimension): the terms. This list is noisy (a word in a title matched an unrelated search). Keep only terms related to the business.
 
 **What you've posted** (platforms in scope only)
-- `meta_ig_list_media` (rowLimit 60) captions; `meta_page_posts`; `linkedin_page_posts`; `youtube_top_videos` titles for 90 days.
+- `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 90) captions; `meta_page_posts`; `linkedin_page_posts`; `youtube_top_videos` titles for 90 days.
 
 **What social sends to the site (GA4)**
 - `ga4_run_report` dimensions `["sessionSource","landingPage"]`, metrics `["sessions","engagedSessions","keyEvents"]`, `dimensionFilter` `{filter:{fieldName:"sessionDefaultChannelGroup", stringFilter:{matchType:"EXACT", value:"Organic Social"}}}`.
 - Same report with `sessionCampaignName` added, to see UTM-tagged posts.
+- `ga4_run_report` dimensions `["sessionDefaultChannelGroup"]`, metrics `["sessions"]`: the Organic Social and Organic Search totals for the KPIs.
 
 `ok: false` on any call: say which source is missing and continue.
 
@@ -65,7 +66,7 @@ Match each topic to your posts (caption, title, or on-screen topic if you know i
 
 "High" = top third of topics by impressions for this site. Small sites: rank, don't use absolute cut-offs.
 
-Questions with high impressions and low CTR at position 1-5 are a sign the answer isn't obvious from the result. A short video or carousel answering exactly that question is a strong post.
+Questions with high impressions and low CTR at position 1-5 are a sign the answer isn't obvious from the result, or that Google already answers it on the results page (a snippet), so few people click. A short video or carousel answering exactly that question is a strong post.
 
 ## 4. Keywords for posts
 
@@ -87,7 +88,7 @@ From the GA4 pull:
 
 ## 6. Output
 
-**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis`: Google clicks, brand searches per day vs usual, sessions from social and from search. `blocks`: a wide `table` of what people search (query, impressions, clicks, position, and a `pill` column "Posted about?" with covered / missing), `cards` for the posts to make (tag Take or Adapt, meta = the query and its numbers), `bars` of site visits by source, and a `list` of words for captions and titles. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/search-and-social-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
+**Visual (default):** fill `dashboard.html` in this folder (format in `dashboard-data.md`). `kpis`: Google clicks, clicks on brand queries (the step 2 bucket), sessions from Organic Social and from Organic Search. `blocks`: a wide `table` of what people search (query, impressions, clicks, position, and a `pill` column "Posted about?" with covered / missing), `cards` for the posts to make (tag Take or Adapt, meta = the query and its numbers), `bars` of site visits by source, and a `list` of words for captions and titles. Show it as an artifact (claude.ai / Claude desktop), save and open it as `social-data/reports/search-and-social-<YYYY-MM-DD>.html` (Claude Code / Cowork), or a canvas (ChatGPT). Write the verdict last, from the numbers on the page. **Chat** (settings `output: chat`, or the user asks): use the format below instead.
 
 
 ```

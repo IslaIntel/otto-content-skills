@@ -14,7 +14,7 @@ Read-only on every platform. It never asks a customer for permission by itself; 
 
 Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
 - Read `brand/settings.md` (or your memory of the user's Otto settings) first: workspace, accounts, default platforms, timezone, output mode. Ask only what's missing, as one multiple-choice question, and save the answers.
-- Scope is the platforms the user names; otherwise the default from settings; otherwise ask once, listing connected platforms plus "All connected". A platform in scope with nothing in the window gets one line, never an empty table.
+- Scope is the platforms the user names; otherwise the default from settings; otherwise ask once, listing connected platforms plus "All connected". Window: the last 12 months. A platform in scope with nothing in the window gets one line, never an empty table.
 
 Then:
 - If the workspace has more than one Instagram or Facebook account (`meta_page_list`), ask which one.
@@ -49,7 +49,7 @@ Never invent, merge or "improve" a quote. If something is paraphrased by the use
 | Source | Default status | What's needed |
 |---|---|---|
 | Testimonial already on your site | Approved (confirm it's still OK if over 2 years old) | nothing |
-| Google review | Public, but quoting it in an ad or post with the name needs a yes | ask the reviewer, or use first name + initial with "Google review" |
+| Google review | Public, but quoting it in an ad or post with the name needs a yes | ask the reviewer if you know them; otherwise use first name + initial with "Google review" |
 | Public comment | Public, not consented for reuse | ask the commenter before quoting with their handle; anonymous quote only if they can't be identified |
 | DM, email, text | **Private** | written permission required, always |
 | Health, legal, money outcomes | Sensitive | permission + check `brand/facts.md` and local advertising rules; add "results vary" |

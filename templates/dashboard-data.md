@@ -15,10 +15,10 @@
 ```json
 {
   "meta": {
-    "title": "Weekly social review",          // or "Daily pulse", "Content audit"
+    "title": "Weekly social review",          // or "Daily pulse", "Content scorecard"
     "accounts": [                               // one per platform in scope; the url makes the name a link to the profile
-      {"platform": "instagram", "handle": "@bloomandstem", "url": "https://www.instagram.com/bloomandstem/"},
-      {"platform": "facebook", "handle": "@bloomandstem", "url": "https://www.facebook.com/bloomandstem"}],   // same handle everywhere: shown once
+      {"platform": "instagram", "handle": "@bloomandstem", "url": "https://www.instagram.com/<their handle>/"},
+      {"platform": "facebook", "handle": "@bloomandstem", "url": "https://www.facebook.com/<their page>"}],   // same handle everywhere: shown once
     "platforms": ["instagram", "facebook"],    // ONLY platforms in scope. One platform = no tabs.
     "start": "Mar 03", "end": "Mar 09, 2026",
     "baselineLabel": "your previous 4 weeks",

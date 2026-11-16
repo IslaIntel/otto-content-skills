@@ -10,8 +10,9 @@ The weekly review, scaled down to one day: a five-minute overview, not a deep di
 
 ## 0. Setup
 
-Before anything else (full rules: "How every skill talks to the user" in `otto-rules.md` (in this skill's folder)):
+Before anything else (full rules: "How every skill talks to the user" in this folder's `otto-rules.md`):
 - **Settings**: read `brand/settings.md` (or what the assistant remembers). Don't ask what it already answers. Save new answers there (or to memory when there's no folder).
+- **Workspace**: call `otto_list_workspaces` if available; with several, ask which, once.
 - **Account**: if the Otto connection has more than one business or more than one Instagram / Facebook account (`meta_page_list`), ask which, once.
 - **Scope**: platforms the user named are the scope ("my Instagram" = Instagram only). Nothing named: use `default_platforms` from settings; with none saved, ask once with the connected platforms (`otto_list_connections`) as options plus "All connected", and save the answer. A platform in scope with no posts yesterday gets one line; out-of-scope platforms aren't mentioned.
 - **Output**: visual by default (the dashboard below); chat if settings say `output: chat` or the user asks.
@@ -19,10 +20,10 @@ Before anything else (full rules: "How every skill talks to the user" in `otto-r
 
 ## 1. Pull (platforms in scope only)
 
-- **Instagram**: `meta_ig_list_media` (rowLimit 60, enough for the 4-week baseline at up to 2 posts a day; if the result is saved to a file, read the file). `meta_ig_media_insights` (batches of 25): `views, reach, likes, comments, shares, saved` for every post, plus `ig_reels_avg_watch_time, reels_skip_rate` for `mediaType: VIDEO` ids only (one image in the batch fails the whole call). `meta_ig_account_insights`, `metricType: time_series`, metric `reach`, last 8 days, `endDate` = today (end dates are exclusive). Record `profile.followersCount`.
+- **Instagram**: `meta_ig_list_media` (rowLimit 75, enough for the 4-week baseline at up to 2 posts a day; if the result is saved to a file, read the file). `meta_ig_media_insights` (batches of 25): `views, reach, likes, comments, shares, saved` for every post, plus `ig_reels_avg_watch_time, reels_skip_rate` for `mediaType: VIDEO` ids only (one image in the batch fails the whole call). `meta_ig_account_insights`, `metricType: time_series`, metric `reach`, last 8 days, `endDate` = today (end dates are exclusive). Record `profile.followersCount`.
 - **Facebook**: `meta_page_posts` (rowLimit 60), then `meta_page_post_insights` for yesterday's posts and the baseline posts; `meta_page_insights` for the last 8 days for the daily chart (its `end_time` marks the end of the day) (`post_media_view` = views).
-- **YouTube**: `youtube_list_recent_videos`, then `youtube_channel_analytics` with dimension `video`, metrics `views, averageViewPercentage, subscribersGained` for the last 2 days.
-- **LinkedIn**: `linkedin_page_insights` for yesterday (page-level only; posts have no per-post numbers).
+- **YouTube**: `youtube_list_recent_videos`, then `youtube_channel_analytics` with dimension `video`, metrics `views, averageViewPercentage, subscribersGained` for the previous 31 days (yesterday plus the 28-day baseline). YouTube data often lags 1-3 days: if yesterday is empty, say it isn't in yet.
+- **LinkedIn**: `linkedin_page_insights` for yesterday and the previous 28 days (page-level only; posts have no per-post numbers). LinkedIn gets one line: yesterday's page views vs the median day of the previous 28.
 
 ## 2. Baseline
 
@@ -52,7 +53,7 @@ Before anything else (full rules: "How every skill talks to the user" in `otto-r
 
 Check only yesterday's posts and the ones that turned 3 days old today (older posts were already judged).
 - A post over 24 hours old with reach under 20% of B, or a skip rate over 45%.
-- A reel with no video: open its public page before flagging (the API sometimes returns `mediaUrl: null` for reels that still play).
+- A reel with no video: check its public page, or ask the user to, before flagging (the API sometimes returns `mediaUrl: null` for reels that still play).
 - A day with no post when settings list a posting schedule.
 
 ## 5. Show it
@@ -69,4 +70,4 @@ Followers: <n> (<+/-> since last check). Last 7 days: <k> of <m> posts took off;
 For today: remix <post, angle to change>. Rest <topic>. Flags: <flag with link, or "None">.
 ```
 
-Name every post with its permalink. **No folder (claude.ai, ChatGPT):** offer the day's rows as a `posts.csv` download and say "attach this to the weekly review". With a folder, append the day's numbers to `social-data/posts.csv` and `social-data/account.csv` (same columns as `weekly-social-review`) when there's a folder, so the baseline keeps growing.
+Name every post with its permalink. **No folder (claude.ai, ChatGPT):** offer the day's rows as a `posts.csv` download and say "attach this to the weekly review". With a folder, append the day's numbers to `social-data/posts.csv` and `social-data/account.csv` (same columns as `weekly-social-review`), so the baseline keeps growing.

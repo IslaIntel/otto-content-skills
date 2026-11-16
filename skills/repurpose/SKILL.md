@@ -23,17 +23,19 @@ Pull candidates from the last 90 days and pick one:
 
 | Source | Pull | Counts as a winner when |
 |---|---|---|
-| YouTube video | `youtube_top_videos` (startDate, endDate, rowLimit 25); `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares"]`, **sort `-views`** (other sorts are rejected) | Views or average view % ≥ 2x the channel median |
-| Instagram reel | `meta_ig_list_media` (rowLimit 60) → `meta_ig_media_insights` (batches of 25: `views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`) | Shares or saves per 1,000 reach ≥ 2x your reel median | Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+| YouTube video | `youtube_top_videos` (startDate, endDate, rowLimit 25); `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares"]`, **sort `-views`** | Views or average view % (capped at 100: looping Shorts go over) ≥ 2x the channel median |
+| Instagram reel | `meta_ig_list_media` (rowLimit 60) → `meta_ig_media_insights` (batches of 25: `views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`) | Shares or saves per 1,000 reach ≥ 2x your reel median |
 | Blog post | `wordpress_list_posts` (if WordPress is connected), plus `gsc_search_analytics` dimensions `["page"]` and `ga4_landing_pages` | Top pages by clicks / sessions; queries it ranks for show the angle people want |
-| Facebook / LinkedIn post | `meta_page_posts` + `meta_page_post_insights`; `linkedin_page_posts` | Clearly above that page's median |
+| Facebook / LinkedIn post | `meta_page_posts` + `meta_page_post_insights`; `linkedin_page_posts` | Facebook: clearly above that Page's median. LinkedIn posts carry no per-post numbers: ask the user |
+
+Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 
 Prefer a source that won on **shares, saves, watch % or search clicks** over raw views: those show the idea itself landed. Fewer than 5 posts on a platform = no median; say so and let the user pick.
 
 **Getting the content**
 - YouTube: Otto returns numbers and titles, not transcripts, and `voc_fetch_url` on a YouTube page returns nothing useful. Ask the user to paste the transcript (YouTube Studio > Subtitles) or a summary.
 - Reel: caption comes from `meta_ig_list_media`; `mediaUrl` is a downloadable MP4 the user can watch. Ask for the spoken script if it isn't in the caption.
-- Blog: `voc_fetch_url(url)` returns the page text (maxChars up to 8000). If WordPress isn't connected (`wordpress_not_connected`), find the post URL via the GSC `page` report and fetch it that way.
+- Blog: `voc_fetch_url(url)` returns the page text (maxChars up to 8000). If WordPress isn't connected (or the call returns `ok: false`), find the post URL via the GSC `page` report and fetch it that way.
 - Any failed call: say so, ask the user to paste the content. Never reconstruct a source from its title.
 
 ## 2. Break it into parts
@@ -55,7 +57,7 @@ List every usable part, one line each, with where it appears (timestamp, paragra
 | Carousel | Steps, mistakes or a checklist | 7-10 slides, one idea each, a save slide | `carousel-designer` |
 | LinkedIn post | The claim + the story behind it | First 2 lines stand alone; short paragraphs; no hashtag pile; one question at the end | `linkedin-post` |
 | Facebook post | The story or the most useful tip | Conversational; a native photo or clip beats a bare link; local angle if relevant | `caption-writer` |
-| Blog outline | The whole source | H1 = the main search query; H2s = the questions from GSC; embed the original video | `topic-finder` |
+| Blog outline | The whole source | H1 = the main search query; H2s = the questions from GSC; embed the original video | none: write the outline here |
 
 Each output gets its own opening line. Facts and claims stay identical everywhere; only the shape changes. Remove the source platform's watermark before re-uploading video.
 
@@ -68,7 +70,7 @@ Default order, adjusted to the data:
 4. **Day 3-7**: remaining reels and Facebook.
 5. **Blog**: first if GSC shows queries for the topic with no page answering them; otherwise last, linking all pieces.
 
-Links to the website get UTM tags (`utm-builder`) so `ga4_traffic_sources` can show which piece sent visits. Put the dates into `posting-plan`.
+Links to the website get UTM tags (`utm-builder`) so `ga4_run_report` with `sessionCampaignName` and `sessionManualAdContent` (utm_content) can show which piece sent visits. Put the dates into `posting-plan`.
 
 ## Output
 

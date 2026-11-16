@@ -21,8 +21,8 @@ Follow the settings and scope rules in `otto-rules.md` (in this skill's folder) 
 1. Find the Instagram account from settings (or `otto_list_connections`).
 2. `meta_ig_list_media` (rowLimit 60) to find the reel(s) by caption, link or date, plus every reel from the last 4 weeks for the baseline.
 3. `meta_ig_media_insights` in batches of up to 25 ids, metrics:
-   `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`.
-4. Ask for the reel's length in seconds if you can't see it, and what's on screen in the first second and the first spoken line. If the person can share the video or a screenshot of Instagram's retention graph, use it.
+   `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`. Send only `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+4. Get the reel's length from the `efg` value in its `mediaUrl` (decode it with code, see `otto-rules.md`) and say it was read from the video link; if `mediaUrl` is null, ask for the length in seconds. Also ask what's on screen in the first second and the first spoken line. If the person can share the video or a screenshot of Instagram's retention graph, use it.
 
 Data you must convert correctly:
 
@@ -48,14 +48,14 @@ In the dashboard's `steps`, everything after the first `fail` is `skip` ("not ju
 1. **Skip rate worse than baseline** → the first frame or the first line failed. Quote the first line, describe the first frame, and propose one new hook.
 2. **Skip fine, watch % worse than baseline** → pacing or length. Without the reel's length, don't judge this step from average watch seconds alone (a shorter reel always has fewer); compare only with reels of similar length or ask for the length. If there's a retention graph, name the second people leave and what was on screen then.
 3. **Watch % fine, shares per 1,000 reach low** → nothing worth sending to a friend. Name who this reel would be sent to; if nobody, say so. **If your usual shares per 1,000 reach is 0** (common on small accounts), this step can't tell reels apart: mark it `skip` ("not judged"), never `fail`, say why in the evidence, and go on to step 4.
-4. **Reach good, follows low** → no reason to follow. Does the reel promise more (a series, a part 2)? Does the profile match what the reel showed? (Use `profile-check`.)
+4. **Reach good, follows low** → no reason to follow. Per-reel follows aren't in the API: judge this step only from the user's in-app screenshot; without one, mark it `skip`. Does the reel promise more (a series, a part 2)? Does the profile match what the reel showed? (Use `profile-check`.)
 5. **Reach tiny on everything that week** → distribution, not content. Check muted or licensed audio, a missing video, a restriction, reposted material, or a posting gap.
 
 If the reel **over**-performed, run the same tree in reverse: which step did it beat the baseline on? That's the thing to repeat.
 
 ## 4. Output
 
-**Run alone (default): a single-reel visual card.** Fill `dashboard.html` in this folder (see `dashboard-data.md`) with this reel as the only item in `posts` (its `diagnosis` filled in), 3 KPIs (reach, skip rate, watch vs the baseline) and `meta.focusPost` set to the reel's id so the diagnosis opens on load. Show it as an artifact (claude.ai / Claude desktop), an HTML file opened in the browser (Claude Code / Cowork), or a canvas (ChatGPT). The card shows: reel link and date, verdict, the five tree steps with the failing (or winning) one highlighted, each metric next to its baseline median (skip rate, watch % or watch seconds, shares/saves/comments per 1k reach), the evidence line, and one change to try next. Two reels: two cards side by side.
+**Run alone (default): a single-reel visual card.** Fill `dashboard.html` in this folder (see `dashboard-data.md`) with this reel as the only item in `posts` (its `diagnosis` filled in), 3 KPIs (reach, skip rate, watch vs the baseline) and `meta.focusPost` set to the reel's id so the diagnosis opens on load. Show it as an artifact (claude.ai / Claude desktop), an HTML file opened in the browser (Claude Code / Cowork), or a canvas (ChatGPT). The card shows: reel link and date, verdict, the five tree steps with the failing (or winning) one highlighted, each metric next to its baseline median (skip rate, watch % or watch seconds, shares/saves/comments per 1k reach), the evidence line, and one change to try next. Two reels: put both in `posts`; the user clicks each to open its diagnosis.
 
 **Chat mode** (settings `output: chat`, or the user asks): the same content as a table:
 

@@ -31,6 +31,7 @@ All values **lowercase**, words joined with hyphens, no spaces, no accents. GA4 
 | `utm_term` | only for paid search keywords; leave out otherwise | |
 
 Rules:
+- GA4 channels: `social` and `bio` with a social source land in Organic Social, `paid-social` in Paid Social, `email` in Email. `creator` and `qr` aren't default-channel mediums, so they show as Unassigned or Referral; report those from the log. For Google Business Profile use source `gbp`, medium `organic` (with `social` it would count as Organic Social).
 - Medium separates organic, paid, creator and email so they never blend in reports. Meta ads that already set their own URL parameters keep them; log what they use.
 - Use the same campaign value on every platform for one campaign; vary source and content.
 - **Nothing personal in any value**: no customer names, emails, phone numbers, staff names, or private IDs. Use a neutral label.
@@ -41,7 +42,7 @@ For each post or placement: `<destination>?utm_source=…&utm_medium=…&utm_cam
 
 Where links can go:
 - Instagram: link in bio (medium `bio`), Stories link sticker, DMs. Caption links aren't clickable.
-- Facebook, LinkedIn: in the post. YouTube: description and pinned comment. GBP posts: the button URL.
+- Facebook, LinkedIn: in the post. YouTube long-form: description and pinned comment. Shorts: links in the description and comments aren't clickable; link to a related video or use the channel link instead. GBP posts: the button URL.
 - If a link shortener is used, the full tagged URL goes into the shortener; log both.
 
 ## 3. Log

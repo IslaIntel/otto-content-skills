@@ -4,7 +4,7 @@ description: Builds a 7-10 slide Instagram carousel from a single idea, designed
 license: MIT
 ---
 
-# Carousel builder
+# Carousel designer
 
 Produces one carousel: slide-by-slide copy, the finished slides as 1080x1350 PNGs built in code, and the caption hand-off. The structure comes from what your own audience already saves, not from a generic template. Publishing or scheduling waits for an explicit yes and depends on what this Otto connection can do.
 
@@ -26,8 +26,8 @@ Skill-specific:
 ## 1. Pull
 
 1. `meta_ig_list_media` (rowLimit 60). Keep `mediaType: CAROUSEL_ALBUM` posts at least 3 days old. The list gives caption, permalink and timestamp only: no slides, no counts.
-2. `meta_ig_media_insights` in batches of 25 with `reach, views, likes, comments, shares, saved, total_interactions`. Don't request reel metrics (`ig_reels_avg_watch_time`, `reels_skip_rate`) for carousels. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
-3. Slide content is not in the API. For the top 3 carousels, ask the user for screenshots of every slide (or open the permalink and describe them). Never guess what a slide said.
+2. `meta_ig_media_insights` in batches of 25 with `reach, views, likes, comments, shares, saved, total_interactions`. Don't request reel metrics (`ig_reels_avg_watch_time`, `reels_skip_rate`) for carousels (they fail the whole call).
+3. Slide content is not in the API. For the top 3 carousels, ask the user for screenshots of every slide. Never guess what a slide said.
 4. Search wording for the cover line: `gsc_search_analytics` (last 90 days, dimensions `["query"]`, rowLimit 250). Use non-branded queries that match the idea.
 
 **Fallbacks**
@@ -88,7 +88,7 @@ Use `slide-template.html` in this folder: one HTML file that renders N slides fr
 | `checklist` | Ticked list, 3-6 lines | The save slide |
 | `beforeafter` | Split slide, before on top, after below | Results, mistakes and fixes |
 
-Adapt each preset to the brand colours and fonts. Same template on every slide, slide number on each, swipe cue on slide 1, text large enough to read on a phone without zooming (headline 64 px or more at 1080 wide). Photos only when the user supplied them (`photo` field: a scrim keeps text readable).
+Adapt each preset to the brand colours and fonts. Same template on every slide, slide number on each slide after the cover, swipe cue on slide 1, text large enough to read on a phone without zooming (headline 64 px or more at 1080 wide). Photos only when the user supplied them (`photo` field: a scrim keeps text readable).
 
 **Render to PNG**: in Claude Code / Cowork, open the file with `?export=1` in a headless browser and screenshot each `#slide-N` at 1080x1350. In claude.ai, show the filled template as an artifact with a download step per slide. In ChatGPT, a canvas with the HTML. Name files `slide-01.png` ...
 
@@ -96,7 +96,7 @@ Adapt each preset to the brand colours and fonts. Same template on every slide, 
 
 Only when the user asks. Show the final slides in order, the caption, and the date and time with time zone; wait for a yes. Then pick the path from what's in the tool list:
 - **Scheduling** (`channel_submit_plan` available, if your Otto connection includes scheduling): upload the PNGs to the Otto media library (`media_create_upload` → upload → `media_complete`), then `channel_submit_plan` with `provider: "meta_ig"`, one step `op: "ig_publish_carousel"` with `mediaIds` (2-10, in slide order) and `caption`, plus `publishAt` (ISO with offset) and `timeZone` (IANA). With an `approveUrl`, say it will publish at that time **after they approve in Otto**. Say "scheduled" only when the result has `scheduled: true`.
-- **Publish tools only** (`meta_ig_publish_carousel`, which takes public image URLs, 2-10): publish now on approval, or queue with `post-queue`.
+- **Publish tools only** (`meta_ig_publish_carousel`, which takes public image URLs, 2-10): only if the slides are already hosted at public URLs (Otto library links are short-lived signed links and won't do). Then publish now on approval; otherwise queue with `post-queue` or hand over the files.
 - **Neither**: hand over the PNGs, the caption and the steps to post in the Instagram app.
 
 ## Output

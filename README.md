@@ -19,7 +19,7 @@
 
 **TL;DR**
 
-- **What:** skills for Claude that read your Instagram, Facebook, YouTube, LinkedIn, Google Analytics and Search Console through [Otto](https://ottowebmaster.com), then review, diagnose, plan and write your content.
+- **What:** skills for Claude that read your Instagram, Facebook, YouTube, LinkedIn, Google Analytics, Search Console and Google Business Profile through [Otto](https://ottowebmaster.com), then review, diagnose, plan and write your content.
 - **Why it's different:** you never export or paste stats. Every number comes live from your accounts and is judged against **your own** track record, not someone else's benchmark.
 - **What you get:** clean dashboards, a frame-by-frame look at your reels, hooks and scripts modelled on your own best posts, and nothing posted without your yes.
 - **Start:** [connect Otto](#1-connect-otto-to-claude-2-minutes), [install the skills](#2-install-the-skills), then ask Claude *"weekly review"*.
@@ -48,7 +48,7 @@ Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of te
   <tr>
     <td width="42%" valign="top">
       <b>Why did this reel work (or flop)?</b><br>
-      <sub>Five checks in order: hook, pacing, shares, follows, distribution. It stops at the first one that failed and gives you one fix.</sub><br><br>
+      <sub>Five checks in order: hook, pacing, shares, follows (from your in-app screenshot), distribution. It stops at the first one that failed and gives you one fix.</sub><br><br>
       <picture>
         <source media="(prefers-color-scheme: dark)" srcset="assets/reel-diagnosis-dark.png">
         <img src="assets/reel-diagnosis-light.png" alt="Reel diagnosis panel with metrics against the usual and a five-step checklist">
@@ -91,10 +91,10 @@ Step-by-step with screenshots: [How do I connect Claude?](https://ottowebmaster.
 
 | Where you use Claude | How |
 |---|---|
-| **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](https://github.com/IslaIntel/otto-content-skills/releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or upload single skills under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
+| **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](https://github.com/IslaIntel/otto-content-skills/releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or zip a single skill folder and upload it under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
 | **Claude Code** | `/plugin marketplace add IslaIntel/otto-content-skills` then `/plugin install otto-content-skills@otto-content-skills` |
-| **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. It clones the repo and copies the skills into `~/.claude/skills`. |
-| **Copy the files** | `git clone https://github.com/IslaIntel/otto-content-skills` then `./install.sh` (macOS / Linux) or `.\install.ps1` (Windows) |
+| **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. Claude Code clones the repo and runs `install.sh`, which copies the skills into `~/.claude/skills`. |
+| **Copy the files** | `git clone https://github.com/IslaIntel/otto-content-skills`, then `cd otto-content-skills`, then `./install.sh` (macOS / Linux) or `powershell -ExecutionPolicy Bypass -File .\install.ps1` (Windows). A folder with the same skill name in `~/.claude/skills` is replaced. |
 
 ### 3. Try it
 
@@ -118,7 +118,7 @@ Why did my last reel flop?
 
 ## The skills
 
-Every skill pulls live data through Otto, compares it with **your usual** (the median of your own posts from the last 28 days) and shows the result as a dashboard you can click through, or in chat if you prefer.
+Every skill pulls live data through Otto and compares it with **your usual** (the median of your own posts from the last 28 days, counting posts at least 3 days old). Reports come as a dashboard you can click through; writing skills give you the finished text. Or ask for any of it in chat.
 
 ### Measure: what's working
 
@@ -170,7 +170,7 @@ Every skill pulls live data through Otto, compares it with **your usual** (the m
 |---|---|---|
 | [content-engine](skills/content-engine/SKILL.md) | Runs the whole loop (research, plan, write, post, reply, measure) and stops for your approval at each step | *"Run the content engine"* |
 | [posting-plan](skills/posting-plan/SKILL.md) | A 2-4 week plan around your winners and what's already planned | *"Plan my next two weeks"* |
-| [post-queue](skills/post-queue/SKILL.md) | Posts your finished, approved content at the times you pick, using your AI app's scheduled tasks | *"Post this at 9am tomorrow"* |
+| [post-queue](skills/post-queue/SKILL.md) | Posts your finished, approved content at the times you pick, using your AI app's scheduled tasks. Test it on one post first | *"Post this at 9am tomorrow"* |
 | [content-pillars](skills/content-pillars/SKILL.md) | 3-5 themes chosen from evidence, with 10 ideas each | *"Build my content pillars"* |
 | [repurpose](skills/repurpose/SKILL.md) | Turns your best video or post into reels, a carousel, LinkedIn and Facebook posts, and a blog outline | *"Repurpose my best video"* |
 | [comment-to-lead](skills/comment-to-lead/SKILL.md) | Sorts comments, drafts replies, and writes the DM flow to a booked call | *"Reply to my comments"* |
@@ -180,7 +180,7 @@ Every skill pulls live data through Otto, compares it with **your usual** (the m
 
 ## How it works
 
-- **Your numbers, not benchmarks.** "Your usual" is the median of your own posts from the last 28 days, the same definition in every skill. A reel is good or bad compared with what *your* account usually does.
+- **Your numbers, not benchmarks.** "Your usual" is the median of your own posts from the last 28 days (posts at least 3 days old), the same definition in every skill. A reel is good or bad compared with what *your* account usually does.
 - **Ask once, remembered.** The first run asks a few quick questions (which account, which platforms, timezone, dashboard or chat). With a folder (Claude Code, Cowork) they're saved in `brand/settings.md`; in claude.ai they live in your Project or Claude's memory.
 - **Only what you asked for.** Say "my Instagram" and you get Instagram only. Platforms you haven't connected get one line with a connect link, never an empty chart.
 - **Nothing goes out without you.** Anything that posts, replies, schedules or touches ads shows you exactly what will happen and waits for your yes. What a skill can do for you depends on what your Otto connection includes; when it can't post for you, it hands you the finished file and the steps.
@@ -195,9 +195,9 @@ All of them work. They differ in where your settings live and what Claude can do
 |---|---|---|---|
 | Best for | Quick reviews and writing | Most people: one folder for everything, no code | People comfortable with a terminal |
 | Your brand brain | A Claude **Project** (paste the brand card) | A `brand/` folder on your computer | A `brand/` folder on your computer |
-| Dashboards | Artifact in the chat | Artifact or HTML file | HTML file in your browser |
+| Dashboards | Artifact in the chat | Artifact (desktop chat) or HTML file (Cowork) | HTML file in your browser |
 | Video skills | Upload the MP4 | Works on the file | Works on the file |
-| Posting at set times (`post-queue`) | Not available | Scheduled tasks | Scheduled tasks |
+| Posting at set times (`post-queue`) | Not available | Scheduled tasks | Scheduled tasks (desktop app; cloud agents can't read local files) |
 
 ## Use it outside Claude
 
@@ -206,8 +206,8 @@ The skills follow the open [Agent Skills](https://agentskills.io) format (a fold
 | App | Connect Otto | Add the skills |
 |---|---|---|
 | **ChatGPT** (Business, Enterprise, Edu) | [Otto's ChatGPT guide](https://ottowebmaster.com/introduction/mcp/chatgpt) | **Skills → Create → Upload from computer**, one skill folder (zipped) at a time |
-| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Cursor reads `.cursor/skills/` and `.claude/skills/`. Run `OTTO_SKILLS_DIR=.cursor/skills ./install.sh` in your project |
-| **Codex, Gemini CLI, GitHub Copilot, Goose and others** | Add `https://otto.islaintel.com/api/mcp` as a remote MCP server | Copy the `skills/` folders to wherever the app loads skills from (`OTTO_SKILLS_DIR=<that folder> ./install.sh`) |
+| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Cursor reads `.cursor/skills/` and `.claude/skills/`. Clone this repo, then from your project folder run its installer with the target set: `OTTO_SKILLS_DIR=.cursor/skills /path/to/otto-content-skills/install.sh` (macOS / Linux) or `$env:OTTO_SKILLS_DIR='.cursor\skills'; powershell -ExecutionPolicy Bypass -File C:\path\to\otto-content-skills\install.ps1` (Windows) |
+| **Codex, Gemini CLI, GitHub Copilot, Goose and others** | Add `https://otto.islaintel.com/api/mcp` as a remote MCP server | Copy the `skills/` folders to wherever the app loads skills from (from the cloned repo: `OTTO_SKILLS_DIR=<that folder> ./install.sh`) |
 
 Built and tested on Claude first. Dashboards need an app that can create files or render HTML; where it can't, ask for the result in chat.
 
@@ -228,7 +228,7 @@ No. Claude's memory here is a plain folder of text files (`brand/` and `social-d
 <details>
 <summary><b>Is my data private?</b></summary>
 
-The skills read your numbers through your own Otto connection and keep history in files on your computer (or in your chat). Nothing is sent anywhere else. Your ad and analytics credentials stay in Otto; Claude only gets the connector.
+The skills read your numbers through your own Otto connection and keep history in files on your computer (or in your chat). The skills don't send your data anywhere except Otto and the AI app you're using. Your ad and analytics credentials stay in Otto; Claude only gets the connector.
 </details>
 
 <details>
@@ -270,11 +270,11 @@ If a skill saved you an hour, [⭐ star the repo](https://github.com/IslaIntel/o
 
 [MIT](LICENSE). In plain words: you can use these skills for free, for yourself or for clients, change them, and share or sell what you build with them. The one condition is to keep the copyright and license notice in any copy you pass on. They come as they are, with no warranty.
 
-The license covers the skills, templates and scripts. The Otto name, logo and mascot are Otto's brand and aren't licensed for reuse.
+The license covers the skills, templates and scripts. The Otto name, logo and mascot are Otto's brand and aren't licensed for reuse (see [NOTICE](NOTICE)).
 
 ---
 
 <p align="center">
   <a href="https://ottowebmaster.com"><img src="assets/otto-icon.png" width="40" alt="Otto"></a><br>
-  <sub>Otto is the AI webmaster and marketer for small businesses. These skills are the do-it-yourself version; <a href="https://ottowebmaster.com">Otto</a> can run it with you.</sub>
+  <sub>Otto is the AI webmaster and marketer for small businesses. These skills are the do-it-yourself version; <a href="https://ottowebmaster.com">Otto</a> can run them for you.</sub>
 </p>

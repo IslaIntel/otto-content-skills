@@ -13,7 +13,7 @@ Some Otto connections can publish now but can't schedule for later. This skill f
 Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
 - Read `brand/settings.md` (or the assistant's memory) for workspace, accounts and timezone. Ask only what's missing, in one bundled multiple-choice question, and save the answers.
 - Only queue for platforms the user named, or the defaults in settings.
-- **Capability check first.** If this session has `channel_submit_plan` (scheduling with `publishAt`), stop here: schedule through Otto instead (`posting-plan` step 5 shows how). This skill is only for connections with publish tools (`meta_ig_publish_reel`, `meta_page_publish_video`, ...) and no scheduling. With neither, give the user the files, captions and times to post by hand.
+- **Capability check first.** If this session has `channel_submit_plan` (scheduling with `publishAt`), schedule through Otto instead (`posting-plan` step 5 shows how). This skill is for connections with publish tools (`meta_ig_publish_reel`, `meta_page_publish_video`, ...) where `channel_submit_plan` is missing or comes back refused. With neither, give the user the files, captions and times to post by hand.
 - Output is visual by default (artifact / HTML file / canvas) unless settings or the user say chat.
 
 Skill questions: posting times (e.g. 9:00, 12:00, 16:00), the daily cap (default 3 posts a day per account), and where the user's assistant runs (see step 3).
@@ -31,7 +31,7 @@ Write `social-data/queue/queue.json` (or `queue.md` if the user prefers to read 
   "mediaId": null, "coverMediaId": null,
   "caption": "<exact approved caption>",
   "publishAt": "2026-11-20T09:00:00", "timeZone": "America/Chicago",
-  "status": "pending", "approvedAt": null,
+  "status": "pending", "approvedAt": null, "approvedFingerprint": null,
   "result": null, "error": null
 }
 ```
@@ -39,11 +39,11 @@ Write `social-data/queue/queue.json` (or `queue.md` if the user prefers to read 
 - Status flows `pending` → `approved` → `posted` or `failed`. Only `approved` items are ever published.
 - Captions are final text, not notes. Check length (Instagram caption max 2,200 characters).
 - Files are the user's own (from `cover-designer`, their editor, their camera). Check each path exists before showing the queue.
-- Platform tools: Instagram reel `meta_ig_publish_reel` (mediaId, caption, optional coverMediaId; the cover can only be set at publish). Facebook reel `meta_page_publish_video`. Instagram image and carousel tools take public image URLs, not library ids; if the library can't give a public URL, those items stay manual (unverified, test first).
+- Platform tools: Instagram reel `meta_ig_publish_reel` (mediaId, caption, optional coverMediaId; the cover can only be set at publish). Facebook reel `meta_page_publish_video` (pageId, mediaId, the caption as `description`, optional coverMediaId, confirm true). Instagram image and carousel tools take public image URLs, not library ids; if the library can't give a public URL, those items stay manual (unverified, test first).
 
 ## 2. One approval, item by item
 
-Show the whole queue as it will post: for each item the platform and account, the time with timezone, the full caption, and the video/cover/images (preview in the visual). Then ask once, with options: "Approve all", "Approve some (list ids)", "Change something". Mark only the approved ids `approved` with `approvedAt`. Any later edit to an item sets it back to `pending` and needs a new yes.
+Show the whole queue as it will post: for each item the platform and account, the time with timezone, the full caption, and the video/cover/images (preview in the visual). Then ask once, with options: "Approve all", "Approve some (list ids)", "Change something". Mark only the approved ids `approved` with `approvedAt` and `approvedFingerprint` (each file's byte size and SHA-256, and the caption's SHA-256). Any later edit to an item sets it back to `pending` and needs a new yes.
 
 ## 3. Set up the scheduled tasks
 
@@ -59,7 +59,7 @@ Say "unverified, test on a test account first" for any environment you haven't s
 
 **The task prompt** (paste as is, with the queue path filled in):
 
-> Read `<path>/social-data/queue/queue.json`. Take the single earliest item with status `approved` whose `publishAt` is now or up to 30 minutes past, in its timeZone. If none, stop. Check today's posted count for that account is under the cap of <n>; if not, stop. If the item has no `mediaId`, upload its file to the Otto library: `media_create_upload` (filename, mimeType, byteSize, purposes ["publish"]), PUT the bytes to the returned URL, then `media_complete`; do the same for the cover. Save the ids in the item. Publish with the item's platform tool (for an Instagram reel: `meta_ig_publish_reel` with mediaId, the caption exactly as stored, coverMediaId if present, confirm true). On success set status `posted` and store the permalink in `result`. Append one line to `social-data/queue/log.md`: time, id, platform, result or error. If the file is missing, the caption or files differ from the approved item, or any call fails: do not retry, set status `failed` with the error, log it, and stop. Never publish an item that isn't `approved`.
+> Read `<path>/social-data/queue/queue.json`. Take the single earliest item with status `approved` whose `publishAt` is now or up to 30 minutes past, in its timeZone. If none, stop. Check today's posted count for that account is under the cap of <n>; if not, stop. If the item has no `mediaId`, upload its file to the Otto library: `media_create_upload` (filename, mimeType, byteSize, purposes ["publish"]), PUT the bytes to the returned URL, then `media_complete`; do the same for the cover. Save the ids in the item. Publish with the item's platform tool (for an Instagram reel: `meta_ig_publish_reel` with mediaId, the caption exactly as stored, coverMediaId if present, confirm true; for a Facebook reel: `meta_page_publish_video` with pageId, mediaId, the caption exactly as stored as `description`, coverMediaId if present, confirm true). On success set status `posted` and store the permalink in `result`. Append one line to `social-data/queue/log.md`: time, id, platform, result or error. If a file is missing, a file's size or SHA-256 or the caption's SHA-256 differs from `approvedFingerprint`, or any call fails: do not retry, set status `failed` with the error, log it, and stop. Never publish an item that isn't `approved`.
 
 ## 4. After it runs
 
@@ -75,4 +75,4 @@ The queue as a visual: one card per item (preview, platform, time, caption, stat
 - Retry a failed post in a loop, or post over the daily cap.
 - Use browser automation or any route other than Otto's publish tools.
 - Say something is posted without a permalink from the tool result.
-- Use this when the connection already has `channel_submit_plan`.
+- Use this when `channel_submit_plan` is available and not refused.

@@ -1,6 +1,6 @@
 ---
 name: best-time-to-post
-description: Work out when to post from your own history, comparing your posting times (converted to your timezone) with reach and views on the posts Otto pulls from Instagram, Facebook, LinkedIn and YouTube, plus website visits by hour from GA4, and give an honest hypothesis to hold for 4 weeks. Use when asked "what time do my posts do best", "what hour should I post at", "what day is best for me", "does posting time matter for my account", or "set my posting schedule".
+description: Work out when to post from your own history, comparing your posting times (converted to your timezone) with reach and views on the posts Otto pulls from Instagram, Facebook and YouTube, plus website visits by hour from GA4, and give an honest hypothesis to hold for 4 weeks. Use when asked "what time do my posts do best", "what hour should I post at", "what day is best for me", "does posting time matter for my account", or "set my posting schedule".
 license: MIT
 ---
 
@@ -22,7 +22,7 @@ Then:
 
 - **Instagram**: `meta_ig_list_media` (rowLimit 60). `timestamp` comes back in UTC (`+0000`): convert to the local timezone before bucketing. Then `meta_ig_media_insights` (batches of 25): `views, reach, shares`.
 - **Facebook**: `meta_page_posts` (`createdTime`) + `meta_page_post_insights`.
-- **LinkedIn**: `linkedin_page_posts`.
+- **LinkedIn**: `linkedin_page_posts` gives posting times only, with no per-post results, so LinkedIn can't be bucketed. Say so in one line.
 - **YouTube**: `youtube_list_recent_videos` (publish time) + `youtube_channel_analytics` dimensions `["video"]`, metrics `["views"]`.
 - **Website activity by hour (GA4, optional)**: `ga4_run_report` dimensions `["dayOfWeekName","hour"]`, metric `sessions`, last 8 weeks. This shows when your audience is online and on your site, in the property's timezone. Add a filter on `sessionDefaultChannelGroup` = `Organic Social` if there's enough social traffic (50+ sessions).
 - Instagram's "most active times" for followers isn't available through the API (`online_followers` returns an error). If the person can screenshot it from the app (Professional dashboard > Total followers > Most active times), use it as one more input.
@@ -31,7 +31,7 @@ Use posts 7+ days old. `ok: false`: say so and continue.
 
 ## 2. Compute
 
-1. **Normalise**: for each post, reach ÷ the platform median of the 10 posts around it (5 before, 5 after). This removes slow drift in account size, so a post isn't "good" just because it was recent.
+1. **Normalise**: for each post, reach (Instagram) or views (Facebook `post_media_view`, YouTube) ÷ the platform median of the 10 posts around it (5 before, 5 after). This removes slow drift in account size, so a post isn't "good" just because it was recent.
 2. **Bucket** by local day part: early (5-9), morning (9-12), midday (12-15), afternoon (15-18), evening (18-22), late (22-5). Also by weekday vs weekend. Hours are too fine for most accounts.
 3. Per bucket: n, median normalised reach, and the share of posts above 1.0.
 
@@ -41,7 +41,7 @@ Use posts 7+ days old. `ok: false`: say so and continue.
 |---|---|
 | Fewer than 20 posts on the platform | Not enough data. Give a starting slot from GA4 peaks or the app's active-times screenshot, labelled as a guess. |
 | Buckets with n < 5 | "too few to tell", whatever the median |
-| Best bucket ≤ 1.2x the worst bucket with n ≥ 5 | Timing doesn't visibly matter for you. Pick slots you can keep and focus on content. |
+| Best bucket under 1.3x the worst bucket with n ≥ 5 | Timing doesn't visibly matter for you. Pick slots you can keep and focus on content. |
 | Best bucket ≥ 1.3x, n ≥ 5, and 2/3 of its posts above 1.0 | A real lean. Make it the main slot. |
 | All posts in one or two buckets | You've never tested other times: the data can't compare. Propose one test slot. |
 

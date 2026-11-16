@@ -12,7 +12,7 @@ Otto can't read another account's numbers. Evidence about the creator comes from
 
 ## 0. Setup
 
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
 - Read `brand/settings.md` (or the assistant's memory) for workspace, accounts and output mode. Ask only what's missing, in one bundled multiple-choice question, and save the answers.
 - Measure only the platforms the collab runs on.
 - Output is visual by default (artifact / HTML file / canvas) unless settings or the user say chat. Message drafts are also given as plain text to copy.
@@ -21,7 +21,7 @@ Also read `brand/offer.md`, `brand/audience.md`, `brand/voice.md`, `brand/facts.
 
 Skill questions: the goal (sales, leads, followers, content to reuse in ads), budget or what you can offer (fee, product, commission), and the creator's handle or links.
 
-**Your baseline** (so you know what "good" means): `meta_ig_list_media` + `meta_ig_media_insights` (`reach, views, shares, saved, comments`) for the last 30 posts → median reach and shares per 1,000 reach. If GA4 is connected, `ga4_traffic_sources` for last 28 days: sessions and key events from Organic Social.
+**Your baseline** (so you know what "good" means): `meta_ig_list_media` + `meta_ig_media_insights` (`reach, views, shares, saved, comments`) for posts at least 3 days old from the previous 28 days → median reach (your usual) and shares per 1,000 reach. If GA4 is connected, `ga4_traffic_sources` for last 28 days: sessions and key events from Organic Social.
 
 ## Mode 1: Fit check
 
@@ -36,7 +36,7 @@ Ask the user for the creator's last 10-12 posts (links or screenshots) and, if o
 | Trust | They disclose paid posts; past sponsors fit their niche | Five unrelated sponsors this month |
 | Conflict | No direct competitor in the last 90 days | Promoted a competitor recently |
 
-Score each Pass / Unclear / Fail. Any Fail on Audience or Conflict = don't approach. Label every point "seen in their posts" or "assumed". Follower count is not a criterion. Cost check: fee ÷ their typical views, compared with what you'd pay for the same views with ads (`campaign-plan` has your CPM if Meta ads are connected).
+Score each Pass / Unclear / Fail. Any Fail on Audience or Conflict = don't approach. Label every point "seen in their posts" or "assumed". Follower count is not a criterion. Cost check: fee ÷ (their typical views / 1,000) gives their cost per 1,000 views; compare it with what you'd pay for 1,000 views with ads (`campaign-plan` has your CPM if Meta ads are connected).
 
 ## Mode 2: First message
 
@@ -84,8 +84,8 @@ This is a checklist, not legal advice; for big deals, a lawyer reads the contrac
 Before posting, set up: a link from `utm-builder` (`utm_source=instagram&utm_medium=creator&utm_campaign=<creator>-<yyyymm>`) and, if useful, a code unique to them.
 
 7 and 28 days after posting:
-- **Collab post on your account** (Instagram collab or a reel you posted): find it with `meta_ig_list_media`, then `meta_ig_media_insights` (`views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`). Compare with your median. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
-- **Your account**: `meta_ig_account_insights` (`metricType: time_series`, `reach`, `follower_count`) for 7 days before vs 7 days after. `follower_count` is daily new follows.
+- **Collab post on your account** (Instagram collab or a reel you posted): find it with `meta_ig_list_media`, then `meta_ig_media_insights` (`views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`). Compare with your median. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call). If the post isn't in your media list, it's the creator's post: only they see its insights, so ask them for a screenshot.
+- **Your account**: `meta_ig_account_insights` (`metricType: time_series`, `reach`, `follower_count`) for 7 days before vs 7 days after (`endDate` = last day + 1; end dates are exclusive). `follower_count` is daily new follows and only exists at 100+ followers.
 - **Website**: `ga4_run_report` with dimension `sessionCampaignName` (or `sessionSource`) filtered to the campaign, metrics sessions and key events.
 - **Their side**: ask the creator for a screenshot of their post insights (reach, link clicks, story taps).
 - Codes and sales: from the user's store.

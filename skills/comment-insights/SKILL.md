@@ -4,7 +4,7 @@ description: Pull the comments from the sources you choose (Instagram, Facebook,
 license: MIT
 ---
 
-# Comment mining
+# Comment insights
 
 Your audience writes your content plan in the comments. This skill reads them at scale, counts what repeats, and keeps their exact words so hooks and captions sound like the customer, not the brand. Every idea it returns traces back to real comments.
 
@@ -13,20 +13,20 @@ Read-only on every platform. It never replies, hides or deletes. For replying to
 ## 0. Setup
 
 Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
-- Read `brand/settings.md` (or your memory of the user's Otto settings) first: workspace, accounts, output mode, `comment_sources`. Ask only what's missing and save the answers. If the workspace has more than one Instagram or Facebook account (`meta_page_list`), ask which one.
-- **Sources (first run, or when `comment_sources` isn't set)**: check `otto_list_connections`, then ask one multiple-choice question listing only the sources this connection can read: Instagram (`meta_ig`), Facebook (`meta_pages`), LinkedIn (`linkedin_pages`), Google reviews (`gbp`), Reddit (only if `voc_search_reddit` is in the tool list), plus "All connected" first. Save the answer as `comment_sources`. If the user names sources in the request, use those for this run.
+- Read `brand/settings.md` (or your memory of the user's Otto settings) first: workspace, accounts, output mode, `Comment sources`. Ask only what's missing and save the answers. If the workspace has more than one Instagram or Facebook account (`meta_page_list`), ask which one.
+- **Sources (first run, or when `Comment sources` isn't set)**: check `otto_list_connections`, then ask one multiple-choice question listing only the sources this connection can read: Instagram (`meta_ig`), Facebook (`meta_pages`), LinkedIn (`linkedin_pages`), Google reviews (`gbp`), Reddit (only if `voc_search_reddit` is in the tool list), plus "All connected" first. Save the answer as `Comment sources`. If the user names sources in the request, use those for this run.
 - A source with nothing in the window gets one line ("No Facebook comments in this window"), never an empty table or a zero row. Out-of-scope sources aren't mentioned.
 
 Read `brand/audience.md` and `brand/offer.md` if present. Window: the last 90 days of posts, or the last 50 posts per platform, whichever is more. Ask whether to include DMs or sales-call notes the user can paste (Otto can't read DMs).
 
-## 1. Pull (only the sources in `comment_sources`)
+## 1. Pull (only the sources in `Comment sources`)
 
 **Instagram**
 1. `meta_ig_list_media` (rowLimit 60). Keep posts with `commentsCount` > 0; sort by `commentsCount` descending so the busiest threads come first.
-2. `meta_ig_list_comments(mediaId, rowLimit 100)` for each. Fields: `text, username, timestamp, likeCount, hidden`.
+2. `meta_ig_list_comments(mediaId, rowLimit 100)` for each. Fields: `text, username, timestamp, likeCount` (and `hidden`, if the result includes it).
 3. `text` can come back `null` (Meta withholds some comment text). Count those as "unreadable" and report how many; ask for a screenshot if a busy thread is mostly unreadable.
 
-**Facebook Page**: `meta_page_posts` (rowLimit 50), then `meta_page_list_comments(postId)` for posts with engagement. Includes replies.
+**Facebook Page**: `meta_page_posts` (rowLimit 50), then `meta_page_list_comments(postId)` on each post (the post list has no comment counts). Includes replies.
 
 **LinkedIn Page**: `linkedin_page_posts`, then `linkedin_page_list_comments(postId)`. This can fail with `linkedin_api_403` (the connection lacks comment permission). Then say so and ask the user to paste comments from their top 5 LinkedIn posts.
 
@@ -80,14 +80,14 @@ Rank by: confirmed > recurring > emerging, then by count.
 
 
 ```markdown
-# Comment mining: <business> (<date range>)
+# Comment insights: <business> (<date range>)
 Read: <n> comments on <n> posts, by source (only sources in scope that returned something; one line for a source with nothing). Unreadable: <n>. Noise removed: <n>.
 
 ## What they ask, object to and want
 | Cluster (their words) | Type | Count | People | Posts | Status | Their exact phrases |
 
 ## Content ideas, ranked
-1. "<hook in their words>" — answers <cluster> (<n> comments). Format: <reel/carousel/post>. Next: `hook-writer` / `carousel-designer`.
+1. "<hook in their words>": answers <cluster> (<n> comments). Format: <reel/carousel/post>. Next: `hook-writer` / `carousel-designer`.
 
 ## FAQ draft
 **<question in their words>**

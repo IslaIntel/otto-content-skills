@@ -10,8 +10,11 @@ Decides the 3-5 themes the account posts about, using what people search for, wh
 
 ## 0. Setup
 
-- If more than one Otto workspace is connected, ask which business, then keep it. If the workspace has more than one Instagram or Facebook account (`meta_page_list`), ask which one.
-- `otto_list_connections` to see what's connected.
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
+- Call `otto_list_workspaces` if available. With several workspaces, ask which business, then keep it. If the workspace has more than one Instagram or Facebook account (`meta_page_list`), ask which one.
+- Read `brand/settings.md` (or memory) for workspace, accounts, default platforms and output mode. Ask only what's missing, in one multiple-choice message, and save the answers.
+- Scope is the platforms the user names, else the defaults from settings. `otto_list_connections` to see what's connected.
+- Output is visual by default (artifact / HTML file / canvas) unless settings or the user say chat. `brand/pillars.md` is written either way.
 - Read `brand/offer.md`, `brand/audience.md`, `brand/winners.md` if they exist. Without `brand/offer.md`, ask: what you sell, who buys it, and what a viewer should do next.
 - If `brand/pillars.md` exists, this run is an update: compare against it.
 
@@ -19,9 +22,9 @@ Decides the 3-5 themes the account posts about, using what people search for, wh
 
 | Signal | Pull |
 |---|---|
-| What strangers search | `gsc_search_analytics` dimensions `["query"]`, rowLimit 500 |
+| What strangers search | `gsc_search_analytics` dimensions `["query"]`, rowLimit 500 (if the result is saved to a file, parse it with code) |
 | What locals search | `gbp_search_keywords` (rowLimit 200), local businesses only |
-| What performs | `meta_ig_list_media` (rowLimit 60) → `meta_ig_media_insights` (batches of 25: `reach, views, shares, saved, comments, likes`); `meta_page_posts` → `meta_page_post_insights`; `linkedin_page_posts`; `youtube_top_videos` |
+| What performs | `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 90; it has no paging, so say how many days it covered) → `meta_ig_media_insights` (batches of 25: `reach, views, shares, saved, comments, likes`); `meta_page_posts` → `meta_page_post_insights`; `linkedin_page_posts`; `youtube_top_videos` |
 | What people ask | `meta_ig_list_comments` on the top 10 posts; `meta_page_list_comments`; `linkedin_page_list_comments`; `gbp_list_reviews` for local businesses |
 | What sells | `brand/offer.md`, or `ga4_landing_pages` to see which offer pages get visits |
 

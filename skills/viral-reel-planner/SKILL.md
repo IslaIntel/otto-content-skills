@@ -1,6 +1,6 @@
 ---
 name: viral-reel-planner
-description: Plan a short-form video (Instagram Reel, YouTube Short, TikTok) backwards from the one result you want, building the hook checklist from your own winners and losers pulled through the Otto MCP (skip rate, watch time, shares, saves). Use when someone says "help me go viral", "plan a reel", "I have an idea for a video", "how do I get more shares", "my reels get no views", or "what should my next reel be".
+description: Plan a short-form video (Instagram Reel, YouTube Short; TikTok from what you paste) backwards from the one result you want, building the hook checklist from your own winners and losers pulled through the Otto MCP (skip rate, watch time, shares, saves). Use when someone says "help me go viral", "plan a reel", "I have an idea for a video", "how do I get more shares", "my reels get no views", or "what should my next reel be".
 license: MIT
 ---
 
@@ -22,7 +22,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 - `meta_ig_list_media` (rowLimit 60) and `meta_ig_media_insights` in batches of 25: `views, reach, likes, comments, shares, saved, ig_reels_avg_watch_time, reels_skip_rate`. Reels at least 3 days old only. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - If `brand/winners.md` is under 2 weeks old, use it and only pull reels posted since.
 - YouTube Shorts: `youtube_top_videos` (last 90 days) for views and averageViewDuration; `youtube_channel_analytics` with dimension `video` and metrics `views, averageViewPercentage, subscribersGained, shares` for which videos earned subscribers.
-- Ask the reel length and first spoken line for the top and bottom 5 if they aren't in `brand/winners.md`. The API doesn't return length.
+- Read each reel's length from the `mediaUrl` `efg` value with code (see `otto-rules.md`); ask only when `mediaUrl` is null. Ask the first spoken line for the top and bottom 5 if it isn't in `brand/winners.md`.
 
 **Second source: other accounts' reels (comparison only).** If `meta_ig_business_discovery` is in the tool list, pull recent reels from accounts the user names (or that `trend-radar` found) with their likes and comments. Otherwise use examples the user supplies (links or files), analysed with `reel-breakdown`. Your own winners stay the primary evidence; other accounts show formats and hook shapes worth trying, never wording to copy.
 
@@ -80,7 +80,7 @@ Goal: <one>  -> judged by <metric>, your median is <x>
 Feeling: <one line>
 Format: <format> (your winners in this format: <n>)
 Hook (chosen): spoken "<line>" | first frame: <what's moving> | text: "<on-screen text>"
-  Checklist: principles 6/6 | your data: <lines it passes / fails>
+  Checklist: principles <n>/6 | your data: <lines it passes / fails>
 Hold: <the open question> | turns at ~<s>s, ~<s>s
 Payoff: <what's shown, and that it's true>
 Next step: <CTA> -> delivers <thing>

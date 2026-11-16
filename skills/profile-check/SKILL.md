@@ -1,6 +1,6 @@
 ---
 name: profile-check
-description: Check the social profiles your content sends people to (Instagram first, then TikTok, YouTube, Facebook, LinkedIn, X) and propose the smallest changes so a visitor arriving from one post understands who you are, what you offer, and the one thing to do next. Use when asked "check my profile", "fix my bio", "which posts should I pin", or when reels get views but few follows, DMs or site visits.
+description: Check the social profiles your content sends people to (Instagram first, then TikTok, YouTube, Facebook, LinkedIn, X; TikTok and X from screenshots) and propose the smallest changes so a visitor arriving from one post understands who you are, what you offer, and the one thing to do next. Use when asked "check my profile", "fix my bio", "which posts should I pin", or when reels get views but few follows, DMs or site visits.
 license: MIT
 ---
 
@@ -20,10 +20,10 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 Ask for phone screenshots of each profile, or the public URL. Record only what is actually there: name field, handle, category, bio, link, pinned posts, highlights, the first nine grid covers.
 
 From the Otto MCP (read-only), if connected:
-- Instagram: `meta_ig_account_insights` (time_series `reach`, `follower_count`) for the last 28 days, and `meta_ig_list_media` for what's pinned and recent.
-- If GA4 is connected: `ga4_traffic_sources` shows how many site visits come from each social platform.
+- Instagram: `meta_ig_account_insights` (time_series `reach`, `follower_count`) for the last 28 days (`follower_count`, daily new follows, only exists at 100+ followers), `meta_ig_list_media` (rowLimit 30) for recent posts, and `meta_ig_media_insights` on them (`reach, shares, comments`) to find the best performer. Otto doesn't show which posts are pinned: take that from the screenshots or URL.
+- If GA4 is connected: `ga4_run_report` with dimension `sessionSource`, metric `sessions`, filtered to `sessionDefaultChannelGroup` = Organic Social, shows how many site visits come from each social platform.
 
-If `brand/offer.md` doesn't say, ask for the business's one-line offer and the one action they want visitors to take (book, buy, DM a keyword, visit the site), if you don't know them.
+If `brand/offer.md` doesn't say, ask for the business's one-line offer and the one action they want visitors to take (book, buy, DM a keyword, visit the site).
 
 ## 2. The ten-second test
 

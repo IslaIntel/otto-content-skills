@@ -1,6 +1,6 @@
 ---
 name: brand-brain
-description: Build and keep a plain `brand/` folder (settings, voice, audience, offer, facts, winners) that every Otto content skill reads, seeded from your real Instagram numbers, comments and website copy pulled through the Otto MCP, and updated at the end of each session. Works with a folder (Claude Code, Cowork, desktop) or without one (claude.ai, ChatGPT) via downloadable files and a short brand card. Use when someone says "set up my brand", "learn my business", "remember this", "wrap up", "save what we learned", or before the first time they use a creation skill.
+description: Build and keep a plain `brand/` folder (settings, voice, audience, offer, facts, winners) that every Otto content skill reads, seeded from your real Instagram numbers, comments and website copy pulled through the Otto MCP, and updated when you wrap up a session. Works with a folder (Claude Code, Cowork, desktop) or without one (claude.ai, ChatGPT) via downloadable files and a short brand card. Use when someone says "set up my brand", "learn my business", "remember this", "wrap up", "save what we learned", or before the first time they use a creation skill.
 license: MIT
 ---
 
@@ -44,13 +44,13 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 - Workspace first: `otto_list_workspaces` (if available) and use the chosen workspace's **id** in every call; the workspace is often not named after the business. Then `otto_list_connections` for the platforms and `meta_page_list` for the Instagram/Facebook accounts. With more than one account on a platform, **ask which one** (names as options); never pick by matching a name. Also ask: default platforms (offer "All connected"), timezone, output (visual or chat), and CTA (on / off / ask).
 - If `brand/` already exists, read it and offer to refresh rather than overwrite.
 
-### 2. Interview (five questions, one message)
+### 2. Interview (six questions, one message)
 1. What do you sell, and what's the one thing you want a viewer to do next (book, call, DM, buy, visit)?
 2. Who is your best customer, in one sentence?
 3. Three words that describe how you sound, and one word you'd never use.
 4. Anything you must not claim (prices that change, results you can't promise, regulated words)?
 5. Your website URL, if you have one.
-6. Your brand colours and fonts, or "take them from my site" (then read them from the site's styles, show the hex codes and font names, and ask them to confirm). Save them under Brand look so cover, carousel and story skills don't have to guess.
+6. Your brand colours and fonts, or "take them from my site" (only if you can open the site in a browser: read the hex codes and font names from its styles, show them and ask the owner to confirm. `voc_fetch_url` returns text only, so otherwise ask for the codes, a brand guide or a screenshot). Save them under Brand look so cover, carousel and story skills don't have to guess.
 
 Don't ask what the data can answer.
 

@@ -6,13 +6,13 @@ license: MIT
 
 # Content engine
 
-Every other skill in the pack handles a single step. This is the conductor: it calls them in order, hands each result to the next step, and pauses wherever you need to decide. It needs nothing beyond Claude and the Otto MCP. Filming and editing are done by you (or your editor); everything around them is prepared here.
+Every other skill in the pack handles a single step. This is the conductor: it calls them in order, hands each result to the next step, and pauses wherever you need to decide. It needs nothing beyond Claude and the Otto MCP (plus an optional DM tool if you automate DMs). Filming and editing are done by you (or your editor); everything around them is prepared here.
 
 Every write (publishing, scheduling, replying) happens only after an explicit yes on the exact content, in this conversation, and only through tools this connection actually has.
 
 ## 0. Setup (first run only)
 
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short:
 - Read `brand/settings.md` (or the assistant's memory) for workspace, accounts, default platforms, timezone and output mode. Ask only what's missing, in one bundled multiple-choice question, and save the answers.
 - Scope = the platforms the user named, else the defaults; ask once if there are none ("All connected" as an option). Instagram (`meta_ig`) is the core. A useful platform that isn't connected gets one mention with `otto_connect_link`.
 - **Capability check**: look at which Otto tools this session has (or `otto_list_connections`) once, and note it: scheduling (`channel_submit_plan`), publish (`meta_ig_publish_reel`, ...), comment replies (`meta_ig_reply_comment`, ...). Each step below uses that note; don't promise a write the connection can't do.
@@ -35,7 +35,7 @@ Skill questions: how many pieces this run (default 1 reel), the comment keyword 
 | 9 | Human pass | `sound-human` | Script and caption cleaned of AI tells | No |
 | 10 | Cover | `cover-designer` | Cover built in code from your frame and text | No |
 | 11 | Review pack | (this skill) | Everything above on one page | **STOP C**: you approve or edit |
-| — | *You film and edit* | | The video goes into the Otto media library | Wait for the user |
+| (you) | *You film and edit* | | The video goes into the Otto media library | Wait for the user |
 | 12 | Post | `posting-plan`, then Otto scheduling, `post-queue` or by hand | A time slot from `best-time-to-post` data, then the post going out by the path this connection allows | **STOP D**: yes to publish, schedule or queue |
 | 13 | Leads | `comment-to-lead` | Comments sorted, replies drafted (sent via Otto if reply tools exist), DM flow ready for a DM tool | **STOP E**: yes to send replies |
 | 14 | Measure | `daily-pulse` (day 1-2), `reel-diagnosis` (day 3+) | Verdict vs baseline, one change for next time | No |

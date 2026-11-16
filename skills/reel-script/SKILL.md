@@ -18,8 +18,8 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 
 ## 2. Pull: how long do your viewers stay?
 - `meta_ig_list_media` (rowLimit 60) and `meta_ig_media_insights` (batches of 25): `reach, ig_reels_avg_watch_time, reels_skip_rate, shares, saved`. Reels at least 3 days old. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
-- Ask the length of your best 5 reels (the API doesn't return it). With length, compute watch % = avg watch seconds / length.
-- YouTube Shorts: `youtube_top_videos` gives `averageViewDuration` in seconds.
+- Get each reel's length from the `efg` value in its `mediaUrl` (decode it with code, see `otto-rules.md`); where `mediaUrl` is null, ask the length of your best 5 reels. With length, compute watch % = avg watch seconds / length.
+- YouTube Shorts: `youtube_top_videos` gives `averageViewDuration` in seconds. It doesn't mark which videos are Shorts: pick them by length or ask.
 
 `ig_reels_avg_watch_time` is **milliseconds**: divide by 1,000.
 
@@ -57,7 +57,7 @@ For every beat write:
 
 **Mute test**: read only the on-screen text column top to bottom. If the story is lost with the sound off, rewrite the lines that carry it and say which.
 
-**Safe area**: keep text out of the top 14% and bottom 20% of a 9:16 frame and away from the right edge where the buttons sit.
+**Safe area**: keep text out of the top 14% and bottom 35% of a 9:16 frame, and about 6% in from each side (the buttons sit on the right).
 
 ## 4. Pre-flight checklist (all must pass)
 

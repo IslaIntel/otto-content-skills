@@ -19,7 +19,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 
 ## 2. Pull the owner's real voice
 - `meta_ig_list_media` (rowLimit 30): the captions. Keep the ones the owner wrote themselves (ask if unsure); drop ones made by a tool or an agency.
-- `linkedin_profile_otto_posts` or `linkedin_page_posts` for LinkedIn text if that's the destination.
+- `linkedin_page_posts` for LinkedIn text if that's the destination. `linkedin_profile_otto_posts` lists only posts Otto published; use them only if the owner wrote them. LinkedIn doesn't let Otto read their other posts, so ask for 3-5 pasted ones.
 - From 10+ real captions, note the fingerprint: average sentence length, capital letters or not, emoji per post, how they start (straight in? a question?), how they end, the words they repeat, how they write numbers.
 
 Under 10 real samples: say the fingerprint is thin. Not connected or `ok: false`: use `brand/voice.md` and the owner's answers only.

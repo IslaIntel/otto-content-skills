@@ -4,7 +4,7 @@ description: Break down 3-5 rival accounts to find the pattern behind their best
 license: MIT
 ---
 
-# Competitor teardown
+# Competitor watch
 
 Finds the mechanism behind a rival's best work and the openings they leave, then sets it next to **your** baseline so you know which of their moves would actually be new for you. The goal is a lane to own and three things to make, never a copy of their posts.
 
@@ -32,13 +32,13 @@ Check the tool list first and use the first source that works for each rival; sa
    - A YouTube public-stats tool for other channels, if one is present (Otto's YouTube tools read only your own channel).
    - Ad library, if enabled: `ad_library_find_advertisers(query: <rival name or category>, country)` to find each rival's advertiser Page, then `ad_library_list_ads(pageId, country, limit 30)` for copy, CTA, format, start dates and platforms. If it returns `ok: false` (e.g. `ad_library_disabled`), say ad research is off right now, give the returned `libraryUrl` if any, and ask for pasted ad text or screenshots of 5-10 active ads. Ad longevity and volume are **not** performance: an ad running 90 days is a hint it pays, never proof.
    - `voc_fetch_url` on each rival's homepage, pricing page and one service or product page (`maxChars` 6000; pass `query` such as "pricing", "reviews", "guarantee" on long pages). A JavaScript-only page can come back nearly empty: say so and ask for a screenshot.
-2. **What the user supplies**: links, screenshots of each rival's **last 12-20 posts with the visible numbers**, or videos they downloaded themselves. Break down supplied videos with `reel-breakdown`. If they share only a few, say the read is thin.
+2. **What the user supplies**: links, screenshots of each rival's **last 12-20 posts with the visible numbers**, or videos they downloaded themselves. Break down supplied videos with `reel-breakdown`. If they share fewer than 8 posts per rival, say the read is thin.
 3. **Last resort, clearly labelled**: the user browses the rivals themselves, in their own browser, ideally logged in with a separate account, and you analyse what they share or what's on screen in a browser they control. Say plainly: logging in to Instagram with automation can get an account restricted, so this skill never logs in for them and never drives a login.
 
 **Your own numbers (for the comparison)**
 
 - `meta_ig_list_media` (rowLimit 60) + `meta_ig_media_insights` (batches of 25): `views, reach, likes, comments, shares, saved, ig_reels_avg_watch_time, reels_skip_rate`. Watch time is in **ms**; skip rate is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
-- Platforms in scope only: `meta_page_posts` (has `likeCount`, `shareCount`), `linkedin_page_posts`, `youtube_top_videos`.
+- Platforms in scope only: `meta_page_posts` + `meta_page_post_insights` (`post_media_view`, `post_reactions_by_type_total`), `linkedin_page_posts`, `youtube_top_videos`.
 - `gsc_search_analytics` (last 28 days, dimension `query`, rowLimit 200): what people already find you for.
 
 Never invent a rival post, ad, number or quote. Anything you couldn't see is "not seen", not "doesn't exist".
@@ -84,7 +84,7 @@ A gap that fails test 3 goes in "not yet" with what proof it would need.
 Default is visual: an artifact (claude.ai / Claude desktop), an HTML file opened in the browser (Claude Code / Cowork), or a canvas (ChatGPT), built in code with the sections below. If settings say `output: chat` or the user asks for chat, give the same content as markdown in chat.
 
 ```markdown
-# Competitor teardown: <business> vs <rivals> (<date>)
+# Competitor watch: <business> vs <rivals> (<date>)
 Sources per rival: business discovery / supplied by you / you browsed; <n> pages read, <n> ads seen (or "ad research off: pasted by user").
 
 ## What each rival does
@@ -94,13 +94,13 @@ Sources per rival: business discovery / supplied by you / you browsed; <n> pages
 <comparison table>
 
 ## Patterns worth borrowing (technique only)
-1. <pattern> — seen at <rival>, <n> of their <n> winners. You do this: yes / no / sometimes (evidence).
+1. <pattern>: seen at <rival>, <n> of their <n> winners. You do this: yes / no / sometimes (evidence).
 
 ## Gaps you can own
 | Gap | Rivals | Your demand evidence | Your proof | Confidence |
 
 ## Three posts to make this week
-1. <idea in your voice> — fills gap <x>; first line: "<hook>"; format; hand to `viral-reel-planner` or `hook-writer`.
+1. <idea in your voice>: fills gap <x>; first line: "<hook>"; format; hand to `viral-reel-planner` or `hook-writer`.
 
 ## Not seen / not known
 <what you couldn't check and how the user can fill it>

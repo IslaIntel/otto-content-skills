@@ -8,7 +8,7 @@ import pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SECTIONS = ["How every skill talks to the user", "Brand brain (shared memory)", "Rules learned from live test runs",
-            "Otto MCP: verified facts (tested against a live account, Nov 2026)", "Writing style"]
+            "Otto MCP: verified facts", "Writing style"]   # matched by prefix, so a date in the heading can change
 
 
 def build_rules():
@@ -17,8 +17,9 @@ def build_rules():
     keep = []
     for p in parts:
         title = p.split("\n", 1)[0].strip()
-        if title in SECTIONS:
+        if any(title.startswith(s) for s in SECTIONS):
             keep.append("## " + p.rstrip())
+    assert len(keep) == len(SECTIONS), f"expected {len(SECTIONS)} sections in AUTHORING.md, found {len(keep)}"
     body = "\n\n".join(keep)
     body = body.replace("docs/AUTHORING.md", "this file")
     head = ("# Otto skill rules\n\nShared rules for every Otto Content Skill. The SKILL.md next to this file says what the skill does; "

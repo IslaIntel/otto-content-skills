@@ -6,12 +6,12 @@ license: MIT
 
 # Hook writer
 
-A hook is three things that land together in the first 1 to 2 seconds: what's on screen, what's said, and what's written. This skill writes 10, each in a different pattern, then ranks them by how close they come to what already stopped the scroll on your account.
+A hook is three things that land together in the first 1 to 2 seconds: what's on screen, what's said, and what's written. This skill writes 10 across at least 7 patterns, then ranks them by how close they come to what already stopped the scroll on your account.
 
 Read-only. It writes text; it doesn't post anything.
 
 ## 1. Setup
-Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short: read `brand/settings.md` (or memory) for workspace, Instagram account and output mode; ask only what's missing in one multiple-choice message and save it. Output is visual by default (artifact / HTML file / canvas) unless settings say chat.
+Follow the settings, scope and capability rules ("How every skill talks to the user" in this folder's `otto-rules.md`). In short: read `brand/settings.md` (or memory) for workspace, Instagram account and output mode; ask only what's missing in one multiple-choice message and save it. Output is visual by default (artifact / HTML file / canvas) unless settings say chat.
 
 - Read `brand/voice.md`, `brand/audience.md` and `brand/winners.md`. Missing? Ask what the reel is about, who it's for, and the one reaction you want (stop, share, save, comment). Suggest `brand-brain`.
 - Ask for the topic and the payoff (what the viewer gets by the end). If you don't know the payoff, the hook can't be honest; ask.
@@ -19,7 +19,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 
 ## 2. Pull your winning hooks
 Use `brand/winners.md` if it's under 2 weeks old. Otherwise:
-- `meta_ig_list_media` (rowLimit 60), then `meta_ig_media_insights` (batches of 25): `reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`. Reels 3+ days old. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+- `meta_ig_list_media` (rowLimit 60), then `meta_ig_media_insights` (batches of 25): `reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`. Reels at least 3 days old from the previous 28 days (your usual). Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - Take the first line of each caption as a stand-in for the on-screen hook, and ask the owner to correct it where the reel said something else.
 - Best 5 and worst 5 by skip rate (lower is better), with shares and saves per 1,000 reach alongside.
 - If `hook-patterns` has run, use its pattern table instead.
@@ -80,7 +80,7 @@ Test first:
 2. #<n> because ...
 3. #<n> because ...
 
-Test plan: post the top pick; if skip rate is worse than <baseline>% after 3 days, re-cut the same reel with #2. Change only the hook.
+Test plan: post the top pick; if skip rate is worse than <baseline>% after 3 days, hand #1 vs #2 to `hook-test` (change only the first 2-3 seconds; reposting the same reel can count as a duplicate).
 ```
 
 Hand off to `reel-script` with the chosen hook, or to `hook-test` to compare two hooks on the same footage.

@@ -1,6 +1,6 @@
 # Week <ISO week>: <one-line verdict>
 
-Followers: <platform: start -> end (+n)> for each connected platform.
+Followers: <platform: start -> end (+n)> for each platform in scope.
 Posts this week: <n per platform>. Instagram reels: median reach <n>, skip rate <n>%, watch <n>%.
 
 ## By platform
@@ -10,7 +10,7 @@ Posts this week: <n per platform>. Instagram reels: median reach <n>, skip rate 
 | Post (link) | Platform | Format | Reach | Skip | Watch % | Shares / 1k | Saves / 1k | Why (from reel-diagnosis) |
 
 ## By format and topic
-| Group | Posts | Median reach | Median watch % | Shares + saves / 1k | Call (winner / keep / retire / too few) |
+| Group | Posts | Median reach | Median watch % | Shares + saves / 1k | Call (winner / keep / below / retire / too few) |
 
 ## Search and site
 | Signal | This week | 4-week median | Note |

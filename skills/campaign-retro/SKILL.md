@@ -15,6 +15,8 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 - Scope is the platforms the user names; otherwise the default from settings; otherwise ask once, listing connected platforms plus "All connected". A platform with nothing in the window gets one line, never an empty table.
 - **Meta ads capability check**: include paid results only if this session has Meta ads read tools (`meta_list_campaigns`, `meta_campaign_insights`) and `otto_list_connections` shows `meta` connected. Otherwise run organic + GA4 only and say "Paid ads not included: this connection can't read Meta ads."
 
+If a `campaigns/*.md` brief from `campaign-plan` exists for this campaign, read the goal, target, dates and UTM names from it and ask only what it doesn't answer.
+
 Ask (one message, multiple choice where it fits):
 - Campaign name, **start and end date**, and what it was meant to do (sales, signups, bookings, followers, awareness), with any target set beforehand.
 - Which posts, ads and links belonged to it: hashtags, a caption phrase, UTM campaign name, Meta campaign name. If there's a `social-data/utm-log.csv` from `utm-builder`, read it.
@@ -40,7 +42,7 @@ Windows: **campaign** = start to end + 7 days of tail. **Baseline** = the same n
 **Paid (only if the capability check passed)**
 - `meta_list_campaigns` to find the campaign by name; `meta_campaign_insights` with fields `["spend","impressions","reach","clicks","ctr","cpc","actions"]`. `actions` is a list of `{action_type, value}`: pull out `landing_page_view`, `link_click`, and the conversion type the campaign optimised for (e.g. `complete_registration`, `purchase`, `lead`).
 
-**Sales / signups** live outside Otto unless Shopify is connected. Ask for the count if needed. If a call returns `ok: false`, list it under "missing" and go on.
+**Sales / signups** live outside Otto unless Shopify is connected (then `shopify_list_orders`, if it's in the tool list). Ask for the count if needed. If a call returns `ok: false`, list it under "missing" and go on.
 
 ## 2. Reconstruct
 
@@ -58,7 +60,7 @@ Per channel: campaign window vs baseline, and against the target if there was on
 | Did they act? | key events, signups/sales, Meta conversion actions, cost per result |
 | Did it last? | baseline vs the 7-day tail: did sessions and follows return to normal or stay higher |
 
-Check the tracking itself: UTM-tagged sessions vs untagged social sessions (`facebook.com`, `m.facebook.com`, `ig`, `l.instagram.com` referrals). Campaign names that appear in mixed case or with typos are split rows in GA4: add them up and flag it for `utm-builder`.
+Check the tracking itself: UTM-tagged sessions vs untagged social sessions (`facebook.com`, `m.facebook.com`, `l.facebook.com`, `lm.facebook.com`, `meta`, `ig`, `instagram.com`, `l.instagram.com` referrals). Campaign names that appear in mixed case or with typos are split rows in GA4: add them up and flag it for `utm-builder`.
 
 ## 4. Facts, explanations, decisions
 

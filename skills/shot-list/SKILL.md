@@ -6,7 +6,7 @@ license: MIT
 
 # Shot list
 
-A shot list for filming real footage: everything to film for one script (or a batch of scripts), in the order you'd actually shoot it: all the shots in one place before you move, the hardest-to-repeat moments first. Built for one person with a phone.
+A shot list for filming real footage: everything to film for one script (or a batch of scripts), in the order you'd actually shoot it. All the shots in one place before you move; the hardest-to-repeat moments first. Built for one person with a phone.
 
 Read-only. It lists footage in the Otto library; it never uploads, generates or deletes anything. Every shot is real footage you film yourself; nothing here is generated.
 
@@ -28,8 +28,9 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 2. **Group by location**, then by setup (same angle and light) inside each location.
 3. **Order** inside a location: shots that need people or perishable things first (food, a customer, daylight), close-ups last.
 4. **For each shot** write: number, location, the script beat it covers, what's in frame, framing, camera move, how long to roll, and essential or nice-to-have.
-5. **Roll long**: film at least 2 seconds before and after the action you need, and 3 takes of anything with a spoken line.
-6. **Hook shot**: mark the beat-1 shot and film 2 versions (different first frame) so `hook-test` can compare them later.
+5. **Two formats**: if 16:9 is also needed, frame wide with the subject in the centre so both crops work.
+6. **Roll long**: film at least 2 seconds before and after the action you need, and 3 takes of anything with a spoken line.
+7. **Hook shot**: mark the beat-1 shot and film 2 versions (different first frame) so `hook-test` can compare them later.
 
 Framing words to use: wide (whole scene), medium (waist up or the full counter), close (hands, product), detail (a label, a screen, a number), over-the-shoulder, top-down.
 
@@ -44,7 +45,7 @@ Framing words to use: wide (whole scene), medium (waist up or the full counter),
 | Product | A white sheet of paper as a bounce under the product; turn off overhead lights that cast hard shadows |
 | Exposure | Tap and hold to lock focus and exposure before rolling |
 | Settings | 1080p or 4K, 30fps; 60fps only for slow motion. Lens clean. Airplane mode |
-| Grid safety | Keep faces and text out of the top 14% and bottom 20% of the frame |
+| Safe zone | Keep faces and text out of the top 14% and bottom 35% of the frame (Reels) |
 
 ## 5. Output
 

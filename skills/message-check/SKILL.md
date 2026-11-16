@@ -4,7 +4,7 @@ description: Check whether your website, bio and recent posts all say one clear 
 license: MIT
 ---
 
-# Positioning audit
+# Message check
 
 Compares three things that should match and usually don't: **what you say** (site, bio, captions), **what people find you for** (search queries), and **what you can prove** (reviews, results). The output is one sentence you can defend, the proof behind it, and a list of phrases to drop. It does not invent a new identity; when proof is missing it stops at a diagnosis.
 
@@ -45,7 +45,7 @@ Then:
 |---|---|---|---|---|---|
 | Homepage | | | | | |
 | Bio | | | | | |
-| Last 20 captions (most common) | | | | | |
+| Last 30 captions (most common) | | | | | |
 | Rival A homepage | | | | | |
 
 Count how many different audiences and promises appear across your own rows. More than two of either = the message is split.
@@ -55,14 +55,14 @@ Count how many different audiences and promises appear across your own rows. Mor
 | Group | Meaning |
 |---|---|
 | Brand queries (your name) | people who already know you; ignore for positioning |
-| Service + place ("physio near me", "pilates san juan") | the job people hire you for |
+| Service + place ("physio near me", "pilates austin") | the job people hire you for |
 | Problem queries ("knee pain when running") | the problem you are trusted on |
 | Queries you rank for but don't want | a mismatch to fix on the page, not in the bio |
 
-Then compare: the promise on your homepage vs the group that brings the most non-brand clicks. If they differ, that's the first finding. Fewer than 50 non-brand clicks in 90 days: "too little search data to tell", lean on comments and reviews instead.
+Then compare: the promise on your homepage vs the group that brings the most non-brand clicks. If they differ, that's the first finding. Fewer than 50 non-brand clicks in 90 days: "too little search data to tell", lean on reviews instead.
 
 **Step 3. Find the one thing.** Pick the claim that passes all four:
-1. Your audience uses words for it (in search queries, comments or reviews).
+1. Your audience uses words for it (in search queries or reviews).
 2. You can prove it (a review, a number in `brand/facts.md`, a visible result).
 3. At least one rival doesn't say it, or says it without proof.
 4. It leads naturally to the next action you want.
@@ -71,14 +71,14 @@ Write it as: **For [who], [business] [does what outcome], because [proof].** Bra
 
 **Step 4. Stress-test.** Could a rival paste it unchanged? Does a stranger understand every word? Is the proof real? Would the next action make sense right after reading it? Any "no" → revise or downgrade to a hypothesis.
 
-**Step 5. What to stop saying.** List phrases from your own copy that are: empty ("quality service", "passionate"), shared word-for-word with rivals, aimed at an audience search and comments show you don't get, or claims you can't prove.
+**Step 5. What to stop saying.** List phrases from your own copy that are: empty ("quality service", "passionate"), shared word-for-word with rivals, aimed at an audience search and reviews show you don't get, or claims you can't prove.
 
 ## 3. Output
 
 Default is visual: an artifact (claude.ai / Claude desktop), an HTML file opened in the browser (Claude Code / Cowork), or a canvas (ChatGPT), built in code with the sections below. If settings say `output: chat` or the user asks for chat, give the same content as markdown in chat.
 
 ```markdown
-# Positioning audit: <business> (<date>)
+# Message check: <business> (<date>)
 
 ## The line
 For <who>, <business> <outcome>, because <proof>.
@@ -105,5 +105,5 @@ Hand the line to `profile-check` (bio and link), `brand-brain` (save to `brand/o
 ## Never
 
 - Invent proof, outcomes or customer quotes to fill the sentence.
-- Change the website, bio or any post. Show the copy; the user applies it or approves it in Otto.
+- Change the website, bio or any post. Show the copy; the user applies it by hand.
 - Treat one quiet rival as an empty market.
