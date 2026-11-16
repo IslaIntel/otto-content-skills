@@ -1,0 +1,8 @@
+social-data/
+.DS_Store
+Thumbs.db
+internal/
+dist/
+test-assets/
+.claude/launch.json
+local-only/

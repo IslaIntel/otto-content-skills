@@ -1,0 +1,14 @@
+{
+  "name": "otto-content-skills",
+  "owner": {
+    "name": "Otto Webmaster",
+    "url": "https://ottowebmaster.com"
+  },
+  "plugins": [
+    {
+      "name": "otto-content-skills",
+      "source": "./",
+      "description": "Social media analytics and growth skills for Claude, powered by the Otto MCP."
+    }
+  ]
+}

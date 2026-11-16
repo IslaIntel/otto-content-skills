@@ -1,0 +1,419 @@
+{
+ "meta": {
+  "title": "Weekly social review",
+  "platforms": [
+   "instagram",
+   "facebook"
+  ],
+  "start": "Mar 03",
+  "end": "Mar 09, 2026",
+  "baselineLabel": "your previous 4 weeks",
+  "generated": "Mar 10, 2026",
+  "timezone": "America/Chicago",
+  "verdict": "A strong week: median reach up 38% on Instagram, driven by two how-to reels. Facebook was flat.",
+  "footnote": "Example data",
+  "accounts": [
+   {
+    "platform": "instagram",
+    "handle": "@bloomandstem"
+   },
+   {
+    "platform": "facebook",
+    "handle": "Bloom & Stem Florist"
+   }
+  ]
+ },
+ "kpis": [
+  {
+   "platform": "instagram",
+   "label": "Views on this week's reels",
+   "value": 21400,
+   "baseline": 15800,
+   "hero": true,
+   "sub": "Median 1,180 reach per reel (usual 855)",
+   "vsLabel": "last week"
+  },
+  {
+   "platform": "facebook",
+   "label": "Views on this week's posts",
+   "value": 1240,
+   "baseline": 1180,
+   "hero": true,
+   "sub": "Median 310 views per post (usual 295)",
+   "vsLabel": "last week"
+  },
+  {
+   "platform": "instagram",
+   "label": "Reels posted",
+   "value": 6,
+   "note": "5 old enough to judge"
+  },
+  {
+   "platform": "instagram",
+   "label": "Median reach",
+   "value": 1180,
+   "baseline": 855
+  },
+  {
+   "platform": "instagram",
+   "label": "Median skip rate",
+   "value": 28,
+   "baseline": 33,
+   "unit": "%",
+   "lowerIsBetter": true
+  },
+  {
+   "platform": "instagram",
+   "label": "Median watch",
+   "value": 52,
+   "baseline": 47,
+   "unit": "%"
+  },
+  {
+   "platform": "instagram",
+   "label": "Saves per 1k reach",
+   "value": 9.4,
+   "baseline": 6.1
+  },
+  {
+   "platform": "facebook",
+   "label": "Posts",
+   "value": 4
+  },
+  {
+   "platform": "facebook",
+   "label": "Median views",
+   "value": 310,
+   "baseline": 295
+  },
+  {
+   "platform": "all",
+   "label": "Followers gained",
+   "value": 74,
+   "baseline": 41
+  },
+  {
+   "platform": "all",
+   "label": "Site visits from social",
+   "value": 63,
+   "baseline": 40
+  }
+ ],
+ "daily": [
+  {
+   "platform": "instagram",
+   "date": "2026-03-03",
+   "value": 2100
+  },
+  {
+   "platform": "instagram",
+   "date": "2026-03-04",
+   "value": 3400
+  },
+  {
+   "platform": "instagram",
+   "date": "2026-03-05",
+   "value": 2900
+  },
+  {
+   "platform": "instagram",
+   "date": "2026-03-06",
+   "value": 5200
+  },
+  {
+   "platform": "instagram",
+   "date": "2026-03-07",
+   "value": 4100
+  },
+  {
+   "platform": "instagram",
+   "date": "2026-03-08",
+   "value": 2600
+  },
+  {
+   "platform": "instagram",
+   "date": "2026-03-09",
+   "value": 2300
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-03",
+   "value": 300
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-04",
+   "value": 420
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-05",
+   "value": 380
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-06",
+   "value": 350
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-07",
+   "value": 290
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-08",
+   "value": 310
+  },
+  {
+   "platform": "facebook",
+   "date": "2026-03-09",
+   "value": 260
+  }
+ ],
+ "dailyLabel": "Daily reach",
+ "posts": [
+  {
+   "platform": "instagram",
+   "id": "ex1",
+   "permalink": "",
+   "posted_at": "2026-03-06T11:00",
+   "first_line": "3 flowers that last two weeks in a vase (and 1 that dies in two days)",
+   "age_days": 4,
+   "reach": 4120,
+   "views": 5600,
+   "skip_rate": 22,
+   "avg_watch_s": 14.2,
+   "length_s": 21,
+   "watch_pct": 68,
+   "shares_per_1k": 6.1,
+   "saves_per_1k": 18.4,
+   "status": "winner",
+   "status_label": "Winner",
+   "diagnosis": {
+    "steps": [
+     "pass",
+     "pass",
+     "pass",
+     "skip",
+     "pass"
+    ],
+    "verdict": "Did its job",
+    "evidence": [
+     "Skip rate 22% vs your usual 33%",
+     "Watched 68% of 21s vs your usual 47%",
+     "6.1 shares per 1,000 reach vs your usual 2.4",
+     "Reach 4,120 vs your usual 855"
+    ],
+    "change": "Remix it: same idea for spring bouquets, with a new first frame."
+   },
+   "usual": 855
+  },
+  {
+   "platform": "instagram",
+   "id": "ex2",
+   "permalink": "",
+   "posted_at": "2026-03-04T18:00",
+   "first_line": "How we wrap a bouquet so it survives a car ride",
+   "age_days": 6,
+   "reach": 2380,
+   "views": 3100,
+   "skip_rate": 25,
+   "avg_watch_s": 15.0,
+   "length_s": 27,
+   "watch_pct": 56,
+   "shares_per_1k": 3.8,
+   "saves_per_1k": 12.2,
+   "status": "winner",
+   "status_label": "Winner",
+   "diagnosis": {
+    "steps": [
+     "pass",
+     "pass",
+     "pass",
+     "skip",
+     "pass"
+    ],
+    "verdict": "Did its job",
+    "evidence": [
+     "Skip rate 25% vs your usual 33%",
+     "Reach 2,380 vs your usual 855"
+    ],
+    "change": "Make it a series: one packing tip per week."
+   },
+   "usual": 855
+  },
+  {
+   "platform": "instagram",
+   "id": "ex3",
+   "permalink": "",
+   "posted_at": "2026-03-03T11:00",
+   "first_line": "Our shop playlist, ranked",
+   "age_days": 7,
+   "reach": 610,
+   "views": 790,
+   "skip_rate": 41,
+   "avg_watch_s": 6.1,
+   "length_s": 18,
+   "watch_pct": 34,
+   "shares_per_1k": 0,
+   "saves_per_1k": 1.6,
+   "status": "stalled",
+   "status_label": "Stalled",
+   "diagnosis": {
+    "steps": [
+     "fail",
+     "skip",
+     "skip",
+     "skip",
+     "skip"
+    ],
+    "verdict": "The first second lost people",
+    "evidence": [
+     "Skip rate 41% vs your usual 33%"
+    ],
+    "change": "Open on the thing people came for (flowers), not the shop."
+   },
+   "usual": 855
+  },
+  {
+   "platform": "instagram",
+   "id": "ex4",
+   "permalink": "",
+   "posted_at": "2026-03-08T11:00",
+   "first_line": "POV: you forgot it's your anniversary tomorrow",
+   "age_days": 2,
+   "reach": 980,
+   "views": 1300,
+   "skip_rate": 27,
+   "avg_watch_s": 9.8,
+   "length_s": 16,
+   "watch_pct": 61,
+   "shares_per_1k": 4.1,
+   "saves_per_1k": 3.1,
+   "status": "young",
+   "status_label": "Early read",
+   "diagnosis": {
+    "steps": [
+     "pass",
+     "pass",
+     "pass",
+     "skip",
+     "pass"
+    ],
+    "verdict": "On track",
+    "evidence": [
+     "Skip rate 27% vs your usual 33%"
+    ],
+    "change": "Check again in 2 days.",
+    "note": "Under 3 days old: reach is still settling; final call next week."
+   },
+   "usual": 855
+  },
+  {
+   "platform": "facebook",
+   "id": "ex5",
+   "permalink": "",
+   "posted_at": "2026-03-05T09:00",
+   "first_line": "Spring workshop: 8 seats left",
+   "age_days": 5,
+   "views": 520,
+   "status": "keep",
+   "status_label": "Keep",
+   "usual": 295
+  },
+  {
+   "platform": "facebook",
+   "id": "ex6",
+   "permalink": "",
+   "posted_at": "2026-03-07T09:00",
+   "first_line": "Behind the counter on a Saturday",
+   "age_days": 3,
+   "views": 240,
+   "status": "stalled",
+   "status_label": "Stalled",
+   "usual": 295
+  }
+ ],
+ "groups": [
+  {
+   "platform": "instagram",
+   "name": "How-to reels",
+   "n": 9,
+   "median_reach": 1950,
+   "median_skip": 25,
+   "call": "winner"
+  },
+  {
+   "platform": "instagram",
+   "name": "Shop life",
+   "n": 7,
+   "median_reach": 640,
+   "median_skip": 39,
+   "call": "retire",
+   "callClass": "stalled"
+  },
+  {
+   "platform": "instagram",
+   "name": "POV openers",
+   "n": 3,
+   "median_reach": 1100,
+   "median_skip": 27,
+   "call": "too few",
+   "callClass": "few"
+  }
+ ],
+ "search": {
+  "rows": [
+   {
+    "signal": "Sessions from Organic Social",
+    "value": 63,
+    "baseline": 40,
+    "note": "Up in the week of the two how-to reels"
+   },
+   {
+    "signal": "Brand-name searches (Google impressions)",
+    "value": 410,
+    "baseline": 330,
+    "note": ""
+   },
+   {
+    "signal": "Top landing page from social",
+    "value": "/workshops",
+    "baseline": "/",
+    "note": "Workshop post drove it"
+   }
+  ],
+  "note": "Visits and searches coincide with posts; they don't prove the posts caused them."
+ },
+ "plan": {
+  "keep": [
+   "How-to reels twice a week: 2.3x your median reach."
+  ],
+  "change": [
+   "Move shop-life content to Stories; it's below your median 3 weeks running."
+  ],
+  "test": [
+   "POV opener vs plain opener on the same idea; decide on skip rate at 72 hours."
+  ],
+  "stop": [
+   "Playlist and 'shop vibe' reels."
+  ]
+ },
+ "decisions": [
+  {
+   "observation": "How-to reels beat the median 6 of 9 times",
+   "confidence": "medium",
+   "action": "Keep twice a week",
+   "confirm": "Holds above median next 2 weeks"
+  }
+ ],
+ "notes": [
+  "Follows per reel aren't available from Instagram; follower gain is account-level.",
+  "1 reel is under 3 days old and gets an early read only."
+ ],
+ "dailyLabels": {
+  "instagram": "Daily reach",
+  "facebook": "Daily Page views"
+ }
+}

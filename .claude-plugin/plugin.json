@@ -1,0 +1,25 @@
+{
+  "name": "otto-content-skills",
+  "version": "0.5.9",
+  "description": "38 free Claude skills that run your social media off your real numbers through the Otto MCP: interactive weekly and daily dashboards, reel diagnosis, search-driven content research, hooks, scripts, captions, code-designed covers and carousels, posting queues and comment-to-lead.",
+  "author": {
+    "name": "Otto Webmaster",
+    "url": "https://ottowebmaster.com"
+  },
+  "license": "MIT",
+  "homepage": "https://ottowebmaster.com",
+  "category": "marketing",
+  "keywords": [
+    "otto",
+    "social-media-analytics",
+    "instagram-reels",
+    "content-marketing",
+    "small-business",
+    "claude-skills",
+    "instagram-analytics",
+    "youtube-analytics",
+    "google-search-console",
+    "content-calendar"
+  ],
+  "repository": "https://github.com/IslaIntel/otto-content-skills"
+}
