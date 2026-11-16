@@ -91,7 +91,7 @@ Step-by-step with screenshots: [How do I connect Claude?](https://ottowebmaster.
 
 | Where you use Claude | How |
 |---|---|
-| **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](../../releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or upload single skills under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
+| **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](https://github.com/IslaIntel/otto-content-skills/releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or upload single skills under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
 | **Claude Code** | `/plugin marketplace add IslaIntel/otto-content-skills` then `/plugin install otto-content-skills@otto-content-skills` |
 | **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. It clones the repo and copies the skills into `~/.claude/skills`. |
 | **Copy the files** | `git clone https://github.com/IslaIntel/otto-content-skills` then `./install.sh` (macOS / Linux) or `.\install.ps1` (Windows) |
