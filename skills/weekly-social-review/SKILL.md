@@ -54,7 +54,7 @@ Group posts by format (reel, carousel, image, video, text), topic, series and ho
 Run the `reel-diagnosis` skill on the best 3 and worst 3 reels, and on any group that moved more than 25% from its baseline.
 
 Then decide, one variable at a time:
-- **Winner**: 2x the median on reach, or on shares/comments per 1,000 reach with reach at least half the median. If a median is 0 (common on small accounts), drop that signal and say so. Remix it: same idea, new hook, new look.
+- **Winner**: 2x the median on reach, or on shares or saves per 1,000 reach with reach at least half the median. If a median is 0 (common on small accounts), drop that signal and say so. Remix it: same idea, new hook, new look.
 - **Keep**: above the median.
 - **Below usual**: below the median, but not yet three weeks running (post status `stalled` with label "Below usual"; group call `below`).
 - **Retire**: a format or topic below the median three weeks running.

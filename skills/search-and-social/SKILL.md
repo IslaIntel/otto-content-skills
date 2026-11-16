@@ -71,7 +71,7 @@ Questions with high impressions and low CTR at position 1-5 are a sign the answe
 ## 4. Keywords for posts
 
 For each of the top 10 topics, give:
-- **Caption first line**: the searcher's phrasing, natural, in the first 125 characters (the part shown before "more").
+- **Caption first line**: the searcher's phrasing, natural, in roughly the first 125 characters (about what shows before "more").
 - **Alt text** (Instagram and Facebook images): describe what's in the image and include the phrase once.
 - **YouTube title**: lead with the phrase, then the promise; description first two lines restate it.
 - **On-screen text / spoken line**: say the phrase out loud in the first 5 seconds; YouTube reads captions and transcripts, and other platforms may too.

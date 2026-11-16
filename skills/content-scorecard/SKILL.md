@@ -6,7 +6,7 @@ license: MIT
 
 # Content scorecard
 
-A once-a-month look at your recent posts, wide enough to see patterns a weekly review can't. By default it covers the last 30 days, however many posts that is; with only a handful, most patterns come out "too few to tell" and the audit says so. It answers three questions: which traits beat your own median, which keep losing, and what the next five posts should be. Read-only on every platform; the only file it writes is in your working directory.
+A once-a-month look at your recent posts, wide enough to see patterns a weekly review can't. By default it covers the last 30 days, however many posts that is; with only a handful, most patterns come out "too few to tell" and the audit says so. It answers three questions: which traits beat your own median, which keep losing, and what the next five posts should be. Read-only on every platform; it writes only in your working directory (the report, and `brand/winners.md` once you approve).
 
 ## 0. Setup
 
@@ -17,7 +17,7 @@ Follow the settings, scope and capability rules ("How every skill talks to the u
 
 Skill-specific questions (ask together, multiple choice):
 - **Window**: last 30 days (default), last 90 days, or the last N posts.
-- **The account's job right now**: reach, followers, enquiries, or site visits. It sets the deciding metric in step 3. Ask it (multiple choice) unless settings have `account_goal`; save the answer. No answer: use reach and say so.
+- **The account's job right now**: reach, followers, enquiries, or site visits. It sets the deciding metric in step 3. Ask it (multiple choice) unless settings have "Account goal"; save the answer. No answer: use reach and say so.
 
 ## 1. Pull
 
@@ -25,7 +25,7 @@ Every post in the chosen window per platform, skipping anything under 7 days old
 
 - **Instagram**: `meta_ig_list_media` (rowLimit as above), then `meta_ig_media_insights` in batches of 25 with `views, reach, likes, comments, shares, saved, total_interactions, ig_reels_avg_watch_time, reels_skip_rate`. Never add `crossposted_views` or `facebook_views` (one non-crossposted reel fails the batch). `ig_reels_avg_watch_time` is ms; `reels_skip_rate` is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - **Facebook Page**: `meta_page_posts`, then `meta_page_post_insights` in batches of 25.
-- **LinkedIn Page**: `linkedin_page_posts` returns post text and dates only, no per-post numbers. Use `linkedin_page_insights` daily rows and match each post to the views in the 0-3 days after it; label those numbers approximate.
+- **LinkedIn Page**: `linkedin_page_posts` returns post text and dates only, no per-post numbers. Use `linkedin_page_insights` daily rows and match each post to the views in the 0-3 days after it; label those numbers approximate and don't use them to rank LinkedIn posts or call winners.
 - **YouTube**: `youtube_channel_analytics` with dimensions `["video"]`, metrics `["views","averageViewPercentage","subscribersGained","shares","likes","comments"]`, sorted `-views`, for the window; `youtube_top_videos` for titles and links.
 - **Site visits (if GA4 connected)**: `ga4_run_report`, dimensions `["sessionSource","landingPage"]`, metrics `["sessions","engagedSessions","keyEvents"]`, filtered to `sessionDefaultChannelGroup` = `Organic Social`. Visits by platform and page, not by post, unless links carry UTM tags (see `utm-builder`).
 
@@ -59,7 +59,7 @@ For each post record: platform, format (reel / carousel / image / video / text /
 
 ## 5. Update brand/winners.md
 
-Append (don't overwrite) a dated section with the top 5 posts by the deciding metric: link, platform, date, the metric and its multiple vs median, traits, and one line on why it likely worked, marked as a hypothesis. Create the file if missing.
+Show a dated section with the top 5 posts by the deciding metric (link, platform, date, the metric and its multiple vs median, traits, and one line on why it likely worked, marked as a hypothesis) and append it to `brand/winners.md` only after the owner says yes (create the file if missing; never overwrite). No folder: give it as text to keep.
 
 ## 6. Output
 

@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="Otto Content Skills: content skills for Claude, run on your real numbers" width="100%">
 </p>
 
-<h3 align="center">38 free AI skills that turn your real social media numbers into your next post.<br><sub>Built and tested on Claude. They use open formats, so apps that support Agent Skills and MCP (like ChatGPT and Cursor) can load them too.</sub></h3>
+<h3 align="center">38 free AI skills that turn your real social media numbers into your next post.<br><sub>Built and tested on Claude. They use open formats, so apps that support Agent Skills and MCP (like ChatGPT and Cursor) should be able to load them too (not yet tested there).</sub></h3>
 
 <p align="center">
   <a href="https://ottowebmaster.com/mcp"><img src="https://img.shields.io/badge/Connect%20Otto%20to%20Claude-1E9CF3?style=for-the-badge" alt="Connect Otto to Claude"></a>
@@ -126,7 +126,7 @@ Skills pull live data through Otto, and the ones that judge results compare them
 |---|---|---|
 | [weekly-social-review](skills/weekly-social-review/SKILL.md) | One dashboard for the week: total views per platform, every post, a click-through diagnosis for each reel, and at most 3 changes for next week | *"Weekly review"* |
 | [daily-pulse](skills/daily-pulse/SKILL.md) | The same dashboard for yesterday: what's taking off, what stalled, what to remix today | *"How did yesterday's posts do?"* |
-| [reel-diagnosis](skills/reel-diagnosis/SKILL.md) | The exact step a reel lost people (hook, pacing, shares, follows or distribution) and the one fix | *"Why did this reel flop?"* |
+| [reel-diagnosis](skills/reel-diagnosis/SKILL.md) | The first step where a reel fell below your usual (hook, pacing, shares, follows or distribution) and one fix to test | *"Why did this reel flop?"* |
 | [content-scorecard](skills/content-scorecard/SKILL.md) | The last 30 days, trait by trait against your median: stop, keep, test, and your next five posts | *"Audit my content"* |
 | [hook-patterns](skills/hook-patterns/SKILL.md) | Ranks your own opening lines by skip rate and watch time, finds the patterns, remixes the winners | *"Which openings work for me?"* |
 | [best-time-to-post](skills/best-time-to-post/SKILL.md) | When your posts do best, in your timezone, with an honest read on sample size | *"What time do my posts do best?"* |
@@ -205,8 +205,8 @@ The skills follow the open [Agent Skills](https://agentskills.io) format (a fold
 
 | App | Connect Otto | Add the skills |
 |---|---|---|
-| **ChatGPT** (Business, Enterprise, Edu) | [Otto's ChatGPT guide](https://ottowebmaster.com/introduction/mcp/chatgpt) | **Skills → Create → Upload from computer**, one skill folder (zipped) at a time |
-| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Cursor reads `.cursor/skills/` and `.claude/skills/`. Clone this repo, then from your project folder run its installer with the target set: `OTTO_SKILLS_DIR=.cursor/skills /path/to/otto-content-skills/install.sh` (macOS / Linux) or `$env:OTTO_SKILLS_DIR='.cursor\skills'; powershell -ExecutionPolicy Bypass -File C:\path\to\otto-content-skills\install.ps1; Remove-Item Env:OTTO_SKILLS_DIR` (Windows) |
+| **ChatGPT** (Business, Enterprise, Edu) | [Otto's ChatGPT guide](https://ottowebmaster.com/introduction/mcp/chatgpt) | Per ChatGPT's docs: **Skills → Create → Upload from computer**, one skill folder (zipped) at a time |
+| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Per Cursor's docs, it reads `.cursor/skills/` and `.claude/skills/`. Clone this repo, then from your project folder run its installer with the target set: `OTTO_SKILLS_DIR=.cursor/skills /path/to/otto-content-skills/install.sh` (macOS / Linux) or `$env:OTTO_SKILLS_DIR='.cursor\skills'; powershell -ExecutionPolicy Bypass -File C:\path\to\otto-content-skills\install.ps1; Remove-Item Env:OTTO_SKILLS_DIR` (Windows) |
 | **Codex, Gemini CLI, GitHub Copilot, Goose and others** | Add `https://otto.islaintel.com/api/mcp` as a remote MCP server | Copy the `skills/` folders to wherever the app loads skills from (from the cloned repo: `OTTO_SKILLS_DIR=<that folder> ./install.sh`) |
 
 Built and tested on Claude first. Dashboards need an app that can create files or render HTML; where it can't, ask for the result in chat.

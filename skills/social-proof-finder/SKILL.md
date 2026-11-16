@@ -25,7 +25,7 @@ Then:
 
 1. **Google reviews**: `gbp_list_reviews` (rowLimit 500). Fields include rating, text, reviewer name, date and any owner reply. Often not connected, or it returns an error even when connected (it needs an extra Google API); then say so, offer `otto_connect_link` with source `business_profile` if it isn't connected, and ask for a screenshot of the best reviews.
 2. **Your website**: `voc_fetch_url` on the homepage and any testimonials / reviews / case-study page, with `query: "testimonial"` or `"review"` to center the excerpt. These are usually already approved for public use; note the URL as the source.
-3. **Comments**: `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 365, to cover the 12 months; if the result is saved to a file, read it with code) → `meta_ig_list_comments` on posts with `commentsCount` > 0; `meta_page_posts` → `meta_page_list_comments`. IG comment `text` can be `null`; skip those. `linkedin_page_list_comments` may return `linkedin_api_403`; ask for pasted comments instead.
+3. **Comments**: `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 365, max 500, to cover the 12 months; if 500 doesn't reach that far, say how far back it goes; if the result is saved to a file, read it with code) → `meta_ig_list_comments` on posts with `commentsCount` > 0; `meta_page_posts` → `meta_page_list_comments`. IG comment `text` can be `null`; skip those. `linkedin_page_posts` → `linkedin_page_list_comments` (it may return `linkedin_api_403`; then ask for pasted comments instead).
 4. **What the user pastes**: DMs, emails, survey answers, case results.
 
 Never invent, merge or "improve" a quote. If something is paraphrased by the user, mark it "paraphrase, not quotable".

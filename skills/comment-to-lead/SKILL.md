@@ -1,6 +1,6 @@
 ---
 name: comment-to-lead
-description: Read the comments on your recent Instagram, Facebook and LinkedIn posts through the Otto MCP, sort them (keyword requests, questions, support, spam), draft public replies, send approved replies through Otto when your connection has reply tools, and write a DM flow (keyword triggers, first DM, follow-ups) ready to load into an official Meta-approved DM tool such as ManyChat, since Otto doesn't send DMs. Use when asked "check my comments", "reply to the comments", "who commented the keyword", "draft the DMs", "set up a comment-to-DM flow", or every day a "comment X and I'll send it" post is live.
+description: Read the comments on your recent Instagram, Facebook and LinkedIn posts through the Otto MCP, sort them (keyword requests, questions, support, spam), draft public replies, send approved replies through Otto when your connection has reply tools, and write a DM flow (keyword triggers, first DM, replies once they answer) ready to load into an official Meta-approved DM tool such as ManyChat, since Otto doesn't send DMs. Use when asked "check my comments", "reply to the comments", "who commented the keyword", "draft the DMs", "set up a comment-to-DM flow", or every day a "comment X and I'll send it" post is live.
 license: MIT
 ---
 
@@ -85,7 +85,7 @@ One table (visual by default): comment (first 60 characters) | platform | bucket
 
 DM drafts always go to the owner (or into step 6). End with: comments read, keyword requests, questions sent to the owner, replies sent (or handed over).
 
-## 6. ManyChat-ready DM flow
+## 6. DM flow for an official DM tool (e.g. ManyChat)
 
 For a keyword post, write the flow so the owner can paste it into ManyChat or a similar official, Meta-approved DM tool. Never browser automation, never an unofficial tool. If Otto ever adds comment-to-DM automation, use that instead.
 

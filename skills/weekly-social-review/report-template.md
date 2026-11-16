@@ -5,12 +5,15 @@ Posts this week: <n per platform>. Instagram reels: median reach <n>, skip rate 
 
 ## By platform
 | Platform | Posts | Median reach / views | vs 4-week median | Engagement per 1k reach | Follower change |
+|---|---|---|---|---|---|
 
 ## Best 3 and worst 3 posts
 | Post (link) | Platform | Format | Reach | Skip | Watch % | Shares / 1k | Saves / 1k | Why (from reel-diagnosis) |
+|---|---|---|---|---|---|---|---|---|
 
 ## By format and topic
 | Group | Posts | Median reach | Median watch % | Shares + saves / 1k | Call (winner / keep / below / retire / too few) |
+|---|---|---|---|---|---|
 
 ## Search and site
 | Signal | This week | 4-week median | Note |
@@ -31,5 +34,6 @@ New searches worth a post: <query: impressions> (hand to search-and-social)
 
 ## Decision table
 | Observation | Confidence (low / medium / high) | Likely reason | Action | What next week would confirm or kill it |
+|---|---|---|---|---|
 
 ## Open questions / missing data

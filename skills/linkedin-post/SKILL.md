@@ -89,7 +89,7 @@ Show the exact final text, the image and the target (personal profile or Company
 
 Images for a personal-profile post go into the Otto media library first (`media_create_upload` → upload → `media_complete`) to get a mediaId. A plan returns an `approveUrl`: say "will publish at <time> after you approve in Otto", and claim it's scheduled only if the result says `scheduled: true`.
 
-Afterwards, log the post in `brand/winners.md` once it has 7 days of numbers, if it beat the median.
+Afterwards, log the post in `brand/winners.md` once it has 7 days of numbers, if it beat the median (personal profile: from the user's screenshot or export, since Otto gets no numbers for it).
 
 ## Never
 

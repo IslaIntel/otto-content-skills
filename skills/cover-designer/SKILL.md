@@ -64,7 +64,7 @@ Show all options side by side with the 4:5 and 1:1 crops outlined.
 
 ## 5. Where to upload
 
-- **Instagram Reel**: set the cover when posting, in the Instagram app (Edit cover > Add from camera roll); the app may also let you change it later. If this Otto connection includes publishing (`meta_ig_publish_reel` in the tool list), the PNG can be uploaded to the Otto media library and passed as `coverMediaId` (9:16 like the video; Otto converts PNG to JPEG) when the reel is published, or `thumbOffsetMs` can pick a video frame instead, after the user approves the exact post. Otherwise use the app. Instagram doesn't let the cover change through the API after posting.
+- **Instagram Reel**: set the cover when posting, in the Instagram app (Edit cover > Add from camera roll); the app may also let you change it later. If this Otto connection includes publishing (`meta_ig_publish_reel` in the tool list), the PNG can be uploaded to the Otto media library and passed as `coverMediaId` (9:16 like the video; Otto converts PNG to JPEG) when the reel is published (with `confirm: true`), or `thumbOffsetMs` can pick a video frame instead, after the user approves the exact post. Otherwise use the app. Instagram doesn't let the cover change through the API after posting.
 - **YouTube Shorts**: the user sets it in YouTube Studio or the YouTube app (where the option is available for Shorts, choose a custom thumbnail or the closest frame). This skill doesn't upload to YouTube.
 
 ## 6. Output

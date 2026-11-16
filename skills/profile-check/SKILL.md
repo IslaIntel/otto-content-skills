@@ -42,7 +42,7 @@ In order of what fixes the most:
 
 - **Name field** (Instagram search reads it): what a customer would search for, beside the name. Three options, for example "Ana | Wedding florist in Austin".
 - **Bio**, three lines: who it's for and what you do; why follow; the one action.
-- **Link**: one destination. Suggest UTM tags (`?utm_source=instagram&utm_medium=social&utm_campaign=profile`) so the weekly review can see the visits in GA4. Never put anything about a person in a tag.
+- **Link**: one destination. Suggest UTM tags following `utm-builder` (e.g. `?utm_source=instagram&utm_medium=bio&utm_campaign=profile-2026-11`) so the weekly review can see the visits in GA4. Never put anything about a person in a tag.
 - **Pinned three, in order**: the clearest "what we do" post, the best proof (a result, a before/after, a review, only if real), and the best performer by shares or comments per 1,000 reach.
 - **Grid**: do the last nine covers look like one account? Flag any cover unreadable at grid size.
 

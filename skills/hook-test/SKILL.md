@@ -20,7 +20,7 @@ Then:
 - Ask: the reel or post idea (or script), the platform, and what this post is for (stop the scroll, get shared, get saved, get comments).
 
 ### Baseline pull
-To size the test, pull the account's own numbers: `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 31; 40 covers one post a day) + `meta_ig_media_insights` (`views, reach, shares, saved, comments, reels_skip_rate, ig_reels_avg_watch_time`) for the last 4 weeks of reels at least 3 days old. For YouTube, `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage"]`. Record the median and the spread (25th to 75th percentile) of the deciding metric. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
+To size the test, pull the account's own numbers: `meta_ig_list_media` (rowLimit about 1.2 x posts per day x 31; 40 covers one post a day) + `meta_ig_media_insights` (`views, reach, shares, saved, comments, reels_skip_rate, ig_reels_avg_watch_time`) for the last 4 weeks of reels at least 3 days old. For YouTube, `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage"]`, sort `-views`. Record the median and the spread (25th to 75th percentile) of the deciding metric. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 
 ### Choose the design
 
@@ -82,7 +82,7 @@ What we learned: <one line, as declared>
 Next: <run another pair / adopt for 3 more posts / retire pattern>
 ```
 
-Update the test file to status `scored` and, if a pattern won 3 pairs, add a line to `brand/winners.md`.
+Update the test file to status `scored` and, if a pattern won 3 pairs, suggest a line for `brand/winners.md` and add it once the owner says yes.
 
 ## Never
 

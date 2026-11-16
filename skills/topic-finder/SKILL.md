@@ -1,6 +1,6 @@
 ---
 name: topic-finder
-description: Research what to make next by combining four kinds of evidence through the Otto MCP (what people search for in Google, what gets watched on YouTube (your channel through Otto, other channels from what you paste), what people complain about online, and your own breakout posts) into a ranked topic list where every topic shows its proof. Use when someone says "research my niche", "what topics would do well for me", "find topics that will work", "what's working in my industry", "give me content ideas with data", or "what are people searching for".
+description: Research what to make next by combining four kinds of evidence through the Otto MCP (what people search for in Google, what gets watched on YouTube (yours through Otto; other channels from what you paste), what people complain about online, and your own breakout posts) into a ranked topic list where every topic shows its proof. Use when someone says "research my niche", "what topics would do well for me", "find topics that will work", "what's working in my industry", "give me content ideas with data", or "what are people searching for".
 license: MIT
 ---
 
@@ -63,7 +63,7 @@ If a whole source is missing, the topic score just has fewer possible signals; s
 
 Rank by score, then by search volume. Score 1 topics go to "untested ideas". A topic backed by only one post or one person stays a hypothesis.
 
-**Step 3. Pick an angle per top topic.** For each of the top 10, write the angle the evidence suggests: the question to answer, the mistake to name, the myth to correct, the comparison to make. Note the format that fits (reel, carousel, long video, or a blog post for search-led topics). Give each ranked topic a call: **Take** (score 3+, fits what you sell and how you talk), **Adapt** (score 3+, but the usual angle or format isn't you: say what to change), **Skip** (score 1-2 with nothing sellable, or it doesn't serve your buyers).
+**Step 3. Pick an angle per top topic.** For each of the top 10, write the angle the evidence suggests: the question to answer, the mistake to name, the myth to correct, the comparison to make. Note the format that fits (reel, carousel, long video, or a blog post for search-led topics). Give each ranked topic a call: **Take** (score 3+, fits what you sell and how you talk), **Adapt** (score 3+, but the usual angle or format isn't you: say what to change), **Skip** (score 1-2 with nothing sellable, or it doesn't serve your buyers). Score 2 with something sellable: **Adapt** or the watch list; say which.
 
 **Step 4. Don't copy.** For topics found on other channels, note the technique (format, structure, length) and write a different take.
 

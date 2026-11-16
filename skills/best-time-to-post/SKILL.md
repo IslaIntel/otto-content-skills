@@ -23,7 +23,7 @@ Then:
 - **Instagram**: `meta_ig_list_media` (rowLimit 60). `timestamp` comes back in UTC (`+0000`): convert to the local timezone before bucketing. Then `meta_ig_media_insights` (batches of 25): `views, reach, shares`.
 - **Facebook**: `meta_page_posts` (`createdTime`) + `meta_page_post_insights`.
 - **LinkedIn**: `linkedin_page_posts` gives posting times only, with no per-post results, so LinkedIn can't be bucketed. Say so in one line.
-- **YouTube**: `youtube_list_recent_videos` (publish time) + `youtube_channel_analytics` dimensions `["video"]`, metrics `["views"]`.
+- **YouTube**: `youtube_list_recent_videos` (publish time) + `youtube_channel_analytics` dimensions `["video"]`, metrics `["views"]`, sort `-views`, rowLimit 200.
 - **Website activity by hour (GA4, optional)**: `ga4_run_report` dimensions `["dayOfWeekName","hour"]`, metric `sessions`, last 8 weeks. This shows when your audience is online and on your site, in the property's timezone. Add a filter on `sessionDefaultChannelGroup` = `Organic Social` if there's enough social traffic (50+ sessions).
 - Instagram's "most active times" for followers isn't available through the API (`online_followers` returns an error). If the person can screenshot it from the app (in the app's insights, under total followers, "most active times"; the menu name varies by app version), use it as one more input.
 

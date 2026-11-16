@@ -24,6 +24,7 @@ Timezone: <IANA name, e.g. Europe/London>
 Output: <visual | chat>          # visual = artifact / HTML file / canvas
 Caption template: <none, or the template below>
 CTA: <on | off | ask>             # ask = ask each time
+Account goal: <reach | followers | enquiries | site visits>
 Comment sources: <e.g. Instagram, Facebook, LinkedIn Company Page>
 
 ## Brand look (used by cover-designer, carousel-designer, story-sequence)

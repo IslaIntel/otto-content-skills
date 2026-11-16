@@ -86,7 +86,7 @@ Ranked by: <shares / saves / comments per 1,000 reach / reach>   Reels counted: 
 | Date | First line (hook) | Reach | Shares/1k | Saves/1k | Skip % | Watch s | Likely reason (a guess) |
 |---|---|---|---|---|---|---|---|
 
-## Hook patterns that held up (3+ posts each)
+## Hook patterns that held up (5+ posts each)
 - <pattern>: <n> posts, median skip <x>% vs baseline <y>%
 
 ## Notes

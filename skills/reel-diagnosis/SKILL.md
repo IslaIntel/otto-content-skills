@@ -45,12 +45,12 @@ A reel under 3 days old gets an "early read" only.
 
 In the dashboard's `steps`, everything after the first `fail` is `skip` ("not judged"): once a step explains the flop, later steps aren't evaluated. For an over-performer, mark each step `pass` where it beat the baseline.
 
+Before step 1, check the week: if reach was tiny on every post that week, start at step 5, since the hook isn't the likely cause.
+
 1. **Skip rate worse than baseline** → the first frame or the first line failed. Quote the first line, describe the first frame, and propose one new hook.
 2. **Skip fine, watch % worse than baseline** → pacing or length. Without the reel's length, don't judge this step from average watch seconds alone (a shorter reel always has fewer); compare only with reels of similar length or ask for the length. If there's a retention graph, name the second people leave and what was on screen then.
 3. **Watch % fine, shares per 1,000 reach low** → nothing worth sending to a friend. Name who this reel would be sent to; if nobody, say so. **If your usual shares per 1,000 reach is 0** (common on small accounts), this step can't tell reels apart: mark it `skip` ("not judged"), never `fail`, say why in the evidence, and go on to step 4.
 4. **Reach good, follows low** → no reason to follow. Per-reel follows aren't in the API: judge this step only from the user's in-app screenshot; without one, mark it `skip`. Does the reel promise more (a series, a part 2)? Does the profile match what the reel showed? (Use `profile-check`.)
-Before step 1, check the week: if reach was tiny on every post that week, start at step 5, since the hook isn't the likely cause.
-
 5. **Reach tiny on everything that week** → distribution, not content. Check muted or licensed audio, a missing video, a restriction, reposted material, or a posting gap.
 
 If the reel **over**-performed, run the same tree in reverse: which step did it beat the baseline on? That's the thing to repeat.
@@ -62,6 +62,7 @@ If the reel **over**-performed, run the same tree in reverse: which step did it 
 **Chat mode** (settings `output: chat`, or the user asks): the same content as a table:
 
 | Reel (link) | Verdict | Failing (or winning) step | Evidence vs baseline | One change to try next |
+|---|---|---|---|---|
 
 **Embedded** (called from `weekly-social-review` or `daily-pulse`): return just that row's content; the calling skill places it in its own dashboard.
 

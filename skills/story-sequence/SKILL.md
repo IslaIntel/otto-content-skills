@@ -1,6 +1,6 @@
 ---
 name: story-sequence
-description: Lay out a run of 5-9 Instagram Stories, choosing where each poll, question box, quiz and link sticker goes to earn tap-through and DMs, built from your audience's own words and your recent reels pulled through the Otto MCP. Use when someone says "what should my stories be today", "story sequence for this launch", "how do I get DMs from stories", "push my new reel in stories", or "what should I post on stories today".
+description: Lay out a run of 6-9 Instagram Stories, choosing where each poll, question box, quiz and link sticker goes to earn tap-through and DMs, built from your audience's own words and your recent reels pulled through the Otto MCP. Use when someone says "what should my stories be today", "story sequence for this launch", "how do I get DMs from stories", "push my new reel in stories", or "what should I post on stories today".
 license: MIT
 ---
 

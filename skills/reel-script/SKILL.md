@@ -19,7 +19,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 ## 2. Pull: how long do your viewers stay?
 - `meta_ig_list_media` (rowLimit 60) and `meta_ig_media_insights` (batches of 25): `reach, ig_reels_avg_watch_time, reels_skip_rate, shares, saved`. Reels at least 3 days old. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - Get each reel's length from the `efg` value in its `mediaUrl` (decode it with code, see `otto-rules.md`); where `mediaUrl` is null, ask the length of your best 5 reels. With length, compute watch % = avg watch seconds / length.
-- YouTube Shorts: `youtube_top_videos` gives `averageViewDuration` in seconds. It doesn't mark which videos are Shorts: pick them by length or ask.
+- YouTube Shorts: `youtube_top_videos` gives `averageViewDuration` in seconds. It doesn't mark which videos are Shorts or return their length: ask which ones are Shorts (`#shorts` in a title is a hint).
 
 `ig_reels_avg_watch_time` is **milliseconds**: divide by 1,000.
 

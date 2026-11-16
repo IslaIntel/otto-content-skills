@@ -30,7 +30,7 @@ Read `brand/audience.md` and `brand/offer.md` if present. Window: the last 90 da
 
 **LinkedIn Page**: `linkedin_page_posts`, then `linkedin_page_list_comments(postId)`. This can fail with `linkedin_api_403` (the connection lacks comment permission). Then say so and ask the user to paste comments from their top 5 LinkedIn posts.
 
-**Google reviews**: `gbp_list_reviews` (rowLimit 200). If the user wants reviews but `gbp` isn't connected, mention `otto_connect_link` for `business_profile` once. Reviews are the best source of objections that got resolved.
+**Google reviews**: `gbp_list_reviews` (rowLimit 200). If the user wants reviews but `gbp` isn't connected, mention it every run, with `otto_connect_link` for `business_profile`. Reviews are the best source of objections that got resolved.
 
 **Reddit (optional)**: `voc_search_reddit(query)` with 2-3 phrases a customer would use about the problem (not your brand name). Often returns `http_403`; then say Reddit is unavailable and continue. Keep Reddit apart: it's the wider market, not your audience.
 

@@ -55,7 +55,7 @@ List every usable part, one line each, with where it appears (timestamp, paragra
 |---|---|---|---|
 | 2-3 reels / Shorts | One claim, mistake or story each | New first line per reel; one idea; vertical; on-screen text carries the point with sound off | `hook-writer`, `reel-script`, `cover-designer` |
 | Carousel | Steps, mistakes or a checklist | 7-10 slides, one idea each, a save slide | `carousel-designer` |
-| LinkedIn post | The claim + the story behind it | First 2 lines stand alone; short paragraphs; no hashtag pile; one question at the end | `linkedin-post` |
+| LinkedIn post | The claim + the story behind it | First 2 lines stand alone; short paragraphs; no hashtag pile; end on a question only if the author will reply to answers | `linkedin-post` |
 | Facebook post | The story or the most useful tip | Conversational; a native photo or clip beats a bare link; local angle if relevant | `caption-writer` |
 | Blog outline | The whole source | H1 = the main search query; H2s = the questions from GSC; embed the original video | none: write the outline here |
 

@@ -24,7 +24,7 @@ Then:
 - **Instagram**: `meta_ig_list_media` (rowLimit 60) for captions; `meta_ig_media_insights` in batches of 25: `views, reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`. Watch time is ms; skip rate is already a percent. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - **Facebook**: `meta_page_posts` (message) + `meta_page_post_insights`.
 - **LinkedIn**: `linkedin_page_posts` has no per-post numbers. Its hooks (the text before "see more") are sorted into patterns but not ranked; say so.
-- **YouTube**: `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage","shares"]`; the title is the hook (titles from `youtube_top_videos` or `youtube_list_recent_videos`).
+- **YouTube**: `youtube_channel_analytics` dimensions `["video"]`, metrics `["views","averageViewPercentage","shares"]`, sort `-views`, rowLimit 200; the title is the hook (titles from `youtube_top_videos` or `youtube_list_recent_videos`).
 
 Window: the last 90 days (or the 60 rows pulled), posts at least 3 days old. `ok: false` on a platform: say so and mine the rest.
 

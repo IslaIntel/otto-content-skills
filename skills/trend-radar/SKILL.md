@@ -17,7 +17,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 Then:
 - Read `brand/offer.md`, `brand/audience.md`, `brand/voice.md`. If missing, ask: what you sell, who buys, and one topic you'd never post about.
 - Ask for 3-8 peer accounts (competitors or creators the audience also follows). Where their posts come from:
-  - If `meta_ig_business_discovery` is in this session's tool list: use it for each peer handle (business or creator accounts only). It returns followers and recent posts with captions, like and comment counts and timestamps; views may not be included, so judge peers on likes and comments relative to their own median.
+  - If a business-discovery tool (e.g. `meta_ig_business_discovery`; not an Otto tool today) is in this session's tool list: use it for each peer handle (business or creator accounts only) and use only the fields it actually returns; if views are missing, judge peers on likes and comments relative to their own median.
   - Otherwise: ask the person to paste or screenshot 10-20 recent posts per peer with their numbers. Never browse or log in to other accounts for them.
 
 ## 1. Pull the signals
