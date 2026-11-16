@@ -84,7 +84,7 @@ Show the owner a one-screen summary and ask them to correct anything before you 
 
 ## Wrap up
 
-At the end of a session (or when asked):
+When the user wraps up (or asks):
 1. List what this session produced that's worth keeping: a new hook that tested well, a word the owner rejected, a corrected fact, a new offer, a reel that beat the baseline.
 2. Show the list and which file each line goes to. Wait for a yes.
 3. Append under `## Notes` in that file (no folder: give the updated file to download, a refreshed brand card if a card line changed, and ask memory to keep any settings change), each line dated: `- 2026-11-13: owner never says "solutions"; use "fixes".` Update the `Last updated` line.

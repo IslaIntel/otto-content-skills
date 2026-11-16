@@ -55,7 +55,7 @@ For each rival, fill one card:
 | Proof style | reviews, numbers, before/after, founder story, none |
 | Winning trait | what their winners share that the rest lack (topic, hook shape, format, length, face on camera) |
 | Hook template | their opening reduced to a fill-in pattern, e.g. "The [thing] every [audience] gets wrong" |
-| Cadence | posts per week, format mix, what they do after a hit (repeat, series, nothing) |
+| Cadence | posts per week, share of each format, how they follow up a hit (repeat, series, nothing) |
 | Ads | angles, offers and CTAs that repeat across their live ads; oldest still running |
 | Asked, not answered | questions in their comments they never made a post about (from screenshots) |
 

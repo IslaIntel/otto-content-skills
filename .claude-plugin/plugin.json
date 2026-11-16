@@ -1,7 +1,7 @@
 {
   "name": "otto-content-skills",
   "version": "0.5.9",
-  "description": "38 free Claude skills that run your social media off your real numbers through the Otto MCP: interactive weekly and daily dashboards, reel diagnosis, search-driven content research, hooks, scripts, captions, code-designed covers and carousels, posting queues and comment-to-lead.",
+  "description": "38 Claude skills that read your Instagram, Facebook, YouTube, LinkedIn, GA4 and Search Console through the Otto MCP and turn the numbers into your next post: dashboards, reel diagnosis, search-driven research, hooks, scripts, captions, covers, carousels, posting queues and comment replies.",
   "author": {
     "name": "Otto Webmaster",
     "url": "https://ottowebmaster.com"

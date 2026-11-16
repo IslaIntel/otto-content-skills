@@ -54,7 +54,7 @@ For every beat write:
 - **Visual**: what the camera sees. If two beats in a row show the same picture, change one.
 - **Time**: start and end seconds.
 
-**Mute test**: read only the on-screen text column top to bottom. If the reel doesn't make sense, rewrite the failing lines and say which.
+**Mute test**: read only the on-screen text column top to bottom. If the story is lost with the sound off, rewrite the lines that carry it and say which.
 
 **Safe area**: keep text out of the top 14% and bottom 20% of a 9:16 frame and away from the right edge where the buttons sit.
 

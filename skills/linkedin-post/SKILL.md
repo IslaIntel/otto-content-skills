@@ -1,6 +1,6 @@
 ---
 name: linkedin-post
-description: Write a founder or expert LinkedIn post from something the author actually did, saw or decided, shaped by what has worked on your own LinkedIn (pulled through the Otto MCP), with an optional post image built in code, and publish or schedule it on your personal profile or Company Page only after you approve the exact text. Use when asked to "write a LinkedIn post", "make this a LinkedIn post", "what should I post on LinkedIn", "founder post about this", or "plan a LinkedIn series".
+description: Write a founder or expert LinkedIn post from something the author actually did, saw or decided, shaped by what has worked on your own LinkedIn (pulled through the Otto MCP), with an optional post image built in code, and publish or schedule it on your personal profile or Company Page only after you approve the exact text. Use when asked to "write a LinkedIn post", "make this a LinkedIn post", "give me a LinkedIn idea from this week", "founder post about this", or "plan a LinkedIn series".
 ---
 
 # LinkedIn post
@@ -49,7 +49,7 @@ One clear finding is enough ("Your three best page posts were firsthand stories 
 2. **Right to say it.** Mark each claim as firsthand (author did or saw it) or secondhand. Secondhand claims get a source or get cut. Numbers must come from the author or `brand/facts.md`.
 3. **Opening (first 2 lines, before "see more").** Concrete, specific to the reader, no throat-clearing. Options to draft: the number, the moment, the decision, the thing most people get wrong. Write three; recommend one using the step 2 finding.
 4. **Body.** Situation → what was decided and why → what happened (or "too early to know") → the takeaway the reader can use. Short paragraphs, one idea each. Include one limit or trade-off; it makes the rest believable.
-5. **Ending.** A question only if the author will answer the replies. Otherwise a plain next step from `brand/offer.md` (or none). One link at most; mention that some authors put it in the first comment.
+5. **Ending.** End on a question only when the author plans to reply to answers. Otherwise a plain next step from `brand/offer.md` (or none). One link at most; mention that some authors put it in the first comment.
 6. **Run `sound-human`** on the draft. Keep it under 3,000 characters (the API limit), ideally 900-1,500. Hashtags: 0-3, only if the author already uses them.
 7. **Image (optional).** A photo from the work (the user's own file) beats anything else. If they want a graphic instead (a stat, a short list, a quote from the post), build it in HTML/CSS/SVG at 1200x1200 or 1080x1350 in their brand colours and render it to PNG (headless browser in Claude Code / Cowork; artifact with a download in claude.ai). Never AI-generate an image.
 

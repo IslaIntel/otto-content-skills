@@ -1,18 +1,50 @@
 #!/usr/bin/env bash
-# Otto Content Skills installer: copies each skill into ~/.claude/skills/
-set -euo pipefail
+# Install Otto Content Skills for Claude Code.
+#
+#   ./install.sh                     install every skill
+#   ./install.sh weekly-social-review reel-diagnosis   install only these
+#   ./install.sh --list              show the skills in this pack
+#   ./install.sh --remove            remove the skills this pack installed
+#
+# Skills go to ~/.claude/skills (override with OTTO_SKILLS_DIR=/some/path).
+set -eu
 
-SKILLS_DIR="${HOME}/.claude/skills"
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+pack="$(cd "$(dirname "$0")" && pwd)/skills"
+target="${OTTO_SKILLS_DIR:-$HOME/.claude/skills}"
 
-mkdir -p "${SKILLS_DIR}"
-for dir in "${SCRIPT_DIR}/skills"/*/; do
-  name="$(basename "${dir}")"
-  mkdir -p "${SKILLS_DIR}/${name}"
-  cp -R "${dir}". "${SKILLS_DIR}/${name}/"
-  echo "  installed ${name}"
+if [ ! -d "$pack" ]; then
+  echo "Can't find the skills folder next to this script. Run it from the cloned repo." >&2
+  exit 1
+fi
+
+available() { for d in "$pack"/*/; do [ -f "$d/SKILL.md" ] && basename "$d"; done; }
+
+case "${1:-}" in
+  --list)
+    available
+    exit 0 ;;
+  --remove)
+    n=0
+    for s in $(available); do
+      if [ -d "$target/$s" ]; then rm -rf "${target:?}/$s"; n=$((n + 1)); fi
+    done
+    echo "Removed $n Otto skills from $target"
+    exit 0 ;;
+esac
+
+if [ "$#" -gt 0 ]; then wanted="$*"; else wanted="$(available)"; fi
+
+mkdir -p "$target"
+count=0
+for s in $wanted; do
+  if [ ! -f "$pack/$s/SKILL.md" ]; then
+    echo "  skipped $s (not in this pack; see ./install.sh --list)"
+    continue
+  fi
+  rm -rf "${target:?}/$s"
+  cp -R "$pack/$s" "$target/$s"
+  count=$((count + 1))
 done
 
-echo ""
-echo "Done. Restart Claude Code, connect Otto, then ask: \"weekly review\""
-echo "Otto: https://ottowebmaster.com"
+echo "Installed $count Otto skills into $target"
+echo "Next: connect Otto (https://ottowebmaster.com/introduction/mcp/claude), restart Claude Code, then ask \"set up my brand brain\"."

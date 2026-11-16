@@ -5,7 +5,7 @@ description: Read the comments on your recent Instagram, Facebook and LinkedIn p
 
 # Comment to lead
 
-If a post says "Comment GUIDE and I'll send it", that promise only counts if it gets kept. This skill is the back half of the post.
+If a post says "Comment PRICE and I'll DM you the list", that promise only counts if it gets kept. This skill is the back half of the post.
 
 Nothing runs unattended. Reading comments is free; every reply or hide waits for the owner's yes in this conversation, for that batch.
 
@@ -44,7 +44,7 @@ A comment that fits no bucket goes to the owner. Never guess.
 ## 3. Draft the public reply
 
 - Short, warm, plain, in the business's voice. No hype, no promised results.
-- **No link in a public reply.** The link goes in the DM.
+- **No link in a public reply.** Links only travel by private message.
 - Before it's sent, say "Sending it to your messages now", never "sent".
 - Vary the wording; twenty identical replies read as a bot.
 

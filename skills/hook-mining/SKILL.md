@@ -62,7 +62,7 @@ If a hooks CSV was supplied, bucket it the same way and list which patterns appe
 
 For each of the top 5 proven hooks write 3 new versions. Rule: **keep the skeleton, change the words.**
 
-Hold fixed: the pattern, the clause order, a number stays a number (and must be true for this business, from `brand/facts.md` or the person), roughly the same length and rhythm, the open question stays open (the payoff comes after the hook), the point of view.
+Keep from the original: its pattern, the order its clauses come in, any number (swapped only for another number that's true for this business, from `brand/facts.md` or the owner), roughly the same length and rhythm, the open question stays open (the payoff comes after the hook), the point of view.
 
 Change: the topic noun, the verb, the emotional word, the specific detail.
 

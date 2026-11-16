@@ -1,17 +1,17 @@
 ---
 name: content-pillars
-description: Builds 3-5 content pillars from evidence in your Otto data (Search Console queries, Business Profile searches, comments, your best posts per platform) and your offer, each with its share of output, the formats that work for it, and 10 seed ideas. Use when someone says "what should I post about", "my feed feels random", "build my content pillars", "content themes", "what topics should I own", or before planning a content calendar.
+description: Builds 3-5 content pillars from evidence in your Otto data (Search Console queries, Business Profile searches, comments, your best posts per platform) and your offer, each with its share of output, the formats that work for it, and 10 seed ideas. Use when someone says "what topics should I stick to", "my feed feels random", "build my content pillars", "content themes", "what topics should I own", or before planning a content calendar.
 ---
 
 # Content pillars
 
-Decides the 3-5 themes the account posts about, using what people search for, what they ask in comments, what already performs and what the business sells. A pillar is a theme with a point of view that leads somewhere useful for the business, not a topic bucket. Read-only; saves the result to `brand/pillars.md` for `content-calendar` and other skills.
+Decides the 3-5 themes the account posts about, using what people search for, what they ask in comments, what already performs and what the business sells. A pillar is a recurring subject you have a clear stance on, and it should lead viewers toward what the business sells, not a topic bucket. Read-only; saves the result to `brand/pillars.md` for `content-calendar` and other skills.
 
 ## 0. Setup
 
 - If more than one Otto workspace is connected, ask which business, then keep it. If the workspace has more than one Instagram or Facebook account (`meta_page_list`), ask which one.
 - `otto_list_connections` to see what's connected.
-- Read `brand/offer.md`, `brand/audience.md`, `brand/winners.md` if they exist. Without `brand/offer.md`, ask: what you sell, to whom, and the one action you want people to take.
+- Read `brand/offer.md`, `brand/audience.md`, `brand/winners.md` if they exist. Without `brand/offer.md`, ask: what you sell, who buys it, and what a viewer should do next.
 - If `brand/pillars.md` exists, this run is an update: compare against it.
 
 ## 1. Pull the evidence (last 90 days unless told otherwise)

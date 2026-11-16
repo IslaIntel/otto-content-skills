@@ -1,6 +1,6 @@
 ---
 name: story-sequence
-description: Plan a 5 to 9 frame Instagram Story arc with polls, question boxes, quizzes and link stickers placed to earn tap-through and DMs, built from your audience's own words and your recent reels pulled through the Otto MCP. Use when someone says "plan my stories", "story sequence for this launch", "how do I get DMs from stories", "push my new reel in stories", or "what should I post on stories today".
+description: Lay out a run of 5-9 Instagram Stories, choosing where each poll, question box, quiz and link sticker goes to earn tap-through and DMs, built from your audience's own words and your recent reels pulled through the Otto MCP. Use when someone says "what should my stories be today", "story sequence for this launch", "how do I get DMs from stories", "push my new reel in stories", or "what should I post on stories today".
 ---
 
 # Story sequence
@@ -12,7 +12,7 @@ Read-only. Otto can't post Stories, so the owner posts the frames in the Instagr
 ## 1. Setup
 Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short: read `brand/settings.md` (or memory) for workspace, Instagram account and output mode; ask only what's missing in one multiple-choice message and save it. Output is visual by default (artifact / HTML file / canvas) unless settings say chat.
 
-- Read `brand/` (voice, audience, offer, facts). Missing: ask what you sell, who it's for, and the one action you want. Suggest `brand-brain`.
+- Read `brand/` (voice, audience, offer, facts). Missing: ask what you sell, who buys it, and what a viewer should do next. Suggest `brand-brain`.
 - Ask for the goal of this sequence. Pick one:
 
 | Goal | Proof it worked | Main sticker |

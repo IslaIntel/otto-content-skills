@@ -1,6 +1,6 @@
 ---
 name: hook-test
-description: Design a one-variable hook test (two openings, everything else held), declare the deciding metric and minimum sample before posting, then score it later from live Instagram, Facebook, LinkedIn or YouTube numbers pulled through Otto. Use when asked to "A/B test this hook", "give me two hooks to test", "which opening should I use", "test this hook", or "score my hook test".
+description: Design a one-variable hook test (two openings, everything else held), declare the deciding metric and minimum sample before posting, then score it later from live Instagram, Facebook, LinkedIn or YouTube numbers pulled through Otto. Use when asked to "A/B test this hook", "which of these two openings wins", "which opening should I use", "test this hook", or "score my hook test".
 ---
 
 # Hook test

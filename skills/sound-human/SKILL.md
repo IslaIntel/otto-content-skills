@@ -1,6 +1,6 @@
 ---
 name: sound-human
-description: Edit a script, caption or post so it sounds like the business owner wrote it, by comparing it with brand/voice.md and the owner's real captions pulled through the Otto MCP, removing machine-sounding habits and running a read-aloud test, without changing what it says. Use when someone says "this sounds like AI", "make it sound like me", "humanize this", "too salesy", "too polished", or "clean up this caption".
+description: Edit a script, caption or post so it sounds like the business owner wrote it, by comparing it with brand/voice.md and the owner's real captions pulled through the Otto MCP, removing machine-sounding habits and running a read-aloud test, while keeping every fact and claim exactly as it was. Use when someone says "this sounds like AI", "make it sound like me", "humanize this", "too salesy", "too polished", or "clean up this caption".
 ---
 
 # Sound human

@@ -1,6 +1,6 @@
 ---
 name: audience-personas
-description: Build evidence-led audience personas from your real data through the Otto MCP (comments, Google reviews, YouTube age/gender and country, GA4 location and device, Search Console queries), where every claim cites its source and nothing is made up. Use when someone says "who is my audience", "build personas", "who actually follows me", "who am I talking to", "what does my customer look like", or "who should I make content for".
+description: Describe who your audience really is, as personas backed line by line by your real data through the Otto MCP (comments, Google reviews, YouTube age/gender and country, GA4 location and device, Search Console queries), where every claim cites its source and nothing is made up. Use when someone says "who is my audience", "build personas", "who actually follows me", "who am I talking to", "what does my customer look like", or "who should I make content for".
 ---
 
 # Audience personas

@@ -1,11 +1,11 @@
 ---
 name: content-engine
-description: One command that runs the whole content pipeline in order, from your real Otto data to a planned and approved reel that gets posted (through Otto scheduling, a posting queue or by hand, depending on your connection), with a comment-to-lead loop and a measurement date, by calling the other skills in this pack. Stops for your approval at each decision. Use when asked to "run the content engine", "do the whole thing", "make me a reel from start to finish", "set up my content system", or "what should I post this week and make it".
+description: One command that runs the whole content pipeline in order, from your real Otto data to a planned and approved reel that gets posted (through Otto scheduling, a posting queue or by hand, depending on your connection), with a comment-to-lead loop and a measurement date, by calling the other skills in this pack. Stops for your approval at each decision. Use when asked to "run the content engine", "do the whole thing", "make me a reel from start to finish", "set up my content system", or "plan and make this week's reel".
 ---
 
 # Content engine
 
-The other skills each do one job. This one runs them in sequence, passes each step's output to the next, and stops where a person has to decide. It needs nothing beyond Claude and the Otto MCP. Filming and editing are done by you (or your editor); everything around them is prepared here.
+Every other skill in the pack handles a single step. This is the conductor: it calls them in order, hands each result to the next step, and pauses wherever you need to decide. It needs nothing beyond Claude and the Otto MCP. Filming and editing are done by you (or your editor); everything around them is prepared here.
 
 Every write (publishing, scheduling, replying) happens only after an explicit yes on the exact content, in this conversation, and only through tools this connection actually has.
 

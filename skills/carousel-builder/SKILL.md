@@ -1,6 +1,6 @@
 ---
 name: carousel-builder
-description: Turns one idea into a 7-10 slide Instagram carousel built to be saved and shared, modelled on the structure of your own best carousels (ranked by saves and shares per 1,000 reach from Otto), with slides designed in code from named style presets in your brand colours and rendered to PNG. Use when someone says "make this a carousel", "make slides out of this", "swipe post about X", "design my carousel", or "redo my best carousel on a new topic".
+description: Builds a 7-10 slide Instagram carousel from a single idea, designed to be saved and shared, modelled on the structure of your own best carousels (ranked by saves and shares per 1,000 reach from Otto), with slides designed in code from named style presets in your brand colours and rendered to PNG. Use when someone says "make this a carousel", "make slides out of this", "swipe post about X", "design my carousel", or "redo my best carousel on a new topic".
 ---
 
 # Carousel builder
