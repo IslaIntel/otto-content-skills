@@ -45,7 +45,7 @@ Framing words to use: wide (whole scene), medium (waist up or the full counter),
 | Product | A white sheet of paper as a bounce under the product; turn off overhead lights that cast hard shadows |
 | Exposure | Tap and hold to lock focus and exposure before rolling |
 | Settings | 1080p or 4K, 30fps; 60fps only for slow motion. Lens clean. Airplane mode |
-| Safe zone | Keep faces and text out of the top 14% and bottom 35% of the frame (Reels) |
+| Safe zone | Keep faces and text out of the top 14% and bottom 35% of the frame (Reels; the common guideline from Meta's ad specs, on the safe side) |
 
 ## 5. Output
 

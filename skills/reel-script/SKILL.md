@@ -57,7 +57,7 @@ For every beat write:
 
 **Mute test**: read only the on-screen text column top to bottom. If the story is lost with the sound off, rewrite the lines that carry it and say which.
 
-**Safe area**: keep text out of the top 14% and bottom 35% of a 9:16 frame, and about 6% in from each side (the buttons sit on the right).
+**Safe area**: keep text out of the top 14% and bottom 35% of a 9:16 frame, and about 6% in from each side (the buttons sit on the right). This is the common guideline from Meta's ad specs; Instagram publishes no exact numbers for regular Reels, so it errs on the safe side.
 
 ## 4. Pre-flight checklist (all must pass)
 
