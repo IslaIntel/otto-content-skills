@@ -35,7 +35,7 @@
 
 ## See it
 
-Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of text. Every number links back to your accounts, and every post opens its own diagnosis.
+Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of text: totals against last week, every post newest first, and a click-through diagnosis for each one.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/weekly-review-dark.png">
