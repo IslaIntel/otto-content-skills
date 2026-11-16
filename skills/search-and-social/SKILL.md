@@ -1,6 +1,7 @@
 ---
 name: search-and-social
 description: Connect what people search with what you post. Uses Search Console queries and pages, Google Business Profile search keywords, YouTube search terms and GA4 social traffic through Otto to find topics people search that your social content hasn't covered, the exact words to put in captions, titles and alt text, and which platforms and pages actually send visitors to your site. Use when asked "what are people searching for", "which keywords should my captions use", "does social send anyone to my site", "make my posts findable on Google", or "turn my search data into content".
+license: MIT
 ---
 
 # Search and social

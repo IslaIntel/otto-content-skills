@@ -1,6 +1,7 @@
 ---
 name: competitor-watch
 description: Break down 3-5 rival accounts to find the pattern behind their best posts, what they say in their ads, and the gaps you can own, then compare it all with your own numbers pulled through the Otto MCP. Use when someone says "break down this competitor", "why is this account growing", "what are my competitors posting", "what ads are they running", "how do I compare to them", or "what are they doing that I'm not".
+license: MIT
 ---
 
 # Competitor teardown

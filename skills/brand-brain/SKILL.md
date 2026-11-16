@@ -1,6 +1,7 @@
 ---
 name: brand-brain
 description: Build and keep a plain `brand/` folder (settings, voice, audience, offer, facts, winners) that every Otto content skill reads, seeded from your real Instagram numbers, comments and website copy pulled through the Otto MCP, and updated at the end of each session. Works with a folder (Claude Code, Cowork, desktop) or without one (claude.ai, ChatGPT) via downloadable files and a short brand card. Use when someone says "set up my brand", "learn my business", "remember this", "wrap up", "save what we learned", or before the first time they use a creation skill.
+license: MIT
 ---
 
 # Brand brain

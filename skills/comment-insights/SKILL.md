@@ -1,6 +1,7 @@
 ---
 name: comment-insights
 description: Pull the comments from the sources you choose (Instagram, Facebook, LinkedIn, Google reviews, Reddit; only connected ones) through the Otto MCP, cluster them into questions, objections and requests in your audience's own words, and turn the clusters into content ideas and FAQ answers. Use when someone says "what are people asking in my comments", "dig through my comments", "what do people want from me", "what objections do people have", "turn comments into content", or "build an FAQ from my comments".
+license: MIT
 ---
 
 # Comment mining

@@ -1,6 +1,7 @@
 ---
 name: post-queue
 description: Posts content you already made and approved at set times, for Otto connections that can publish but can't schedule. Builds a queue file, gets your approval on every item once, and sets up your assistant's scheduled tasks to publish each approved item through Otto when it's due. Use when someone says "post this at 9am tomorrow", "queue these reels", "schedule these posts" (and Otto scheduling isn't available), "post one a day for a week", or "set up a posting queue".
+license: MIT
 ---
 
 # Post queue

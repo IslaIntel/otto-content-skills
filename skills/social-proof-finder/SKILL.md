@@ -1,6 +1,7 @@
 ---
 name: social-proof-finder
 description: Find the proof you already have (Google reviews, positive comments on Instagram and Facebook, testimonials on your own site, DMs and emails you share) through the Otto MCP, match each piece to the claim it supports, check permission, and save a reusable proof bank. Use when someone says "find testimonials", "what proof do we have", "find good reviews to post", "social proof for this campaign", "which review backs this claim", or "build a testimonial bank".
+license: MIT
 ---
 
 # Social proof finder

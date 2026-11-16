@@ -1,6 +1,7 @@
 ---
 name: content-engine
 description: One command that runs the whole content pipeline in order, from your real Otto data to a planned and approved reel that gets posted (through Otto scheduling, a posting queue or by hand, depending on your connection), with a comment-to-lead loop and a measurement date, by calling the other skills in this pack. Stops for your approval at each decision. Use when asked to "run the content engine", "do the whole thing", "make me a reel from start to finish", "set up my content system", or "plan and make this week's reel".
+license: MIT
 ---
 
 # Content engine

@@ -1,6 +1,7 @@
 ---
 name: cover-designer
 description: Design covers for Instagram Reels and YouTube Shorts in code, over a clean frame of your real footage, matched to your brand colours and fonts and checked for the 4:5 and 1:1 grid crops, using your own reels pulled through the Otto MCP. Use when someone says "make a cover for this reel", "design my reel cover", "Shorts cover", "what should my cover say", "grid cover", or "my covers look messy on my profile".
+license: MIT
 ---
 
 # Cover designer

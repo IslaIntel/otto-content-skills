@@ -1,6 +1,7 @@
 ---
 name: creator-collab
 description: Plan a creator, influencer or UGC collaboration end to end, as drafts only (you send every message yourself): decide if a creator fits using evidence from what they post, write the first message, write the brief they film from, cover usage rights and disclosure, and measure the result with your own Otto data (UTM links, GA4, Instagram insights on the collab post). Use when asked "is this creator a good fit for us", "draft my first message to a creator", "pitch a collab", "UGC brief", "brief my videographer", or "did the collab work".
+license: MIT
 ---
 
 # Creator collab

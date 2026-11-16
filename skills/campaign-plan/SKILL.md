@@ -1,6 +1,7 @@
 ---
 name: campaign-plan
 description: Write a one-page, decision-ready campaign brief (goal, audience, offer, message, channels, organic plan, paid plan, measurement) with targets set from your own numbers pulled through the Otto MCP: organic medians on Instagram, Facebook and LinkedIn, GA4 conversions, and Meta ads history (CPM, CTR, CPC, cost per result) if connected. Always produces the plan; builds paused Meta campaigns in Otto only if your connection has ads write tools and you approve, otherwise gives step-by-step Ads Manager instructions. Use when asked to "brief this launch", "plan a campaign", "make a social brief", "paid social brief", "what should this promotion say", or "how much should we spend on this".
+license: MIT
 ---
 
 # Campaign brief

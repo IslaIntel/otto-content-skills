@@ -1,6 +1,7 @@
 ---
 name: caption-writer
 description: Writes the caption, an optional call to action matched to the post's goal, alt text and 3-5 hashtags, learning from which of your own past captions performed (views, reach, search clicks) and using keywords from your real search data in Otto, in your own caption template if you have one. Use when someone says "write a caption", "caption this reel", "hashtags for this", "keyword research for my reel", "what should my CTA be", or "post copy".
+license: MIT
 ---
 
 # Caption writer

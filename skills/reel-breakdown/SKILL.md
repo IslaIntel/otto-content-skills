@@ -1,6 +1,7 @@
 ---
 name: reel-breakdown
 description: Watch a reel frame by frame and read its words, then break down the hook (first 3 seconds), structure, pacing in cuts per 10 seconds, on-screen text, payoff and CTA, with what to steal and what not to. For your own reels it gets the video through the Otto MCP (or from the user) and pairs the breakdown with real skip rate and watch time. Use when someone says "break down this reel", "analyze this video", "why does this reel work", "study this creator's reel", "map out how this video is built", or "watch my reel and tell me what happens".
+license: MIT
 ---
 
 # Reel breakdown

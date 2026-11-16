@@ -1,6 +1,7 @@
 ---
 name: comment-to-lead
 description: Read the comments on your recent Instagram, Facebook and LinkedIn posts through the Otto MCP, sort them (keyword requests, questions, support, spam), draft public replies, send approved replies through Otto when your connection has reply tools, and write a ManyChat-ready DM flow (keyword triggers, first DM, follow-ups) for an official DM tool, since Otto doesn't send DMs. Use when asked "check my comments", "reply to the comments", "who commented the keyword", "draft the DMs", "set up a comment-to-DM flow", or every day a "comment X and I'll send it" post is live.
+license: MIT
 ---
 
 # Comment to lead

@@ -268,7 +268,9 @@ If a skill saved you an hour, [⭐ star the repo](https://github.com/IslaIntel/o
 
 ## License
 
-[MIT](LICENSE). Use them, change them, share them.
+[MIT](LICENSE). In plain words: you can use these skills for free, for yourself or for clients, change them, and share or sell what you build with them. The one condition is to keep the copyright and license notice in any copy you pass on. They come as they are, with no warranty.
+
+The license covers the skills, templates and scripts. The Otto name, logo and mascot are Otto's brand and aren't licensed for reuse.
 
 ---
 

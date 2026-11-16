@@ -1,6 +1,7 @@
 ---
 name: shot-list
 description: Turn a reel script into a phone-only shot list for filming real footage, in filming order, grouped by location, with framing, duration and the line each shot covers, and check your Otto media library for footage you already have. Use when someone says "shot list for this script", "what should I film for this", "plan my B-roll", or "plan my filming day".
+license: MIT
 ---
 
 # Shot list

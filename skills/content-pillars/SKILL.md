@@ -1,6 +1,7 @@
 ---
 name: content-pillars
 description: Builds 3-5 content pillars from evidence in your Otto data (Search Console queries, Business Profile searches, comments, your best posts per platform) and your offer, each with its share of output, the formats that work for it, and 10 seed ideas. Use when someone says "what topics should I stick to", "my feed feels random", "build my content pillars", "content themes", "what topics should I own", or before planning a content calendar.
+license: MIT
 ---
 
 # Content pillars

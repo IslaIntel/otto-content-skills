@@ -1,6 +1,7 @@
 ---
 name: utm-builder
 description: Build tracked links for your posts and campaigns with one lowercase naming scheme, one link per platform and post, a running log file, and a check in GA4 through Otto (sessionSource / sessionCampaignName) that the tags actually arrive. Use when asked to "make UTM links", "tag my links", "track which post sent traffic", "set up tracking for this campaign", or "are my UTMs working".
+license: MIT
 ---
 
 # UTM builder

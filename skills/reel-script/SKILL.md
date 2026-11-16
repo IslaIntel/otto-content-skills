@@ -1,6 +1,7 @@
 ---
 name: reel-script
 description: Write a full short-video script beat by beat (spoken line, on-screen text for sound-off viewers, visual and timing for each beat, plus the caption handoff), sized to how long your viewers actually watch, using average watch time pulled through the Otto MCP. Use when someone says "script this reel", "write the video", "turn this idea into a reel", "what do I say in this video", "write the on-screen text", or "make this shorter".
+license: MIT
 ---
 
 # Reel script

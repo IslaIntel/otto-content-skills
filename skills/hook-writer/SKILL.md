@@ -1,6 +1,7 @@
 ---
 name: hook-writer
 description: Write 10 short-video hooks (spoken line, first frame and on-screen text for each) across different patterns, ranked against the hooks that actually worked on your account, pulled through the Otto MCP or read from brand/winners.md. Use when someone says "write me a hook", "how should this reel start", "first 3 seconds", "opening line for this video", "scroll stopper", or "my hook is weak".
+license: MIT
 ---
 
 # Hook writer

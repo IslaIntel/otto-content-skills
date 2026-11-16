@@ -12,8 +12,11 @@ Frontmatter:
 ---
 name: <folder-name>
 description: <what it does in one sentence, mentioning Otto data where used>. Use when <trigger situations and 3-6 quoted phrases people actually say>.
+license: MIT
 ---
 ```
+
+`license: MIT` travels with the skill when someone copies one folder on its own (the repo's `LICENSE` file has the full text).
 
 ## Section order
 

@@ -1,6 +1,7 @@
 ---
 name: repurpose
 description: Takes one proven piece (your top YouTube video, a breakout reel, or a blog post that ranks, chosen from your Otto data) and turns it into reels, a carousel, a LinkedIn post, a Facebook post and a blog outline, each fitted to its platform, plus the order to release them. Use when someone says "repurpose this", "turn this video into posts", "get more out of this blog", "cross-post this", "one video into a week of content", or "what should I do with my best video".
+license: MIT
 ---
 
 # Repurpose

@@ -1,6 +1,7 @@
 ---
 name: trend-radar
 description: Find rising topics for your business from real signals Otto can pull (Search Console queries compared across two windows, YouTube traffic and top videos, your own breakout posts, recent comments, Reddit when reachable) plus peer accounts you name, and give each trend a take / adapt / skip verdict with the reason it fits or doesn't. Use when asked "what's trending for businesses like mine", "is this trend worth jumping on", "what are people asking about right now", or "find me something timely to post".
+license: MIT
 ---
 
 # Trend spotter

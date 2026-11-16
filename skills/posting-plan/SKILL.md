@@ -1,6 +1,7 @@
 ---
 name: posting-plan
 description: Builds a 2-4 week posting plan from your content pillars, your own winning posts and your best posting times, checks what's already scheduled in Otto, includes recurring series, and after you approve hands posts to Otto scheduling (if your connection has it), to `post-queue`, or to you to post by hand. Use when someone says "plan my content", "make a content calendar", "what should I post next week", "plan the next month", "I need a posting schedule", or "start a weekly series".
+license: MIT
 ---
 
 # Content calendar

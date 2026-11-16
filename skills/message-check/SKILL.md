@@ -1,6 +1,7 @@
 ---
 name: message-check
 description: Check whether your website, bio and recent posts all say one clear thing, by reading your site and captions and comparing them with what people actually search to find you (Search Console via Otto), then return one positioning line, its proof, and what to stop saying. Use when someone says "audit our positioning", "what do we stand for", "we blend in with our competitors", "is our message clear", "rewrite our bio", or "what should our tagline be".
+license: MIT
 ---
 
 # Positioning audit

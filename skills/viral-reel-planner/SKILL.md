@@ -1,6 +1,7 @@
 ---
 name: viral-reel-planner
 description: Plan a short-form video (Instagram Reel, YouTube Short, TikTok) backwards from the one result you want, building the hook checklist from your own winners and losers pulled through the Otto MCP (skip rate, watch time, shares, saves). Use when someone says "help me go viral", "plan a reel", "I have an idea for a video", "how do I get more shares", "my reels get no views", or "what should my next reel be".
+license: MIT
 ---
 
 # Viral reel planner

@@ -1,6 +1,7 @@
 ---
 name: campaign-retro
 description: Look back at a finished campaign or launch using everything Otto can pull for its date window (posts and their numbers on Instagram, Facebook, LinkedIn and YouTube; GA4 sessions, landing pages and UTM campaigns; Meta ads insights when this connection can read them) and decide what to repeat, change and stop. Use when asked to "run a retro", "was the launch worth it", "postmortem this campaign", "should we do this again", or "how did the promo do".
+license: MIT
 ---
 
 # Campaign retro

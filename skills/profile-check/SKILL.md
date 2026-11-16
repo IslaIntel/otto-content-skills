@@ -1,6 +1,7 @@
 ---
 name: profile-check
 description: Check the social profiles your content sends people to (Instagram first, then TikTok, YouTube, Facebook, LinkedIn, X) and propose the smallest changes so a visitor arriving from one post understands who you are, what you offer, and the one thing to do next. Use when asked "check my profile", "fix my bio", "which posts should I pin", or when reels get views but few follows, DMs or site visits.
+license: MIT
 ---
 
 # Profile check

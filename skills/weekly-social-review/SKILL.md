@@ -1,6 +1,7 @@
 ---
 name: weekly-social-review
 description: Weekly social media performance review across every platform connected to Otto (Instagram, Facebook, LinkedIn, YouTube), measured against your own baseline, ending in a short keep/change/test/stop plan for next week. Use when asked for "the weekly review", "weekly report", "how did my posts do this week", "how did my reels do", or "what's working on social".
+license: MIT
 ---
 
 # Weekly social review

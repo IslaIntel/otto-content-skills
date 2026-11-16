@@ -1,6 +1,7 @@
 ---
 name: hook-patterns
 description: Mine the hooks from your own posts (first caption line or first spoken line), rank them on the numbers Otto pulls from Instagram, Facebook, LinkedIn and YouTube (skip rate, watch time, shares per 1,000 reach), sort them into patterns, and remix the winners into new hooks that keep the structure and change the words. Optionally takes a CSV of other hooks. Use when asked to "mine my hooks", "which openings work for me", "remix my best hooks", "hook variations from what's working", or "give me hooks based on my data".
+license: MIT
 ---
 
 # Hook mining

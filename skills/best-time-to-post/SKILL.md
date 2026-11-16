@@ -1,6 +1,7 @@
 ---
 name: best-time-to-post
 description: Work out when to post from your own history, comparing your posting times (converted to your timezone) with reach and views on the posts Otto pulls from Instagram, Facebook, LinkedIn and YouTube, plus website visits by hour from GA4, and give an honest hypothesis to hold for 4 weeks. Use when asked "what time do my posts do best", "what hour should I post at", "what day is best for me", "does posting time matter for my account", or "set my posting schedule".
+license: MIT
 ---
 
 # Best time to post

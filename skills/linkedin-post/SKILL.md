@@ -1,6 +1,7 @@
 ---
 name: linkedin-post
 description: Write a founder or expert LinkedIn post from something the author actually did, saw or decided, shaped by what has worked on your own LinkedIn (pulled through the Otto MCP), with an optional post image built in code, and publish or schedule it on your personal profile or Company Page only after you approve the exact text. Use when asked to "write a LinkedIn post", "make this a LinkedIn post", "give me a LinkedIn idea from this week", "founder post about this", or "plan a LinkedIn series".
+license: MIT
 ---
 
 # LinkedIn post

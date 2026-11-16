@@ -1,6 +1,7 @@
 ---
 name: content-scorecard
 description: Audit your recent posts (by default the last 30 days, or a longer range or post count you choose) on the Otto-connected platforms in scope (Instagram, Facebook, LinkedIn, YouTube), judged against your own median, to find which traits earn their keep and which are dead weight, ending in stop/keep/test lists, the next five posts, and an updated brand/winners.md. Use when asked to "audit my content", "which of my posts are working", "what should I quit posting", or "what should I double down on".
+license: MIT
 ---
 
 # Content audit

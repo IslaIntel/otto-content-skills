@@ -1,6 +1,7 @@
 ---
 name: reel-diagnosis
 description: Diagnose why an Instagram Reel over- or under-performed, using your own account's numbers pulled through the Otto MCP. Use when someone asks "why did this reel flop", "why did this one work", "what went wrong with my last video", or wants to compare two reels.
+license: MIT
 ---
 
 # Reel diagnosis

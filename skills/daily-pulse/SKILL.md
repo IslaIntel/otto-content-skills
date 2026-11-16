@@ -1,6 +1,7 @@
 ---
 name: daily-pulse
 description: A quick daily check of yesterday's posts through the Otto MCP, shown as a small dashboard - which posts are taking off, which stalled, what to remix today, and anything broken. Same look as the weekly review, scaled down to one day. Use when asked "how did yesterday's posts do", "daily pulse", "daily check-in", "how's my Instagram today", or before making today's content.
+license: MIT
 ---
 
 # Daily pulse

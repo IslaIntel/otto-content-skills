@@ -1,6 +1,7 @@
 ---
 name: topic-finder
 description: Research what to make next by combining four kinds of evidence through the Otto MCP (what people search for in Google, what gets watched on YouTube including your own channel, what people complain about online, and your own breakout posts) into a ranked topic list where every topic shows its proof. Use when someone says "research my niche", "what topics would do well for me", "find topics that will work", "what's working in my industry", "give me content ideas with data", or "what are people searching for".
+license: MIT
 ---
 
 # Content research
