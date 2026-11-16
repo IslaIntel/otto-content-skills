@@ -33,7 +33,7 @@ To size the test, pull the account's own numbers: `meta_ig_list_media` (rowLimit
 Posting the identical video twice can be treated as a repost by the platform. Prefer changing only the first 2-3 seconds of on-screen text and voice.
 
 ### Write the two hooks
-They must use **different mechanisms** (patterns from `hook-mining`, e.g. `number-result` vs `mistake-warning`). If both pull the same lever, replace one. For each: on-screen text (≤ 8 words), first spoken line, first frame.
+They must use **different mechanisms** (patterns from `hook-patterns`, e.g. `number-result` vs `mistake-warning`). If both pull the same lever, replace one. For each: on-screen text (≤ 8 words), first spoken line, first frame.
 
 ### Declare (write all of this before posting)
 

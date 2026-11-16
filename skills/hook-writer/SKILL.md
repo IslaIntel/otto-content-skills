@@ -21,7 +21,7 @@ Use `brand/winners.md` if it's under 2 weeks old. Otherwise:
 - `meta_ig_list_media` (rowLimit 60), then `meta_ig_media_insights` (batches of 25): `reach, shares, saved, comments, ig_reels_avg_watch_time, reels_skip_rate`. Reels 3+ days old. Request `ig_reels_avg_watch_time` and `reels_skip_rate` only for `mediaType: VIDEO` ids (one image in the batch fails the whole call).
 - Take the first line of each caption as a stand-in for the on-screen hook, and ask the owner to correct it where the reel said something else.
 - Best 5 and worst 5 by skip rate (lower is better), with shares and saves per 1,000 reach alongside.
-- If `hook-mining` has run, use its pattern table instead.
+- If `hook-patterns` has run, use its pattern table instead.
 
 `reels_skip_rate` is already a percent. Not connected or `ok: false`: say so and rank on principles only.
 

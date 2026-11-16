@@ -5,7 +5,7 @@ description: Builds 3-5 content pillars from evidence in your Otto data (Search 
 
 # Content pillars
 
-Decides the 3-5 themes the account posts about, using what people search for, what they ask in comments, what already performs and what the business sells. A pillar is a recurring subject you have a clear stance on, and it should lead viewers toward what the business sells, not a topic bucket. Read-only; saves the result to `brand/pillars.md` for `content-calendar` and other skills.
+Decides the 3-5 themes the account posts about, using what people search for, what they ask in comments, what already performs and what the business sells. A pillar is a recurring subject you have a clear stance on, and it should lead viewers toward what the business sells, not a topic bucket. Read-only; saves the result to `brand/pillars.md` for `posting-plan` and other skills.
 
 ## 0. Setup
 
@@ -24,7 +24,7 @@ Decides the 3-5 themes the account posts about, using what people search for, wh
 | What people ask | `meta_ig_list_comments` on the top 10 posts; `meta_page_list_comments`; `linkedin_page_list_comments`; `gbp_list_reviews` for local businesses |
 | What sells | `brand/offer.md`, or `ga4_landing_pages` to see which offer pages get visits |
 
-Fallbacks: any source not connected or returning `ok: false` is listed as "missing" in the output, and the pillars rest on what's left. With fewer than two evidence types, say the pillars are a draft and suggest running `comment-mining` or connecting GSC (`otto_connect_link`). Never invent queries, comments or numbers.
+Fallbacks: any source not connected or returning `ok: false` is listed as "missing" in the output, and the pillars rest on what's left. With fewer than two evidence types, say the pillars are a draft and suggest running `comment-insights` or connecting GSC (`otto_connect_link`). Never invent queries, comments or numbers.
 
 ## 2. Cluster
 
@@ -77,7 +77,7 @@ Seed ideas:
 - <theme>: <why, with evidence>
 ```
 
-Hand off: `content-calendar` turns the pillars into dated posts and recurring series; `hook-writer` and `carousel-builder` turn seed ideas into posts.
+Hand off: `posting-plan` turns the pillars into dated posts and recurring series; `hook-writer` and `carousel-designer` turn seed ideas into posts.
 
 ## Never
 

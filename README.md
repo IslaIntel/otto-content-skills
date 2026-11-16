@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="Otto Content Skills: content skills for Claude, run on your real numbers" width="100%">
 </p>
 
-<h3 align="center">38 free Claude skills that turn your real social media numbers into your next post.</h3>
+<h3 align="center">38 free AI skills that turn your real social media numbers into your next post.<br><sub>Built for Claude. Also runs in ChatGPT, Cursor and any app that supports Agent Skills and MCP.</sub></h3>
 
 <p align="center">
   <a href="https://ottowebmaster.com/mcp"><img src="https://img.shields.io/badge/Connect%20Otto%20to%20Claude-1E9CF3?style=for-the-badge" alt="Connect Otto to Claude"></a>
@@ -11,7 +11,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0b0b0b" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/skills-38-0b0b0b" alt="38 skills">
-  <img src="https://img.shields.io/badge/works%20in-claude.ai%20%C2%B7%20Claude%20Code%20%C2%B7%20Cowork-0b0b0b" alt="Works in claude.ai, Claude Code and Cowork">
+  <img src="https://img.shields.io/badge/works%20in-Claude%20%C2%B7%20ChatGPT%20%C2%B7%20Cursor%20%C2%B7%20Agent%20Skills%20apps-0b0b0b" alt="Works in Claude, ChatGPT, Cursor and other Agent Skills apps">
+  <a href="https://github.com/IslaIntel/otto-content-skills"><img src="https://img.shields.io/github/stars/IslaIntel/otto-content-skills?style=social" alt="Star this repo on GitHub"></a>
 </p>
 
 ---
@@ -30,8 +31,9 @@
 - [The skills](#the-skills)
 - [How it works](#how-it-works)
 - [Which Claude should I use?](#which-claude-should-i-use)
+- [Use it outside Claude](#use-it-outside-claude)
 - [FAQ](#faq)
-- [Contributing](#contributing) · [License](#license)
+- [Contributing](#contributing) · [Star the repo](#star-the-repo) · [License](#license)
 
 ## See it
 
@@ -70,7 +72,7 @@ Ask *"how did my posts do this week?"* and you get a dashboard, not a wall of te
   </tr>
 </table>
 
-<sub>Screenshots use an example business (Bloom &amp; Stem, a florist). Yours fill with your own numbers.</sub>
+<sub>Screenshots use a demo account: Coralline Pilates (@corallinepilates) is an invented studio and its numbers are made up. Yours fill with your own.</sub>
 
 ## Quick start
 
@@ -91,6 +93,7 @@ Step-by-step with screenshots: [How do I connect Claude?](https://ottowebmaster.
 |---|---|
 | **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](../../releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or upload single skills under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
 | **Claude Code** | `/plugin marketplace add IslaIntel/otto-content-skills` then `/plugin install otto-content-skills@otto-content-skills` |
+| **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. It clones the repo and copies the skills into `~/.claude/skills`. |
 | **Copy the files** | `git clone https://github.com/IslaIntel/otto-content-skills` then `./install.sh` (macOS / Linux) or `.\install.ps1` (Windows) |
 
 ### 3. Try it
@@ -110,6 +113,9 @@ Why did my last reel flop?
 > [!TIP]
 > On claude.ai, put the **brand card** that brand-brain gives you into a Claude **Project**, and run your chats inside that Project. The skills then stop asking which account, timezone or style you want.
 
+> [!NOTE]
+> **Like it?** [⭐ Star the repo](https://github.com/IslaIntel/otto-content-skills) (top right on GitHub). It's free, takes one click, and keeps new skills coming.
+
 ## The skills
 
 Every skill pulls live data through Otto, compares it with **your usual** (the median of your own posts from the last 28 days) and shows the result as a dashboard you can click through, or in chat if you prefer.
@@ -121,8 +127,8 @@ Every skill pulls live data through Otto, compares it with **your usual** (the m
 | [weekly-social-review](skills/weekly-social-review/SKILL.md) | One dashboard for the week: total views per platform, every post, a click-through diagnosis for each reel, and at most 3 changes for next week | *"Weekly review"* |
 | [daily-pulse](skills/daily-pulse/SKILL.md) | The same dashboard for yesterday: what's taking off, what stalled, what to remix today | *"How did yesterday's posts do?"* |
 | [reel-diagnosis](skills/reel-diagnosis/SKILL.md) | The exact step a reel lost people (hook, pacing, shares, follows or distribution) and the one fix | *"Why did this reel flop?"* |
-| [content-audit](skills/content-audit/SKILL.md) | The last 30 days, trait by trait against your median: stop, keep, test, and your next five posts | *"Audit my content"* |
-| [hook-mining](skills/hook-mining/SKILL.md) | Ranks your own opening lines by skip rate and watch time, finds the patterns, remixes the winners | *"Which openings work for me?"* |
+| [content-scorecard](skills/content-scorecard/SKILL.md) | The last 30 days, trait by trait against your median: stop, keep, test, and your next five posts | *"Audit my content"* |
+| [hook-patterns](skills/hook-patterns/SKILL.md) | Ranks your own opening lines by skip rate and watch time, finds the patterns, remixes the winners | *"Which openings work for me?"* |
 | [best-time-to-post](skills/best-time-to-post/SKILL.md) | When your posts do best, in your timezone, with an honest read on sample size | *"What time do my posts do best?"* |
 | [hook-test](skills/hook-test/SKILL.md) | A fair one-variable A/B test, decided before you post and scored from live data | *"Test these two hooks"* |
 | [campaign-retro](skills/campaign-retro/SKILL.md) | Everything a launch moved (posts, site visits, tracked links, ads) and what to repeat | *"How did the promo do?"* |
@@ -134,12 +140,12 @@ Every skill pulls live data through Otto, compares it with **your usual** (the m
 | Skill | What it does | Ask Claude |
 |---|---|---|
 | [reel-breakdown](skills/reel-breakdown/SKILL.md) | Watches a reel frame by frame: hook, cuts, on-screen text, where viewers leave, what to borrow | *"Break down this reel"* |
-| [content-research](skills/content-research/SKILL.md) | Topics ranked by real demand: searched, watched, asked about, sellable | *"What topics would do well for me?"* |
-| [trend-spotter](skills/trend-spotter/SKILL.md) | Rising topics from your search and comment data, each marked take, adapt or skip | *"What's trending for businesses like mine?"* |
-| [comment-mining](skills/comment-mining/SKILL.md) | Every question and objection in your comments and reviews, turned into post ideas and an FAQ | *"What are people asking in my comments?"* |
-| [audience-personas](skills/audience-personas/SKILL.md) | Who you actually reach, with a source on every line | *"Who is my audience?"* |
-| [competitor-teardown](skills/competitor-teardown/SKILL.md) | The pattern behind rivals' best posts and ads, and the gaps you can own | *"Break down this competitor"* |
-| [positioning-audit](skills/positioning-audit/SKILL.md) | Whether your site, bio and posts say one clear thing that matches what people search | *"Is our message clear?"* |
+| [topic-finder](skills/topic-finder/SKILL.md) | Topics ranked by real demand: searched, watched, asked about, sellable | *"What topics would do well for me?"* |
+| [trend-radar](skills/trend-radar/SKILL.md) | Rising topics from your search and comment data, each marked take, adapt or skip | *"What's trending for businesses like mine?"* |
+| [comment-insights](skills/comment-insights/SKILL.md) | Every question and objection in your comments and reviews, turned into post ideas and an FAQ | *"What are people asking in my comments?"* |
+| [audience-map](skills/audience-map/SKILL.md) | Who you actually reach, with a source on every line | *"Who is my audience?"* |
+| [competitor-watch](skills/competitor-watch/SKILL.md) | The pattern behind rivals' best posts and ads, and the gaps you can own | *"Break down this competitor"* |
+| [message-check](skills/message-check/SKILL.md) | Whether your site, bio and posts say one clear thing that matches what people search | *"Is our message clear?"* |
 | [social-proof-finder](skills/social-proof-finder/SKILL.md) | A graded bank of reviews and wins, with permission to use each tracked | *"Find testimonials"* |
 
 ### Create: from idea to finished post
@@ -152,7 +158,7 @@ Every skill pulls live data through Otto, compares it with **your usual** (the m
 | [reel-script](skills/reel-script/SKILL.md) | A beat-by-beat script sized to how long your viewers actually watch | *"Script this reel"* |
 | [shot-list](skills/shot-list/SKILL.md) | A phone-only filming plan: every shot grouped by location, with framing and the line it covers | *"Shot list for this script"* |
 | [cover-designer](skills/cover-designer/SKILL.md) | Reel and Shorts covers designed over a clean frame of your own footage, checked for the grid crops | *"Design my reel cover"* |
-| [carousel-builder](skills/carousel-builder/SKILL.md) | 7-10 slides designed in your brand, modelled on your most-saved carousels | *"Make this a carousel"* |
+| [carousel-designer](skills/carousel-designer/SKILL.md) | 7-10 slides designed in your brand, modelled on your most-saved carousels | *"Make this a carousel"* |
 | [story-sequence](skills/story-sequence/SKILL.md) | Story arcs with polls and stickers placed to earn taps and DMs | *"What should my stories be today?"* |
 | [caption-writer](skills/caption-writer/SKILL.md) | Captions in your style (or your own template), with keywords from real Google searches | *"Write a caption"* |
 | [sound-human](skills/sound-human/SKILL.md) | Takes the AI tone out of scripts and captions so they sound like you | *"Make it sound like me"* |
@@ -163,14 +169,14 @@ Every skill pulls live data through Otto, compares it with **your usual** (the m
 | Skill | What it does | Ask Claude |
 |---|---|---|
 | [content-engine](skills/content-engine/SKILL.md) | Runs the whole loop (research, plan, write, post, reply, measure) and stops for your approval at each step | *"Run the content engine"* |
-| [content-calendar](skills/content-calendar/SKILL.md) | A 2-4 week plan around your winners and what's already planned | *"Plan my next two weeks"* |
+| [posting-plan](skills/posting-plan/SKILL.md) | A 2-4 week plan around your winners and what's already planned | *"Plan my next two weeks"* |
 | [post-queue](skills/post-queue/SKILL.md) | Posts your finished, approved content at the times you pick, using your AI app's scheduled tasks | *"Post this at 9am tomorrow"* |
 | [content-pillars](skills/content-pillars/SKILL.md) | 3-5 themes chosen from evidence, with 10 ideas each | *"Build my content pillars"* |
 | [repurpose](skills/repurpose/SKILL.md) | Turns your best video or post into reels, a carousel, LinkedIn and Facebook posts, and a blog outline | *"Repurpose my best video"* |
 | [comment-to-lead](skills/comment-to-lead/SKILL.md) | Sorts comments, drafts replies, and writes the DM flow to a booked call | *"Reply to my comments"* |
 | [profile-check](skills/profile-check/SKILL.md) | Fixes your bio, link and pinned posts so visitors know what to do next | *"Check my profile"* |
 | [creator-collab](skills/creator-collab/SKILL.md) | Vet a creator, draft the outreach and brief, and measure the collab. You send every message. | *"Is this creator a good fit for us?"* |
-| [campaign-brief](skills/campaign-brief/SKILL.md) | A one-page brief with targets worked back from your real organic and ad numbers | *"Plan a campaign"* |
+| [campaign-plan](skills/campaign-plan/SKILL.md) | A one-page brief with targets worked back from your real organic and ad numbers | *"Plan a campaign"* |
 
 ## How it works
 
@@ -192,6 +198,18 @@ All of them work. They differ in where your settings live and what Claude can do
 | Dashboards | Artifact in the chat | Artifact or HTML file | HTML file in your browser |
 | Video skills | Upload the MP4 | Works on the file | Works on the file |
 | Posting at set times (`post-queue`) | Not available | Scheduled tasks | Scheduled tasks |
+
+## Use it outside Claude
+
+The skills follow the open [Agent Skills](https://agentskills.io) format (a folder with a `SKILL.md`), and Otto is a standard remote MCP connector. So they work in any AI app that supports both:
+
+| App | Connect Otto | Add the skills |
+|---|---|---|
+| **ChatGPT** (Business, Enterprise, Edu) | [Otto's ChatGPT guide](https://ottowebmaster.com/introduction/mcp/chatgpt) | **Skills → Create → Upload from computer**, one skill folder (zipped) at a time |
+| **Cursor** | [Otto's Cursor guide](https://ottowebmaster.com/introduction/mcp/cursor) | Cursor reads `.cursor/skills/` and `.claude/skills/`. Run `OTTO_SKILLS_DIR=.cursor/skills ./install.sh` in your project |
+| **Codex, Gemini CLI, GitHub Copilot, Goose and others** | Add `https://otto.islaintel.com/api/mcp` as a remote MCP server | Copy the `skills/` folders to wherever the app loads skills from (`OTTO_SKILLS_DIR=<that folder> ./install.sh`) |
+
+Built and tested on Claude first. Dashboards need an app that can create files or render HTML; where it can't, ask for the result in chat.
 
 ## FAQ
 
@@ -222,13 +240,13 @@ No. Reviews and research are read-only. Anything that posts, replies, schedules 
 <details>
 <summary><b>Which platforms are supported?</b></summary>
 
-Through Otto today: Instagram (posts, reels, watch time, skip rate, comments), Facebook Pages, LinkedIn, YouTube, Google Analytics 4, Search Console and Google Business Profile. **Not yet:** TikTok and X analytics and Instagram Story insights; skills that need them ask for a screenshot.
+Through Otto today: Instagram (posts, reels, watch time, skip rate, comments), Facebook Pages, LinkedIn, YouTube, Google Analytics 4, Search Console and Google Business Profile. **Coming soon:** TikTok and X analytics and Instagram Story insights. Until then, skills that need them ask for a screenshot.
 </details>
 
 <details>
 <summary><b>Does it work in ChatGPT or Cursor?</b></summary>
 
-The Otto connector does ([ChatGPT](https://ottowebmaster.com/introduction/mcp/chatgpt), [Cursor](https://ottowebmaster.com/introduction/mcp/cursor)). The skills are written as Agent Skills for Claude; other assistants can follow the `SKILL.md` instructions if you add them as instructions, but they're built and tested on Claude.
+Yes. Both the Otto connector and the skills work there; see [Use it outside Claude](#use-it-outside-claude) for the steps. The skills are built and tested on Claude first, so that's where they run smoothest.
 </details>
 
 <details>
@@ -243,6 +261,10 @@ The Otto connector does ([ChatGPT](https://ottowebmaster.com/introduction/mcp/ch
 ## Contributing
 
 Ideas, bug reports and new skills are welcome: open an issue or a pull request. [docs/AUTHORING.md](docs/AUTHORING.md) explains how every skill here is written and the rules they share. Every skill is tested against a live Otto account before it ships.
+
+## Star the repo
+
+If a skill saved you an hour, [⭐ star the repo](https://github.com/IslaIntel/otto-content-skills). GitHub has no one-click star link, so it's the ☆ **Star** button at the top right of this page. Stars tell us people want more of these, and help other small businesses find them.
 
 ## License
 

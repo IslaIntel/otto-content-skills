@@ -31,7 +31,7 @@ SAMPLES = {
           dict(type="bars", title="Where site visits came from", items=[dict(label="Organic Search", value=1820), dict(label="Direct", value=990), dict(label="Organic Social", value=310, platform="instagram"), dict(label="Referral", value=120)]),
           dict(type="list", title="Words to put in captions", items=["Austin wedding flowers", "same-day flower delivery", "sympathy flowers Austin"])]),
 
- "hook-mining": dict(
+ "hook-patterns": dict(
   meta=dict(M, title="Hook mining", platforms=["instagram"], start="Feb 08", end="Mar 07, 2026", baselineLabel="your medians",
             verdict="Number-first hooks are your strongest pattern (median reach 1,920 across 7 hooks). Questions are the weakest (610, skip 41%)."),
   kpis=[dict(platform="instagram", label="Hooks analysed", value=34), dict(platform="instagram", label="Median skip rate", value=33, unit="%"), dict(platform="instagram", label="Proven", value=8)],
@@ -43,7 +43,7 @@ SAMPLES = {
                dict(title="4 flowers that survive a heatwave", tag="Proven", tagStatus="winner", meta="From: '3 flowers that last two weeks in a vase'", body="Keeps: a number, a benefit, a hidden loser."),
                dict(title="2 vase tricks florists don't tell you", tag="Test", meta="Same skeleton", body="Confirm both tricks are real before posting.")])]),
 
- "trend-spotter": dict(
+ "trend-radar": dict(
   meta=dict(M, title="Trend spotter", platforms=["instagram"], start="Feb 08", end="Mar 07, 2026", baselineLabel="the 28 days before",
             verdict="Two trends are worth acting on this month: dried-flower arrangements and 'flowers for no reason' gifting. Both show up in your search data and your comments."),
   kpis=[dict(platform="instagram", label="Signals checked", value=5), dict(platform="instagram", label="Trends to take", value=2), dict(platform="instagram", label="To skip", value=1)],
@@ -55,7 +55,7 @@ SAMPLES = {
                rows=[dict(q="dried flowers austin", a=90, b=216, c=140), dict(q="flower subscription", a=120, b=180, c=50)]),
           dict(type="list", title="Watch next month", items=["Mother's Day searches start rising in April.", "'Flower subscription' if it keeps climbing."])]),
 
- "comment-mining": dict(
+ "comment-insights": dict(
   meta=dict(M, title="Comment mining", platforms=["instagram", "facebook"], start="Feb 08", end="Mar 07, 2026", baselineLabel="last month",
             verdict="Price and delivery cut-off time are the questions people keep asking. Neither is answered in a post or your bio."),
   kpis=[dict(platform="instagram", label="Comments read", value=214), dict(platform="instagram", label="Meaningful", value=96), dict(platform="facebook", label="Comments read", value=38)],
@@ -66,7 +66,7 @@ SAMPLES = {
                dict(title="Can I still order for today?", tag="Recurring", meta="17 comments", evidence=["'too late for today?'", "'what time do you stop delivering'"])]),
           dict(type="list", title="Post ideas from these", items=["Our bouquets at three prices, side by side.", "The same-day cut-off, answered in 3 seconds."])]),
 
- "content-research": dict(
+ "topic-finder": dict(
   meta=dict(M, title="Content research", platforms=["instagram"], start="Dec 08", end="Mar 07, 2026", baselineLabel="your past 90 days",
             verdict="Wedding flowers score highest: searched often, never covered by you, and your best-selling service."),
   kpis=[dict(platform="instagram", label="Topics scored", value=14), dict(platform="instagram", label="Sources used", value=5, note="Reddit unavailable")],

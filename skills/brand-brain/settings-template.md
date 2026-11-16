@@ -26,7 +26,7 @@ Caption template: <none, or the template below>
 CTA: <on | off | ask>             # ask = ask each time
 Comment sources: <e.g. Instagram, Facebook, LinkedIn Company Page>
 
-## Brand look (used by cover-designer, carousel-builder, story-sequence)
+## Brand look (used by cover-designer, carousel-designer, story-sequence)
 Colours: <2-4 hex codes: main, accent, text, background>
 Fonts: <heading font, body font (Google Fonts names if possible)>
 Logo: <file name or link, if the user shared one>

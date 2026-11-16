@@ -25,7 +25,7 @@ Skill questions: how many pieces this run (default 1 reel), the comment keyword 
 |---|---|---|---|---|
 | 1 | Memory check | `brand-brain` | `brand/` files exist and are under 90 days old. If missing or stale, run it first. | Only if `brand/` is missing |
 | 2 | Where we stand | `weekly-social-review` (once a week) or `daily-pulse` (other days) | Baselines, last winners, the one change to make | No |
-| 3 | Ideas | `content-research` + `trend-spotter` | 5-10 ideas tied to evidence (search queries, comments, your winners) | No |
+| 3 | Ideas | `topic-finder` + `trend-radar` | 5-10 ideas tied to evidence (search queries, comments, your winners) | No |
 | 4 | Pick and plan | `viral-reel-planner` | 3 reel concepts, each with why it should work for you | **STOP A**: you pick one |
 | 5 | Hook | `hook-writer` | 5-10 hooks for the concept, ranked; one recommended | **STOP B**: you pick one |
 | 6 | Script | `reel-script` | Beat-by-beat script, length, on-screen text | No |
@@ -35,7 +35,7 @@ Skill questions: how many pieces this run (default 1 reel), the comment keyword 
 | 10 | Cover | `cover-designer` | Cover built in code from your frame and text | No |
 | 11 | Review pack | (this skill) | Everything above on one page | **STOP C**: you approve or edit |
 | — | *You film and edit* | | The video goes into the Otto media library | Wait for the user |
-| 12 | Post | `content-calendar`, then Otto scheduling, `post-queue` or by hand | A time slot from `best-time-to-post` data, then the post going out by the path this connection allows | **STOP D**: yes to publish, schedule or queue |
+| 12 | Post | `posting-plan`, then Otto scheduling, `post-queue` or by hand | A time slot from `best-time-to-post` data, then the post going out by the path this connection allows | **STOP D**: yes to publish, schedule or queue |
 | 13 | Leads | `comment-to-lead` | Comments sorted, replies drafted (sent via Otto if reply tools exist), DM flow ready for a DM tool | **STOP E**: yes to send replies |
 | 14 | Measure | `daily-pulse` (day 1-2), `reel-diagnosis` (day 3+) | Verdict vs baseline, one change for next time | No |
 | 15 | Remember | `brand-brain` | Winners appended to `brand/winners.md` | No |
@@ -74,7 +74,7 @@ Show the final caption, the media, the cover and the time. On a yes, take the fi
 
 ## Daily or weekly rhythm
 
-- **Monday**: steps 1-11 for the week's pieces (`weekly-social-review` in step 2), then `content-calendar` for slots.
+- **Monday**: steps 1-11 for the week's pieces (`weekly-social-review` in step 2), then `posting-plan` for slots.
 - **Each posting day**: steps 12-13 for that piece (or let `post-queue` publish it); `comment-to-lead` once in the morning and once late afternoon while the post is fresh.
 - **Day 3 after each post**: step 14. **Friday**: step 15.
 A sustainable number of posts beats an ambitious one; set the count from what the user actually filmed last month.

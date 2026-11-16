@@ -82,7 +82,7 @@ Show the bank, then in a working folder save it to `brand/proof.md` after the us
 <count; fine for "4.9 stars from 120 reviews" style lines>
 ```
 
-Hand approved proof to `caption-writer`, `carousel-builder`, `campaign-brief` and `positioning-audit`.
+Hand approved proof to `caption-writer`, `carousel-designer`, `campaign-plan` and `message-check`.
 
 ## Never
 

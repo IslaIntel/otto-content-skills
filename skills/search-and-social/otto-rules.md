@@ -85,7 +85,7 @@ Skills read, and the `brand-brain` skill writes, a `brand/` folder in the workin
 - `brand/facts.md`: claims the business may make (and may not).
 - `brand/winners.md`: their best posts with numbers and why they worked (updated by analytics skills).
 - `brand/pillars.md`: 3-5 content pillars with share of output and seed ideas (written by `content-pillars`).
-- `brand/personas.md`: evidence-led audience personas (written by `audience-personas`).
+- `brand/personas.md`: evidence-led audience personas (written by `audience-map`).
 - `brand/proof.md`: approved testimonials, reviews and results with permission status (written by `social-proof-finder`).
 
 If `brand/` is missing, a creation skill asks the 3-4 questions it needs and suggests running `brand-brain` once.

@@ -63,7 +63,7 @@ Check the tracking itself: UTM-tagged sessions vs untagged social sessions (`fac
 
 1. **Facts**: only numbers and events.
 2. **Explanations**: each one a hypothesis with a confidence (low / medium / high) and the evidence that would confirm it next time.
-3. **Decisions**: at most 3 each of repeat / change / stop. Each cites a fact. Add one **test** for the biggest open question, designed with `hook-test` or the next `campaign-brief`.
+3. **Decisions**: at most 3 each of repeat / change / stop. Each cites a fact. Add one **test** for the biggest open question, designed with `hook-test` or the next `campaign-plan`.
 
 Include what flopped and what couldn't be measured.
 
@@ -94,7 +94,7 @@ Goal: <goal>   Target: <target or none set>   Result: <number or "not measured">
 - ...
 ```
 
-Feed repeat decisions into the next `campaign-brief`, tracking fixes into `utm-builder`.
+Feed repeat decisions into the next `campaign-plan`, tracking fixes into `utm-builder`.
 
 ## Never
 

@@ -5,7 +5,7 @@ description: Writes the caption, an optional call to action matched to the post'
 
 # Caption writer
 
-Writes the words around a post so the right people find it and do one thing. Keywords come from what people actually type into Google about this business, because captions, on-screen text and alt text are searchable inside Instagram and YouTube, and posts from both can show up in Google results. It also checks your own history: do your best captions share traits your worst ones don't? Writes copy only; posting is someone else's job (`carousel-builder`, `content-calendar`, `post-queue`).
+Writes the words around a post so the right people find it and do one thing. Keywords come from what people actually type into Google about this business, because captions, on-screen text and alt text are searchable inside Instagram and YouTube, and posts from both can show up in Google results. It also checks your own history: do your best captions share traits your worst ones don't? Writes copy only; posting is someone else's job (`carousel-designer`, `posting-plan`, `post-queue`).
 
 ## 0. Setup
 
@@ -27,7 +27,7 @@ Skill-specific:
 4. **YouTube titles** (if connected): `youtube_top_videos` for the last 90 days. Titles that earned views show the wording your audience clicks.
 5. **Other accounts' captions** (optional): if `meta_ig_business_discovery` is in the tool list, pull recent captions from accounts the user names, for comparison only. Without it, use captions the user pastes. Never copy their wording.
 
-If neither GSC nor GBP is connected or has data, say "no search data; keywords below are from your comments and captions, not search volume". Pull wording from `comment-mining` or the user. Never invent search volumes.
+If neither GSC nor GBP is connected or has data, say "no search data; keywords below are from your comments and captions, not search volume". Pull wording from `comment-insights` or the user. Never invent search volumes.
 
 ## 2. Learn from your own captions
 

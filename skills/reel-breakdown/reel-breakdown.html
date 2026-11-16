@@ -658,7 +658,14 @@ footer .plug:hover{border-color:var(--ink)}
       var tell=function(){ info.innerHTML=''; info.appendChild(el('b',null,'Shot '+(i+1)+' · '+sec(s.start)+'–'+sec(s.end)+' ('+sec(s.end-s.start)+')')); var t=[s.text?'On screen: “'+s.text+'”':'',s.said?'Said: “'+s.said+'”':'',s.note||''].filter(Boolean).join(' · '); if(t) info.appendChild(document.createTextNode('  '+t)); };
       d.addEventListener('mouseenter',tell); d.addEventListener('focus',tell); d.addEventListener('click',tell);
       strip.appendChild(d); });
-    (T.markers||[]).forEach(function(m){ var k=el('div','marker kind-'+(m.kind||'leave')); k.style.left=pct(m.t); k.appendChild(el('span',null,m.label||sec(m.t))); strip.appendChild(k); });
+    var mks=(T.markers||[]).slice().sort(function(a,b){return a.t-b.t;}).map(function(m){ var k=el('div','marker kind-'+(m.kind||'leave')); k.style.left=pct(m.t); k.appendChild(el('span',null,m.label||sec(m.t))); strip.appendChild(k); return k; });
+    // labels that would overlap drop to the next row
+    var rows=[], extra=0;
+    mks.forEach(function(k){ var s=k.firstChild, r=s.getBoundingClientRect(), row=0;
+      while((rows[row]||[]).some(function(o){return r.left<o.right+6&&r.right>o.left-6;})) row++;
+      (rows[row]=rows[row]||[]).push(r);
+      if(row){ k.style.bottom=(-54-row*28)+'px'; extra=Math.max(extra,row*28); } });
+    if(extra){ var box=strip.parentNode; box.style.paddingBottom=(parseFloat(getComputedStyle(box).paddingBottom)||0)+extra+'px'; }
     var bands=$('bands'); (T.sections||[]).forEach(function(b){ var x=el('div','band',b.label); x.style.left=pct(b.start); x.style.width='calc('+((b.end-b.start)/L*100)+'% - 4px)'; x.title=b.label+': '+sec(b.start)+'–'+sec(b.end); bands.appendChild(x); });
     var ax=$('axis'), step=L>45?10:5; for(var t=0;t<=L+0.01;t+=step){ var i2=el('i',null,t+' s'); i2.style.left=pct(t); if(t===0) i2.style.transform='none'; ax.appendChild(i2); }
     if(!bands.children.length) bands.style.display='none';

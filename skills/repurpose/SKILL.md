@@ -5,7 +5,7 @@ description: Takes one proven piece (your top YouTube video, a breakout reel, or
 
 # Repurpose
 
-Gets more from something that already worked. The source is picked from your own numbers, then broken into parts, and each part is rebuilt for the platform it goes to. A straight copy-paste across platforms is not repurposing. Writes drafts only; posting goes through `content-calendar` (Otto scheduling if your connection has it, else `post-queue` or by hand).
+Gets more from something that already worked. The source is picked from your own numbers, then broken into parts, and each part is rebuilt for the platform it goes to. A straight copy-paste across platforms is not repurposing. Writes drafts only; posting goes through `posting-plan` (Otto scheduling if your connection has it, else `post-queue` or by hand).
 
 ## 0. Setup
 
@@ -51,10 +51,10 @@ List every usable part, one line each, with where it appears (timestamp, paragra
 | Output | Built from | Fit rules | Hand off to |
 |---|---|---|---|
 | 2-3 reels / Shorts | One claim, mistake or story each | New first line per reel; one idea; vertical; on-screen text carries the point with sound off | `hook-writer`, `reel-script`, `cover-designer` |
-| Carousel | Steps, mistakes or a checklist | 7-10 slides, one idea each, a save slide | `carousel-builder` |
+| Carousel | Steps, mistakes or a checklist | 7-10 slides, one idea each, a save slide | `carousel-designer` |
 | LinkedIn post | The claim + the story behind it | First 2 lines stand alone; short paragraphs; no hashtag pile; one question at the end | `linkedin-post` |
 | Facebook post | The story or the most useful tip | Conversational; a native photo or clip beats a bare link; local angle if relevant | `caption-writer` |
-| Blog outline | The whole source | H1 = the main search query; H2s = the questions from GSC; embed the original video | `content-research` |
+| Blog outline | The whole source | H1 = the main search query; H2s = the questions from GSC; embed the original video | `topic-finder` |
 
 Each output gets its own opening line. Facts and claims stay identical everywhere; only the shape changes. Remove the source platform's watermark before re-uploading video.
 
@@ -67,7 +67,7 @@ Default order, adjusted to the data:
 4. **Day 3-7**: remaining reels and Facebook.
 5. **Blog**: first if GSC shows queries for the topic with no page answering them; otherwise last, linking all pieces.
 
-Links to the website get UTM tags (`utm-builder`) so `ga4_traffic_sources` can show which piece sent visits. Put the dates into `content-calendar`.
+Links to the website get UTM tags (`utm-builder`) so `ga4_traffic_sources` can show which piece sent visits. Put the dates into `posting-plan`.
 
 ## Output
 

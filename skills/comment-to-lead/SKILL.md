@@ -105,7 +105,7 @@ STOP WORDS: stop, unsubscribe -> end the flow
 
 - **Morning**: run steps 1-5 on posts from the last 7 days. Reply to new-post comments within the first hours; early replies keep the thread going.
 - **Afternoon**: a second pass on the newest post only. Send pending DMs; check who answered message one and send step 2.
-- **Weekly**: count keyword comments, DMs answered, calls booked (owner's numbers) and booking visits from GA4. Repeated questions go to `comment-mining` and `content-research` as next post ideas. Log the totals in `social-data/leads.csv` (`week,post,keyword_comments,dm_replies,calls_booked`).
+- **Weekly**: count keyword comments, DMs answered, calls booked (owner's numbers) and booking visits from GA4. Repeated questions go to `comment-insights` and `topic-finder` as next post ideas. Log the totals in `social-data/leads.csv` (`week,post,keyword_comments,dm_replies,calls_booked`).
 
 ## Never
 

@@ -94,7 +94,7 @@ Never delete lines the owner wrote. Never record private customer names, phone n
 
 ## How other skills use it
 
-Every creation skill (`viral-reel-planner`, `hook-writer`, `reel-script`, `caption-writer`, `cover-designer`, `carousel-builder`, `story-sequence`, `sound-human`, ...) reads `brand/` first. Analytics skills (`weekly-social-review`, `hook-mining`, `reel-diagnosis`) may suggest a wrap-up line for `winners.md` but only write it after the owner agrees.
+Every creation skill (`viral-reel-planner`, `hook-writer`, `reel-script`, `caption-writer`, `cover-designer`, `carousel-designer`, `story-sequence`, `sound-human`, ...) reads `brand/` first. Analytics skills (`weekly-social-review`, `hook-patterns`, `reel-diagnosis`) may suggest a wrap-up line for `winners.md` but only write it after the owner agrees.
 
 ## Output (setup)
 

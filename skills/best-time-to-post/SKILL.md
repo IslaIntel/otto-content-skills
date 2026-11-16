@@ -73,7 +73,7 @@ Top 3 day/hour blocks: ...
 <e.g. 9-day gaps, two posts stacked in an hour>
 ```
 
-Hand the schedule to `content-calendar` (or `post-queue` to line up posts against it). This skill never schedules posts itself.
+Hand the schedule to `posting-plan` (or `post-queue` to line up posts against it). This skill never schedules posts itself.
 
 ## Never
 

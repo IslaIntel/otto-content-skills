@@ -12,7 +12,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from samples import SAMPLES, REEL_SAMPLE
 from make_rules import build_rules, fix_references
-SKILLS = ["weekly-social-review", "daily-pulse", "content-audit", "reel-diagnosis"] + list(SAMPLES)
+SKILLS = ["weekly-social-review", "daily-pulse", "content-scorecard", "reel-diagnosis"] + list(SAMPLES)
 
 src = (T / "dashboard.src.html").read_text(encoding="utf8")
 icon = (T / "otto-icon.b64").read_text(encoding="utf8").strip()
@@ -32,7 +32,7 @@ for s in SKILLS:
         data["meta"]["platforms"] = ["instagram"]
         for k in ("plan", "groups", "decisions", "search", "daily"): data.pop(k, None)
         data["kpis"] = [k for k in sample["kpis"] if k["platform"] == "instagram"][1:4]
-    if s == "content-audit":
+    if s == "content-scorecard":
         data["meta"].update(title="Content audit", start="Feb 08", baselineLabel="your median for the period")
     html = src.replace("__OTTO_ICON__", icon).replace("__OTTO_WORDMARK__", wordmark).replace("__DATA__", json.dumps(data, indent=1, ensure_ascii=False))
     out = ROOT / "skills" / s / "dashboard.html"

@@ -35,7 +35,7 @@ Ask the user for the creator's last 10-12 posts (links or screenshots) and, if o
 | Trust | They disclose paid posts; past sponsors fit their niche | Five unrelated sponsors this month |
 | Conflict | No direct competitor in the last 90 days | Promoted a competitor recently |
 
-Score each Pass / Unclear / Fail. Any Fail on Audience or Conflict = don't approach. Label every point "seen in their posts" or "assumed". Follower count is not a criterion. Cost check: fee ÷ their typical views, compared with what you'd pay for the same views with ads (`campaign-brief` has your CPM if Meta ads are connected).
+Score each Pass / Unclear / Fail. Any Fail on Audience or Conflict = don't approach. Label every point "seen in their posts" or "assumed". Follower count is not a criterion. Cost check: fee ÷ their typical views, compared with what you'd pay for the same views with ads (`campaign-plan` has your CPM if Meta ads are connected).
 
 ## Mode 2: First message
 
@@ -90,7 +90,7 @@ Before posting, set up: a link from `utm-builder` (`utm_source=instagram&utm_med
 - Codes and sales: from the user's store.
 
 | Metric | Result | Your baseline | Verdict |
-Cost per result = fee ÷ key events (or ÷ sales). Verdict: repeat, change one thing, or stop. If ads are planned with the content, hand off to `campaign-brief`. Fallback: tools returning `ok: false` are named and skipped; never estimate a number you didn't get.
+Cost per result = fee ÷ key events (or ÷ sales). Verdict: repeat, change one thing, or stop. If ads are planned with the content, hand off to `campaign-plan`. Fallback: tools returning `ok: false` are named and skipped; never estimate a number you didn't get.
 
 ## Never
 

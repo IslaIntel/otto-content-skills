@@ -57,7 +57,7 @@ Match each topic to your posts (caption, title, or on-screen topic if you know i
 | Search demand | Posted on social? | Site page ranks (pos ≤ 10)? | Read |
 |---|---|---|---|
 | high | no | yes | **Post gap**: people search it, you have the answer on your site, nobody on social hears it. Easiest win. |
-| high | no | no | **Full gap**: content for both. Hand to `content-research`. |
+| high | no | no | **Full gap**: content for both. Hand to `topic-finder`. |
 | high | yes | no | Social covers it; your site doesn't. Flag for the website. |
 | high | yes | yes | Covered. Check your captions use the searcher's words. |
 | low | yes, a lot | – | You talk about it more than people search it. Fine for loyalty; don't expect discovery. |
@@ -106,7 +106,7 @@ Tagged posts/campaigns: ... | Untagged share: <x>%
 <brand queries, impressions, trend>
 ```
 
-Hand gaps to `content-research` or `carousel-builder`, phrasing to `caption-writer`, linking to `utm-builder`.
+Hand gaps to `topic-finder` or `carousel-designer`, phrasing to `caption-writer`, linking to `utm-builder`.
 
 ## Never
 

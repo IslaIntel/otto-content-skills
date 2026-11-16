@@ -23,7 +23,7 @@ Follow the settings, scope and capability rules in `otto-rules.md` (in this skil
 - YouTube Shorts: `youtube_top_videos` (last 90 days) for views and averageViewDuration; `youtube_channel_analytics` with dimension `video` and metrics `views, averageViewPercentage, subscribersGained, shares` for which videos earned subscribers.
 - Ask the reel length and first spoken line for the top and bottom 5 if they aren't in `brand/winners.md`. The API doesn't return length.
 
-**Second source: other accounts' reels (comparison only).** If `meta_ig_business_discovery` is in the tool list, pull recent reels from accounts the user names (or that `trend-spotter` found) with their likes and comments. Otherwise use examples the user supplies (links or files), analysed with `reel-breakdown`. Your own winners stay the primary evidence; other accounts show formats and hook shapes worth trying, never wording to copy.
+**Second source: other accounts' reels (comparison only).** If `meta_ig_business_discovery` is in the tool list, pull recent reels from accounts the user names (or that `trend-radar` found) with their likes and comments. Otherwise use examples the user supplies (links or files), analysed with `reel-breakdown`. Your own winners stay the primary evidence; other accounts show formats and hook shapes worth trying, never wording to copy.
 
 Units: watch time arrives in **milliseconds**; skip rate is already a **percent**. No Instagram metric shows follows or profile visits per reel; ask for an in-app screenshot if the goal is follows.
 

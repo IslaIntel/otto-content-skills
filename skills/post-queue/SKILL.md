@@ -12,7 +12,7 @@ Some Otto connections can publish now but can't schedule for later. This skill f
 Follow the settings, scope and capability rules in `otto-rules.md` (in this skill's folder) ("How every skill talks to the user"). In short:
 - Read `brand/settings.md` (or the assistant's memory) for workspace, accounts and timezone. Ask only what's missing, in one bundled multiple-choice question, and save the answers.
 - Only queue for platforms the user named, or the defaults in settings.
-- **Capability check first.** If this session has `channel_submit_plan` (scheduling with `publishAt`), stop here: schedule through Otto instead (`content-calendar` step 5 shows how). This skill is only for connections with publish tools (`meta_ig_publish_reel`, `meta_page_publish_video`, ...) and no scheduling. With neither, give the user the files, captions and times to post by hand.
+- **Capability check first.** If this session has `channel_submit_plan` (scheduling with `publishAt`), stop here: schedule through Otto instead (`posting-plan` step 5 shows how). This skill is only for connections with publish tools (`meta_ig_publish_reel`, `meta_page_publish_video`, ...) and no scheduling. With neither, give the user the files, captions and times to post by hand.
 - Output is visual by default (artifact / HTML file / canvas) unless settings or the user say chat.
 
 Skill questions: posting times (e.g. 9:00, 12:00, 16:00), the daily cap (default 3 posts a day per account), and where the user's assistant runs (see step 3).
