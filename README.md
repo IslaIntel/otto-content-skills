@@ -92,7 +92,7 @@ Step-by-step with screenshots: [How do I connect Claude?](https://ottowebmaster.
 | Where you use Claude | How |
 |---|---|
 | **claude.ai / Claude desktop / Cowork** | Download `otto-content-skills-plugin.zip` from [Releases](https://github.com/IslaIntel/otto-content-skills/releases/latest), then **Customize → Plugins → Upload plugin**. All 38 skills at once. Or zip a single skill folder and upload it under **Customize → Skills**. **Code execution and file creation** must be on (Settings → Capabilities). |
-| **Claude Code** | `/plugin marketplace add IslaIntel/otto-content-skills` then `/plugin install otto-content-skills@otto-content-skills` |
+| **Claude Code (terminal)** | In a Claude Code terminal session: `/plugin marketplace add IslaIntel/otto-content-skills` then `/plugin install otto-content-skills@otto-content-skills`. These commands don't work in the desktop app's chat box; there, use the plugin zip above. |
 | **Let Claude Code do it** | Paste this into Claude Code: *"Install the skills from https://github.com/IslaIntel/otto-content-skills"*. Claude Code can clone the repo and run the installer (`install.sh`, or `install.ps1` on Windows), which copies the skills into `~/.claude/skills`. |
 | **Copy the files** | `git clone https://github.com/IslaIntel/otto-content-skills`, then `cd otto-content-skills`, then `./install.sh` (macOS / Linux) or `powershell -ExecutionPolicy Bypass -File .\install.ps1` (Windows). A folder with the same skill name in `~/.claude/skills` is replaced. |
 
